@@ -20,10 +20,8 @@
         <div class="navbar-header" data-logobg="skin6">
           <!-- ============================================================== -->
           <!-- Logo -->
-          <a class="navbar-brand ml-4" href="index.html">
-            <b class="logo-icon">
-              <p style="font-size:20px;color:whitesmoke;padding-left:20px;display:inline;">Admin Menu</p>
-            </b>
+          <a style="font-size:20px;color:whitesmoke;padding-left:20px" class="navbar-brand ml-4" href="<?= base_url('home') ?>">
+            Admin Menu
           </a>
           <!-- ============================================================== -->
           <!-- End Logo -->
