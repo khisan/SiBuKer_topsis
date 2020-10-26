@@ -1,6 +1,6 @@
 <!-- footer -->
 <!-- ============================================================== -->
-<footer class="footer"> © 2020 Material Pro Admin by <a href="https://www.wrappixel.com/">wrappixel.com </a>
+<footer class="footer"> © 2020 SiBuKer_CBF
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->
