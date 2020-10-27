@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Backend\Alumni;
+
+use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
@@ -8,7 +10,7 @@ class Home extends BaseController
 	{
 		$data = [
 			'title' => 'Home',
-			'isi' => 'Backend/v_home'
+			'isi' => 'Backend/Alumni/v_home'
 		];
 		echo view('Backend/layout/v_wrapper', $data);
 	}
@@ -16,8 +18,8 @@ class Home extends BaseController
 	public function data_alumni()
 	{
 		$data = [
-			'title' => 'Data Alumni',
-			'isi' => 'Backend/v_data_alumni'
+			'title' => 'Profil Saya',
+			'isi' => 'Backend/Alumni/v_profil_saya'
 		];
 		echo view('Backend/layout/v_wrapper', $data);
 	}
@@ -26,7 +28,7 @@ class Home extends BaseController
 	{
 		$data = [
 			'title' => 'Data Lowongan',
-			'isi' => 'Backend/v_data_lowongan'
+			'isi' => 'Backend/Admin/v_data_lowongan'
 		];
 		echo view('Backend/layout/v_wrapper', $data);
 	}
@@ -34,8 +36,8 @@ class Home extends BaseController
 	public function rekomendasi_alumni()
 	{
 		$data = [
-			'title' => 'Rekomendasi Alumni',
-			'isi' => 'Backend/v_rekomendasi_alumni'
+			'title' => 'Rekomendasi Lowongan',
+			'isi' => 'Backend/Alumni/v_rekomendasi_lowongan'
 		];
 		echo view('Backend/layout/v_wrapper', $data);
 	}

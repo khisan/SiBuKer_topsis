@@ -7,12 +7,12 @@
      <nav class="sidebar-nav">
        <ul id="sidebarnav">
          <!-- User Profile-->
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('home') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-home"></i><span class="hide-menu">Home</span></a></li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('home/data_alumni') ?>" aria-expanded="false">
-             <i class="mdi mr-2 mdi-account"></i><span class="hide-menu">Data Alumni</span></a>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/admin/home') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-home"></i><span class="hide-menu"><?= $title; ?></span></a></li>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/admin/home/data_alumni') ?>" aria-expanded="false">
+             <i class="mdi mr-2 mdi-account"></i><span class="hide-menu"><?= $title; ?></span></a>
          </li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('home/data_lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu">Data Lowongan</span></a></li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('home/rekomendasi_alumni') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Rekomendasi <br>Alumni</span></a></li>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/admin/home/data_lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu"><?= $title; ?></span></a></li>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/admin/home/rekomendasi_alumni') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu"><?= $title; ?></span></a></li>
        </ul>
      </nav>
      <!-- End Sidebar navigation -->
