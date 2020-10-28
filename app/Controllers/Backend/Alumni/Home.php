@@ -12,16 +12,16 @@ class Home extends BaseController
 			'title' => 'Home',
 			'isi' => 'Backend/Alumni/v_home'
 		];
-		echo view('Backend/layout/v_wrapper', $data);
+		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}
 
-	public function data_alumni()
+	public function profil_saya()
 	{
 		$data = [
 			'title' => 'Profil Saya',
 			'isi' => 'Backend/Alumni/v_profil_saya'
 		];
-		echo view('Backend/layout/v_wrapper', $data);
+		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}
 
 	public function data_lowongan()
@@ -30,15 +30,15 @@ class Home extends BaseController
 			'title' => 'Data Lowongan',
 			'isi' => 'Backend/Admin/v_data_lowongan'
 		];
-		echo view('Backend/layout/v_wrapper', $data);
+		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}
 
-	public function rekomendasi_alumni()
+	public function rekomendasi_lowongan()
 	{
 		$data = [
 			'title' => 'Rekomendasi Lowongan',
 			'isi' => 'Backend/Alumni/v_rekomendasi_lowongan'
 		];
-		echo view('Backend/layout/v_wrapper', $data);
+		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}
 }

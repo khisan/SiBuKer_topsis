@@ -8,11 +8,8 @@ class Auth extends BaseController
   {
   }
 
-  public function register()
+  public function index()
   {
-    $data = array(
-      'title' => 'Register'
-    );
-    return view('auth/v_register', $data);
+    return view('auth/v_auth');
   }
 }
