@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Auth extends BaseController
+class Auth_alu extends BaseController
 {
   public function __construct()
   {
@@ -10,6 +10,6 @@ class Auth extends BaseController
 
   public function index()
   {
-    return view('auth/v_auth');
+    return view('auth/alumni/v_auth');
   }
 }
