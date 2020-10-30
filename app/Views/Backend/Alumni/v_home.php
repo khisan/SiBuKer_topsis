@@ -9,7 +9,8 @@
     <div class="col-lg-12 col-md-11">
       <div class="card">
         <div class="card-body bg-info">
-          <h4 class="text-white card-title">Selamat Datang Alumni .........</h4>
+          <h4 class="text-white card-title">Selamat Datang ... ?></h4>
+          <?= session()->get('pesan') ?>
           <h6 class="card-subtitle text-white m-b-0 op-5">Sistem Informasi Bursa Kerja Khusus ITN Malang dengan Rekomendasi Menggunakan Content Based Filtering</h6>
         </div>
         <div class="row">
