@@ -19,10 +19,11 @@
 <link rel="stylesheet" type="text/css" href="/template/auth/css/main.css">
 <div class="login-page">
   <div class="form">
-    <form class="login-form">
+    <form class="login-form" action="/backend/admin/auth_adm/login" method="post">
       <h3 class="title">Page Login Admin</h3>
-      <input type="text" placeholder="Username" />
-      <input type="password" placeholder="Password" />
+      <?= session()->get('pesan') ?>
+      <input type="text" placeholder="Username" name="username" />
+      <input type="password" placeholder="Password" name="password" />
       <button>Login</button>
     </form>
   </div>
