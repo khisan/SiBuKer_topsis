@@ -16,9 +16,11 @@
     font-size: 14px;
   }
 </style>
+<link rel="stylesheet" href="/template/sweetalert/sweetalert2.min.css">
 <link rel="stylesheet" type="text/css" href="/template/auth/css/main.css">
 <div class="login-page">
   <div class="form">
+    <!-- <div class="swal" data-swal="<?php session()->get('gagal') ?>"></div> -->
     <form class="login-form" action="/backend/admin/auth_adm/login" method="post">
       <h3 class="title">Page Login Admin</h3>
       <?= session()->get('pesan') ?>
@@ -30,3 +32,16 @@
 </div>
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
 <script src="/template/auth/js/main.js"></script>
+<script src="/template/sweetalert/sweetalert2.min.js"></script>
+
+<!-- Sweetalert -->
+<!-- <script>
+  const swal = $('.swal').data('swal');
+  if (swal) {
+    Swal.fire({
+      title: swal,
+      text: swal,
+      icon: 'success'
+    })
+  }
+</script> -->

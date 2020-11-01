@@ -8,6 +8,10 @@ class Home extends BaseController
 {
 	public function index()
 	{
+		// if (session()->get('username') == "") {
+		// 	session()->setFlashdata('pesan', 'Anda Belum Login !');
+		// 	return redirect()->to('/admin/login');
+		// }
 		$data = [
 			'title' => 'Home',
 			'isi' => 'Backend/Admin/v_home'
