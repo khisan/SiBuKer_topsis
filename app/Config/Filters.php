@@ -14,6 +14,8 @@ class Filters extends BaseConfig
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
 		'filter_adm' => \App\Filters\Filter_adm::class,
 		'filter_alu' => \App\Filters\Filter_alu::class,
+		'no_filter_adm' => \App\Filters\No_filter_adm::class,
+		'no_filter_alu' => \App\Filters\No_filter_alu::class,
 	];
 
 	// Always applied before every request
