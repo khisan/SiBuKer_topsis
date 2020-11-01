@@ -32,7 +32,7 @@
       <input type="text" placeholder="Username" name="username" />
       <input type="password" placeholder="Password" name="password" />
       <button type="submit">Daftar</button>
-      <p class="message">Sudah punya akun? <a href="/frontend/login">Login</a></p>
+      <p class="message">Sudah punya akun? <a href="/alumni/login">Login</a></p>
     </form>
   </div>
 </div>

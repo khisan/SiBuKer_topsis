@@ -21,7 +21,7 @@ class Auth_adm extends BaseController
     // dd($row->password);
     if ($row == NULL) {
       session()->setFlashdata('pesan', 'username anda salah');
-      return redirect()->to('/backend/admin/auth_adm');
+      return redirect()->to('/admin/login');
     }
     if (password_verify($password, $row->password)) {
       $data = array(
@@ -30,10 +30,10 @@ class Auth_adm extends BaseController
       );
       session()->set($data);
       session()->setFlashdata('pesan', 'Berhasil Login');
-      return redirect()->to('/backend/admin/Home');
+      return redirect()->to('/admin/home');
     }
     session()->setFlashdata('pesan', 'Password Salah');
-    return redirect()->to('/Backend/admin/auth_adm');
+    return redirect()->to('/admin/login');
   }
 
   public function logout()
@@ -41,6 +41,6 @@ class Auth_adm extends BaseController
     $session = session();
     $session->destroy();
     session()->setFlashData('pesan', 'Berhasil Logout');
-    return redirect()->to('/Backend/admin/auth_adm');
+    return redirect()->to('/admin/login');
   }
 }

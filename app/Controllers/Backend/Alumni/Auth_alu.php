@@ -47,7 +47,7 @@ class Auth_alu extends BaseController
 
     if (!$val) {
       $pesanvalidasi = \Config\Services::validation();
-      return redirect()->to('/Frontend/register')->withInput()->with('validate', $pesanvalidasi);
+      return redirect()->to('/alumni/register')->withInput()->with('validate', $pesanvalidasi);
     }
     $data = array(
       'nama' => $this->request->getPost('nama'),
@@ -59,7 +59,7 @@ class Auth_alu extends BaseController
     $model = new AlumniModel();
     $model->insert($data);
     session()->setFlashdata('pesan', 'Selamat Anda berhasil Registrasi, silahkan login!');
-    return redirect()->to('/Frontend/login');
+    return redirect()->to('/alumni/login');
   }
 
   public function login()
@@ -72,7 +72,7 @@ class Auth_alu extends BaseController
     // dd($row->password);
     if ($row == NULL) {
       session()->setFlashdata('pesan', 'username anda salah');
-      return redirect()->to('/Frontend/login');
+      return redirect()->to('/alumni/login');
     }
     if (password_verify($password, $row->password)) {
       $data = array(
@@ -81,10 +81,10 @@ class Auth_alu extends BaseController
       );
       session()->set($data);
       session()->setFlashdata('pesan', 'Berhasil Login');
-      return redirect()->to('/backend/alumni/Home');
+      return redirect()->to('/alumni/home');
     }
     session()->setFlashdata('pesan', 'Password Salah');
-    return redirect()->to('/Frontend/Login');
+    return redirect()->to('/alumni/login');
   }
 
   public function logout()
@@ -92,6 +92,6 @@ class Auth_alu extends BaseController
     $session = session();
     $session->destroy();
     session()->setFlashData('pesan', 'Berhasil Logout');
-    return redirect()->to('/Frontend/login');
+    return redirect()->to('/alumni/login');
   }
 }

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\AlumniModel;
 
-class Frontend extends BaseController
+class Auth_front extends BaseController
 {
   // public function __construct()
   // {

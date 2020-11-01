@@ -20,13 +20,12 @@
 <div class="login-page">
   <div class="form">
     <form class="login-form" action="/backend/alumni/auth_alu/login" method="post">
-      <?= var_dump(session('nama')) ?>
       <h3 class="title">Page Login Alumni</h3>
       <?= session()->get('pesan') ?>
       <input type="text" placeholder="Username" name="username" />
       <input type="password" placeholder="Password" name="password" />
       <button>Login</button>
-      <p class="message">Belum punya akun? <a href="/frontend/register">Daftar</a></p>
+      <p class="message">Belum punya akun? <a href="/alumni/register">Daftar</a></p>
     </form>
   </div>
 </div>
