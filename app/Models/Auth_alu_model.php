@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AlumniModel extends Model
+class Auth_alu_model extends Model
 {
   protected $table      = 'tb_alumni';
   protected $primaryKey = 'id_alumni';
@@ -18,4 +18,12 @@ class AlumniModel extends Model
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
   protected $deletedField  = 'deleted_at';
+
+  function get_data_login($username, $tbl)
+  {
+    $builder = $this->db->table($tbl);
+    $builder->where('username', $username);
+    $login = $builder->get()->getRow();
+    return $login;
+  }
 }

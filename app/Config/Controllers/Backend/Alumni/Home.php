@@ -15,6 +15,15 @@ class Home extends BaseController
 		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}
 
+	// public function profil_saya()
+	// {
+	// 	$data = [
+	// 		'title' => 'Profil Saya',
+	// 		'isi' => 'Backend/Alumni/v_profil_saya'
+	// 	];
+	// 	echo view('Backend/Alumni/layout/v_wrapper', $data);
+	// }
+
 	public function data_lowongan()
 	{
 		$data = [

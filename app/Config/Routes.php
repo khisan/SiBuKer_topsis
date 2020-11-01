@@ -33,12 +33,17 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-// Alumni
+// Alumni Auth
 $routes->get('/alumni/login', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/register', 'Auth_front::register', ['filter' => 'no_filter_alu']);
-$routes->get('/alumni/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
+$routes->get('/alumni/cekLogin', '/Backend/alumni/auth_alu::login', ['filter' => 'no_filter_alu']);
 
-//Admin
+
+// Alumni Backend
+$routes->get('/alumni/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
+$routes->get('/alumni/profil', 'Backend/Alumni/Profil::', ['filter' => 'filter_alu']);
+
+// Admin Auth 
 $routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 
