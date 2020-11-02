@@ -50,6 +50,7 @@ $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
+$routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
 
 /**
  * --------------------------------------------------------------------
