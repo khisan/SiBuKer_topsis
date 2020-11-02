@@ -3,7 +3,7 @@
 namespace App\Controllers\Backend\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\AuthModel;
+use App\Models\Auth_model;
 
 class Auth_adm extends BaseController
 {
@@ -13,7 +13,7 @@ class Auth_adm extends BaseController
   }
   public function login()
   {
-    $model = new AuthModel;
+    $model = new Auth_model;
     $table = 'tb_admin';
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');

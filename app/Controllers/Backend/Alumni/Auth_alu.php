@@ -3,8 +3,8 @@
 namespace App\Controllers\Backend\Alumni;
 
 use App\Controllers\BaseController;
-use App\Models\AlumniModel;
-use App\Models\Auth_alu_model;
+use App\Models\Auth_amodel;
+use App\Models\Auth_model;
 
 class Auth_alu extends BaseController
 {
@@ -56,7 +56,7 @@ class Auth_alu extends BaseController
       'username' => $this->request->getPost('username'),
       'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
     );
-    $model = new Auth_alu_model();
+    $model = new Auth_model();
     $model->insert($data);
     session()->setFlashdata('pesan', 'Selamat Anda berhasil Registrasi, silahkan login!');
     return redirect()->to('/alumni/login');
@@ -64,7 +64,7 @@ class Auth_alu extends BaseController
 
   public function login()
   {
-    $model = new Auth_alu_model();
+    $model = new Auth_model();
     $table = 'tb_alumni';
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');

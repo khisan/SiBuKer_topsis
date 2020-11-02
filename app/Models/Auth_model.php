@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Auth_alu_model extends Model
+class Auth_model extends Model
 {
   protected $table      = 'tb_alumni';
   protected $primaryKey = 'id_alumni';
