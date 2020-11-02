@@ -15,7 +15,7 @@ class Jurusan extends BaseController
   {
     $data = [
       'title'   => 'Jurusan',
-      'alumni'  => $this->JurusanModel->allData(),
+      'jurusan'  => $this->JurusanModel->allData(),
       'isi'     => 'Backend/Admin/v_jurusan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -27,5 +27,15 @@ class Jurusan extends BaseController
       'isi'     => 'Backend/Admin/v_tambah_jurusan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
+  }
+
+  public function add()
+  {
+    $data = [
+      'jurusan' => $this->request->getPost('jurusan'),
+    ];
+    $this->JurusanModel->add($data);
+    session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
+    return redirect()->to('/admin/jurusan');
   }
 }

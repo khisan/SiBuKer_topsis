@@ -1,3 +1,9 @@
+<style>
+  th,
+  td {
+    text-align: center;
+  }
+</style>
 <div class="container-fluid">
   <!-- ============================================================== -->
   <!-- Start Page Content -->
@@ -19,15 +25,25 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <th class="border-top-0">No</th>
-                  <th class="border-top-0">Jurusan</th>
+                  <center>
+                    <th class="border-top-0">No</th>
+                    <th class="border-top-0">Jurusan</th>
+                    <th class="border-top-0">Aksi</th>
+                  </center>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Prohaska</td>
-                </tr>
+                <?php $no = 1;
+                foreach ($jurusan as $key => $hasil) { ?>
+                  <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $hasil['jurusan'] ?></td>
+                    <td>
+                      <button class="btn btn-warning"><i class="mdi mdi-pencil"></i></button>
+                      <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                    </td>
+                  </tr>
+                <?php } ?>
               </tbody>
             </table>
           </div>
