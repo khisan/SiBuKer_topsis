@@ -28,14 +28,4 @@ class Jurusan extends BaseController
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
   }
-
-  public function add()
-  {
-    $data = [
-      'jurusan' => $this->request->getPost('jurusan'),
-    ];
-    $this->JurusanModel->add($data);
-    session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
-    return redirect()->to('/admin/jurusan');
-  }
 }
