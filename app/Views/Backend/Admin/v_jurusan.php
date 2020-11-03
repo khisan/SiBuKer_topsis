@@ -40,7 +40,7 @@
                     <td><?= $hasil['jurusan'] ?></td>
                     <td>
                       <a href="/backend/admin/jurusan/ubah/<?= $hasil['id_jurusan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                      <a href="/backend/admin/jurusan/delete/<?= $hasil['id_jurusan'] ?>" class="btn btn-danger"><i class="mdi mdi-delete" onclick="return confirm('Yakin ingin menghapus data ?')"></i></a>
                     </td>
                   </tr>
                 <?php } ?>

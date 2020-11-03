@@ -59,4 +59,11 @@ class Jurusan extends BaseController
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/backend/admin/jurusan');
   }
+
+  public function delete($id_jurusan)
+  {
+    $this->JurusanModel->delete_data($id_jurusan);
+    session()->setFlashdata('success', 'Data Berhasil Diubah');
+    return redirect()->to('/backend/admin/jurusan');
+  }
 }

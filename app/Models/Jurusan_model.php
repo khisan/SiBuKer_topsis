@@ -28,4 +28,10 @@ class Jurusan_model extends Model
     return $this->db->table('tb_jurusan')
       ->update($data, array('id_jurusan' => $id_jurusan));
   }
+
+  public function delete_data($id_jurusan)
+  {
+    return $this->db->table('tb_jurusan')
+      ->delete(array('id_jurusan' => $id_jurusan));
+  }
 }
