@@ -39,7 +39,7 @@
                     <td><?= $no++ ?></td>
                     <td><?= $hasil['jurusan'] ?></td>
                     <td>
-                      <button class="btn btn-warning"><i class="mdi mdi-pencil"></i></button>
+                      <a href="/backend/admin/jurusan/ubah/<?= $hasil['id_jurusan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
                       <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
                     </td>
                   </tr>

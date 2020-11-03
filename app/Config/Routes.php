@@ -46,11 +46,14 @@ $routes->get('/alumni/profil', 'Backend/Alumni/Profil::', ['filter' => 'filter_a
 $routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 
+$routes->match(['get', 'put'], 'products', 'Product::feature');
+
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
-$routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
+$routes->match(['get', 'post'], '/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
+$routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['filter' => 'filter_adm']);
 
 
 /**

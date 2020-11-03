@@ -17,17 +17,15 @@ class Jurusan_model extends Model
     $this->db->table('tb_jurusan')->insert($data);
   }
 
-  public function edit($data)
+  public function edit($id_jurusan)
   {
-    $this->db->table('tb_jurusan')
-      ->where('id_jurusan', $data['id_jurusan'])
-      ->update($data);
+    return $jurusan = $this->db->table('tb_jurusan')
+      ->where('id_jurusan', $id_jurusan)->get()->getRowArray();
   }
 
-  public function delete_data($data)
+  public function update_data($data, $id_jurusan)
   {
-    $this->db->table('tb_jurusan')
-      ->where('id_jurusan', $data['id_jurusan'])
-      ->delete($data);
+    return $this->db->table('tb_jurusan')
+      ->update($data, array('id_jurusan' => $id_jurusan));
   }
 }
