@@ -1,4 +1,4 @@
-## Sistem Informasi Bursa Kerja Khusus ITN Malang dengan Rekomendasi TOPSIS
+## Rekomendasi Lowongan Kerja bagi Alumni ITN Malang
 
 # CodeIgniter 4 Application Starter
 
