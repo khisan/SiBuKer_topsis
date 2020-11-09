@@ -1,4 +1,4 @@
-## Sistem Informasi Bursa Kerja Khusus ITN Malang dengan Rekomendasi Content Based Filtering
+## Sistem Informasi Bursa Kerja Khusus ITN Malang dengan Rekomendasi TOPSIS
 
 # CodeIgniter 4 Application Starter
 
