@@ -12,6 +12,9 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'login'      => \Myth\Auth\Filters\LoginFilter::class,
+		'role'       => \Myth\Auth\Filters\RoleFilter::class,
+		'permission' => \Myth\Auth\Filters\PermissionFilter::class,
 		'filter_adm' => \App\Filters\Filter_adm::class,
 		'filter_alu' => \App\Filters\Filter_alu::class,
 		'no_filter_adm' => \App\Filters\No_filter_adm::class,
@@ -21,7 +24,8 @@ class Filters extends BaseConfig
 	// Always applied before every request
 	public $globals = [
 		'before' => [
-			//'honeypot'
+			'honeypot',
+			// 'login'
 			// 'csrf',
 		],
 		'after'  => [
@@ -38,5 +42,7 @@ class Filters extends BaseConfig
 	// List filter aliases and any before/after uri patterns
 	// that they should run on, like:
 	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
-	public $filters = [];
+	public $filters = [
+		'login' => ['before' => ['admin/home']],
+	];
 }
