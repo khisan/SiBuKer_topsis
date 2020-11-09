@@ -54,7 +54,7 @@ class Auth_alu extends BaseController
       'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
       'umur' => $this->request->getPost('umur'),
       'username' => $this->request->getPost('username'),
-      'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+      'password' => $this->request->getPost('password'),
     );
     $model = new Auth_model();
     $model->insert($data);

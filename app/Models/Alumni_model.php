@@ -12,6 +12,12 @@ class Alumni_model extends Model
       ->get()->getResultArray();
   }
 
+  // public function get jkData()
+  // {
+  //   return $this->db->query("");
+
+  // }
+
   public function edit($data)
   {
     $this->db->table('tb_alumni')

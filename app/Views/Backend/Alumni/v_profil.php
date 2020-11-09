@@ -46,12 +46,16 @@
                 </div>
               </div>
               <div class=" form-group">
-                <label class="col-sm-12">Jenis Kelamin</label>
+                <label class="col-sm-12">Pilih Jenis Kelamin</label>
                 <div class="col-sm-12">
                   <select class="form-control pl-0 form-control-line">
-                    <option selected disabled>Jenis Kelamin</option>
-                    <option>Laki-laki</option>
-                    <option>Perempuan</option>
+                    <?php if ($value['jenis_kelamin'] == "L") : ?>
+                      <option value="<?= $value['jenis_kelamin']; ?>" selected>Laki-laki</option>
+                      <option value="P">Perempuan</option>
+                    <?php elseif ($value['jenis_kelamin'] == "P") : ?>
+                      <option value="<?= $value['jenis_kelamin']; ?>" selected>Perempuan</option>
+                      <option value="L">Laki-laki</option>
+                    <?php endif; ?>
                   </select>
                 </div>
               </div>
@@ -67,22 +71,13 @@
                   <input type="file" value="Jenis Kelamin" class="form-control pl-0 form-control-line" name="jenis_kelamin" value="<?= $value['jenis_kelamin'] ?>">
                 </div>
               </div>
-              <div class=" form-group">
-                <label class="col-sm-12">Jurusan</label>
-                <div class="col-sm-12">
-                  <select class="form-control pl-0 form-control-line">
-                    <option selected disabled>Pilih Jurusan</option>
-                    <option></option>
-                  </select>
-                </div>
-              </div>
+
               <div class=" form-group">
                 <label class="col-sm-12">Kualifikasi Pendidikan</label>
                 <div class="col-sm-12">
                   <select class="form-control pl-0 form-control-line">
                     <option selected disabled>Pilih Kualifikasi Pendidikan</option>
                     <option>S1</option>
-                    <option>D4</option>
                     <option>D3</option>
                   </select>
                 </div>
