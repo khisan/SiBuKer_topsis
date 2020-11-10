@@ -3,7 +3,6 @@
 namespace App\Controllers\Backend\Alumni;
 
 use App\Controllers\BaseController;
-use App\Models\Auth_amodel;
 use App\Models\Auth_model;
 
 class Auth_alu extends BaseController
@@ -29,11 +28,12 @@ class Auth_alu extends BaseController
           'required' => '{field} Tidak Boleh Kosong',
         ]
       ],
-      'username' => [
-        'rules' => 'required|is_unique[tb_alumni.username]',
+      'nim' => [
+        'rules' => 'required|is_unique[tb_alumni.nim]|nimCheck',
         'errors' => [
           'required' => '{field} Tidak Boleh Kosong',
-          'is_unique' => '{field} Sudah Dipakai'
+          'is_unique' => '{field} Sudah Dipakai',
+          'nimCheck' => '{field} Harus Sesuai Jurusan di ITN Malang'
         ]
       ],
       'password' => [
@@ -49,11 +49,12 @@ class Auth_alu extends BaseController
       $pesanvalidasi = \Config\Services::validation();
       return redirect()->to('/alumni/register')->withInput()->with('validate', $pesanvalidasi);
     }
+
     $data = array(
       'nama' => $this->request->getPost('nama'),
       'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
       'umur' => $this->request->getPost('umur'),
-      'username' => $this->request->getPost('username'),
+      'nim' => $this->request->getPost('nim'),
       'password' => $this->request->getPost('password'),
     );
     $model = new Auth_model();
