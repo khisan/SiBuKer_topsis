@@ -8,15 +8,20 @@
           <div class="card-body profile-card">
             <center class="m-t-30"> <img src="" class="rounded-circle" width="150" />
               <h4 class="card-title m-t-10"> <?= $value['nama'] ?> </h4>
-              <h6 class="card-subtitle"> <?= $value['kualifikasi_pendidikan'] ?>." " . <?= $value['jurusan'] ?></h6>
-              <div class="row text-center justify-content-center">
-                <div class="col-8">
-                  <p class="link">
-                    <i class="mdi mdi-account-card-details" aria-hidden="true"></i>
-                    <span class="value-digit"><?= $value['umur'] ?></span>
-                  </p>
-                </div>
-              </div>
+              <h6 class="card-subtitle"> <?= $value['kualifikasi_pendidikan'] ?>
+                <?php foreach ($jurusan as $row => $valueJurusan) : ?>
+                  <?php if ($value['id_jurusan'] == $valueJurusan['id_jurusan']) : ?>
+                    <?= $valueJurusan['jurusan'] ?></h6>
+            <?php endif; ?>
+          <?php endforeach; ?>
+          <div class="row text-center justify-content-center">
+            <div class="col-8">
+              <p class="link">
+                <i class="mdi mdi-account-card-details" aria-hidden="true"></i>
+                <span class="value-digit"><?= $value['umur'] ?></span>
+              </p>
+            </div>
+          </div>
             </center>
           </div>
         </div>
@@ -29,7 +34,7 @@
               <div class="form-group">
                 <label class="col-md-12 mb-0">NIM</label>
                 <div class="col-md-12">
-                  <input type="text" placeholder="NIM" class="form-control pl-0 form-control-line" name="nim" value="<?= $value['nim'] ?>">
+                  <input type="text" placeholder="NIM" class="form-control pl-0 form-control-line" name="nim" value="<?= $value['nim'] ?>" disabled>
                 </div>
               </div>
               <div class="form-group">
@@ -45,14 +50,28 @@
                 </div>
               </div>
               <div class=" form-group">
+                <label class="col-sm-12">Pilih Jurusan</label>
+                <div class="col-sm-12">
+                  <select class="form-control pl-0 form-control-line">
+                    <?php foreach ($jurusan as $row => $valueJurusan) : ?>
+                      <?php if ($value['id_jurusan'] == $valueJurusan['id_jurusan']) : ?>
+                        <option value="<?php echo $valueJurusan['id_jurusan']; ?>" selected><?php echo $valueJurusan['jurusan']; ?></option>
+                      <?php else : ?>
+                        <option value="<?php echo $valueJurusan['id_jurusan']; ?>"><?php echo $valueJurusan['jurusan']; ?></option>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+              </div>
+              <div class=" form-group">
                 <label class="col-sm-12">Pilih Jenis Kelamin</label>
                 <div class="col-sm-12">
                   <select class="form-control pl-0 form-control-line">
                     <?php if ($value['jenis_kelamin'] == "L") : ?>
-                      <option value="<?= $value['jenis_kelamin']; ?>" selected>Laki-laki</option>
+                      <option value="L" selected>Laki-laki</option>
                       <option value="P">Perempuan</option>
                     <?php elseif ($value['jenis_kelamin'] == "P") : ?>
-                      <option value="<?= $value['jenis_kelamin']; ?>" selected>Perempuan</option>
+                      <option value="P" selected>Perempuan</option>
                       <option value="L">Laki-laki</option>
                     <?php endif; ?>
                   </select>
@@ -75,9 +94,17 @@
                 <label class="col-sm-12">Kualifikasi Pendidikan</label>
                 <div class="col-sm-12">
                   <select class="form-control pl-0 form-control-line">
-                    <option selected disabled>Pilih Kualifikasi Pendidikan</option>
-                    <option>S1</option>
-                    <option>D3</option>
+                    <?php if ($value['kualifikasi_pendidikan'] == "S1") : ?>
+                      <option value="S1" selected>S1</option>
+                      <option value="D3">D3</option>
+                    <?php elseif ($value['kualifikasi_pendidikan'] == "D3") : ?>
+                      <option value="D3" selected>D3</option>
+                      <option value="S1">S1</option>
+                    <?php else : ?>
+                      <option value="" selected>Pilih Kualifikasi Pendidikan</option>
+                      <option value="D3">D3</option>
+                      <option value="S1">S1</option>
+                    <?php endif; ?>
                   </select>
                 </div>
               </div>

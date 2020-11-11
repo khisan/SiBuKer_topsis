@@ -2,15 +2,14 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
-use App\Models\AlumniModel;
+use App\Models\Jurusan_model;
 
 class Auth_front extends BaseController
 {
-  // public function __construct()
-  // {
-  //   helper('form');
-  // }
+  public function __construct()
+  {
+    $this->JurusanModel = new Jurusan_model();
+  }
 
   public function index()
   {
@@ -26,6 +25,7 @@ class Auth_front extends BaseController
     session();
     $data = [
       'validate' => \Config\Services::validation(),
+      'jurusan' => $this->JurusanModel->allData()
     ];
     return view('Auth/Alumni/v_register', $data);
   }

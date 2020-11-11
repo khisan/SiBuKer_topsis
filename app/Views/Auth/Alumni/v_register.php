@@ -33,10 +33,15 @@
           </ul>
         </div>
       <?php } ?>
-      <!-- <div class="swal" data-swal=" //$validate->listErrors()>"></div> -->
       <input type="number" placeholder="NIM" name="nim" maxlength="7" />
       <input type="password" placeholder="Password" name="password" />
       <input type="text" placeholder="Nama" name="nama" />
+      <select class="select" name="jurusan">
+        <option>Pilih Jurusan</option>
+        <?php foreach ($jurusan as $key => $value) : ?>
+          <option value="<?php echo $value['id_jurusan']; ?>"><?php echo $value['jurusan']; ?></option>
+        <?php endforeach; ?>
+      </select>
       <select class="select" name="jenis_kelamin">
         <option value="" disabled selected>Jenis Kelamin</option>
         <option value="L">Laki-Laki</option>

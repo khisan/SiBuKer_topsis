@@ -23,6 +23,7 @@ class Profil extends BaseController
       $nim = $sesiAlumni['nim'],
       'title'   => 'Profil',
       'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table),
+      'jurusan' => $this->JurusanModel->allData(),
       'isi'     => 'Backend/Alumni/v_profil'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);

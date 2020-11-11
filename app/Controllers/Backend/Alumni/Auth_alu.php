@@ -45,23 +45,20 @@ class Auth_alu extends BaseController
       ]
     ])) {
       $data = array(
-        'nim' => $this->request->getPost('nim'),
-        'password' => $this->request->getPost('password'),
-        'nama' => $this->request->getPost('nama'),
+        'nim'           => $this->request->getPost('nim'),
+        'password'      => $this->request->getPost('password'),
+        'nama'          => $this->request->getPost('nama'),
+        'id_jurusan'    => $this->request->getPost('jurusan'),
         'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-        'umur' => $this->request->getPost('umur'),
+        'umur'          => $this->request->getPost('umur')
       );
-      // dd($data);
       $model = new Auth_model();
       $model->insert($data);
       session()->setFlashdata('pesan', 'success');
       return redirect()->to('/alumni/register');
     } else {
-      //$pesanvalidasi = \Config\Services::validation();
       session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
       return redirect()->to('/alumni/register');
-      // return redirect()->to('/alumni/register')->withInput()->with('validate', $pesanvalidasi);
-      // session()->setFlashdata('validate', $pesanvalidasi);
     }
   }
 
