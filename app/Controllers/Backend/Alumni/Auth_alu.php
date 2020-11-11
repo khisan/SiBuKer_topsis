@@ -9,7 +9,7 @@ class Auth_alu extends BaseController
 {
   public function register()
   {
-    $val = $this->validate([
+    if ($this->validate([
       'nama' => [
         'rules' => 'required',
         'errors' => [
@@ -32,7 +32,7 @@ class Auth_alu extends BaseController
         'rules' => 'required|is_unique[tb_alumni.nim]|nimCheck',
         'errors' => [
           'required' => '{field} Tidak Boleh Kosong',
-          'is_unique' => '{field} Sudah Dipakai',
+          'is_unique' => '{field} Sudah Ada',
           'nimCheck' => '{field} Harus Sesuai Jurusan di ITN Malang'
         ]
       ],
@@ -43,36 +43,38 @@ class Auth_alu extends BaseController
           'is_unique' => '{field} Sudah Dipakai'
         ]
       ]
-    ]);
-
-    if (!$val) {
-      $pesanvalidasi = \Config\Services::validation();
-      return redirect()->to('/alumni/register')->withInput()->with('validate', $pesanvalidasi);
+    ])) {
+      $data = array(
+        'nim' => $this->request->getPost('nim'),
+        'password' => $this->request->getPost('password'),
+        'nama' => $this->request->getPost('nama'),
+        'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
+        'umur' => $this->request->getPost('umur'),
+      );
+      // dd($data);
+      $model = new Auth_model();
+      $model->insert($data);
+      session()->setFlashdata('pesan', 'success');
+      return redirect()->to('/alumni/register');
+    } else {
+      //$pesanvalidasi = \Config\Services::validation();
+      session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+      return redirect()->to('/alumni/register');
+      // return redirect()->to('/alumni/register')->withInput()->with('validate', $pesanvalidasi);
+      // session()->setFlashdata('validate', $pesanvalidasi);
     }
-
-    $data = array(
-      'nama' => $this->request->getPost('nama'),
-      'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-      'umur' => $this->request->getPost('umur'),
-      'nim' => $this->request->getPost('nim'),
-      'password' => $this->request->getPost('password'),
-    );
-    $model = new Auth_model();
-    $model->insert($data);
-    session()->setFlashdata('pesan', 'Selamat Anda berhasil Registrasi, silahkan login!');
-    return redirect()->to('/alumni/login');
   }
 
   public function login()
   {
     $model = new Auth_model();
     $table = 'tb_alumni';
-    $username = $this->request->getPost('username');
+    $nim = $this->request->getPost('nim');
     $password = $this->request->getPost('password');
-    $row = $model->get_data_login($username, $table);
+    $row = $model->get_data_login($nim, $table);
     // dd($row->password);
     if ($row == NULL) {
-      session()->setFlashdata('pesan', 'username anda salah');
+      session()->setFlashdata('pesan', 'errorU');
       return redirect()->to('/alumni/login');
     }
     if ($password == $row->password) {
@@ -81,10 +83,10 @@ class Auth_alu extends BaseController
         'nama' => $row->nama,
       );
       session()->set($data);
-      session()->setFlashdata('pesan', 'Berhasil Login');
+      session()->setFlashdata('pesan', 'success');
       return redirect()->to('/alumni/home');
     }
-    session()->setFlashdata('pesan', 'Password Salah');
+    session()->setFlashdata('pesan', 'errorP');
     return redirect()->to('/alumni/login');
   }
 
@@ -92,7 +94,7 @@ class Auth_alu extends BaseController
   {
     $session = session();
     $session->destroy();
-    session()->setFlashData('pesan', 'Berhasil Logout');
+    session()->setFlashData('berhasil', 'Berhasil Logout');
     return redirect()->to('/alumni/login');
   }
 }

@@ -21,8 +21,8 @@
   <div class="form">
     <form class="login-form" action="/backend/alumni/auth_alu/login" method="post">
       <h3 class="title">Page Login Alumni</h3>
-      <?= session()->get('pesan') ?>
-      <input type="text" placeholder="Username" name="username" />
+      <!-- <div class="swal" data-swal="<?= session()->get('berhasil') ?>"></div> -->
+      <input type="text" placeholder="NIM" name="nim" />
       <input type="password" placeholder="Password" name="password" />
       <button>Login</button>
       <p class="message">Belum punya akun? <a href="/alumni/register">Daftar</a></p>
@@ -30,3 +30,22 @@
   </div>
 </div>
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
+<script src="/template/sweetalert/sweetalert2.all.min.js"></script>
+<!--Sweet Alert Message-->
+<?php if (session()->get('pesan') == 'errorU') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Username Anda Salah',
+      icon: 'error'
+    })
+  </script>
+<?php elseif (session()->get('pesan') == 'errorP') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Password Anda Salah',
+      icon: 'error'
+    })
+  </script>
+<?php endif; ?>
