@@ -12,11 +12,13 @@ class Alumni_model extends Model
       ->get()->getResultArray();
   }
 
-  // public function get jkData()
-  // {
-  //   return $this->db->query("");
-
-  // }
+  function get_alumni_by_nim($nim, $tbl)
+  {
+    $builder = $this->db->table($tbl);
+    $builder->where('nim', $nim);
+    $alumni = $builder->get()->getResultArray();
+    return $alumni;
+  }
 
   public function edit($data)
   {

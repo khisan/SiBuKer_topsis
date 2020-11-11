@@ -15,10 +15,14 @@ class Profil extends BaseController
   }
   public function index()
   {
+    $table = 'tb_alumni';
+    $sesiAlumni = session()->get();
+    $nim = $sesiAlumni['nim'];
     $data = [
+      $table = 'tb_alumni',
+      $nim = $sesiAlumni['nim'],
       'title'   => 'Profil',
-      'alumni'  => $this->AlumniModel->allData(),
-      //'jurusan'  => $this->JurusanModel->allData(),
+      'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table),
       'isi'     => 'Backend/Alumni/v_profil'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);

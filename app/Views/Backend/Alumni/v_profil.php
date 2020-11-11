@@ -22,15 +22,14 @@
         </div>
       </div>
       <!-- Column -->
-      <!-- Column -->
       <div class="col-lg-8 col-xlg-9 col-md-7">
         <div class="card">
           <div class="card-body">
             <form class="form-horizontal form-material">
               <div class="form-group">
-                <label class="col-md-12 mb-0">Username</label>
+                <label class="col-md-12 mb-0">NIM</label>
                 <div class="col-md-12">
-                  <input type="text" placeholder="Username" class="form-control pl-0 form-control-line" name="username" value="<?= $value['username'] ?>">
+                  <input type="text" placeholder="NIM" class="form-control pl-0 form-control-line" name="nim" value="<?= $value['nim'] ?>">
                 </div>
               </div>
               <div class="form-group">
@@ -86,24 +85,6 @@
                 <label for="example-email" class="col-md-12">IPK</label>
                 <div class="col-md-12">
                   <input type="number" placeholder="IPK" class="form-control pl-0 form-control-line" name="ipk" value="<?= $value['ipk'] ?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="example-email" class="col-md-12">Keahlian 1</label>
-                <div class="col-md-12">
-                  <input type="text" placeholder="Kehalian 1" class="form-control pl-0 form-control-line" name="ipk" value="<?= $value['keahlian_1'] ?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="example-email" class="col-md-12">Keahlian 2</label>
-                <div class="col-md-12">
-                  <input type="text" placeholder="Kehalian 2" class="form-control pl-0 form-control-line" name="ipk" value="<?= $value['keahlian_2'] ?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="example-email" class="col-md-12">Keahlian 3</label>
-                <div class="col-md-12">
-                  <input type="text" placeholder="Kehalian 3" class="form-control pl-0 form-control-line" name="ipk" value="<?= $value['keahlian_3'] ?>">
                 </div>
               </div>
               <div class="form-group">
