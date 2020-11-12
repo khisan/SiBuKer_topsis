@@ -3,35 +3,24 @@
 namespace App\Controllers\Backend\Alumni;
 
 use App\Controllers\BaseController;
+use App\Models\Alumni_model;
 
 class Home extends BaseController
 {
+	public function __construct()
+	{
+		$this->AlumniModel = new Alumni_model();
+	}
 	public function index()
 	{
-		// dd($sesiAlumni = session()->get());
-		// dd($nim = $sesiAlumni['nim']);
+		$table = 'tb_alumni';
+		$sesiAlumni = session()->get();
+		$nim = $sesiAlumni['nim'];
 		$data = [
 			'title' => 'Home',
-			'isi' => 'Backend/Alumni/v_home'
+			'isi' => 'Backend/Alumni/v_home',
+			'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table)
 		];
 		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}
-
-	// public function data_lowongan()
-	// {
-	// 	$data = [
-	// 		'title' => 'Data Lowongan',
-	// 		'isi' => 'Backend/Admin/v_data_lowongan'
-	// 	];
-	// 	echo view('Backend/Alumni/layout/v_wrapper', $data);
-	// }
-
-	// public function rekomendasi_lowongan()
-	// {
-	// 	$data = [
-	// 		'title' => 'Rekomendasi Lowongan',
-	// 		'isi' => 'Backend/Alumni/v_rekomendasi_lowongan'
-	// 	];
-	// 	echo view('Backend/Alumni/layout/v_wrapper', $data);
-	// }
 }
