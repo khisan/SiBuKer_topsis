@@ -20,10 +20,16 @@ class Alumni_model extends Model
     return $alumni;
   }
 
-  public function edit($data)
+  function detail_data($id_alumni)
   {
-    $this->db->table('tb_alumni')
-      ->where('id_alumni', $data['id_alumni'])
-      ->update($data);
+    return $this->db->table('tb_alumni')
+      ->where('id_alumni', $id_alumni)
+      ->get()->getRowArray();
+  }
+
+  public function update_data($data, $id_alumni)
+  {
+    return $this->db->table('tb_alumni')
+      ->update($data, array('id_alumni' => $id_alumni));
   }
 }
