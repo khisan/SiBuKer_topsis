@@ -44,13 +44,15 @@ class Auth_alu extends BaseController
         ]
       ]
     ])) {
+      $namaFoto = 'user_default.png';
       $data = array(
         'nim'           => $this->request->getPost('nim'),
         'password'      => $this->request->getPost('password'),
         'nama'          => $this->request->getPost('nama'),
         'id_jurusan'    => $this->request->getPost('jurusan'),
         'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-        'umur'          => $this->request->getPost('umur')
+        'umur'          => $this->request->getPost('umur'),
+        'foto'          => $namaFoto
       );
       $model = new Auth_model();
       $model->insert($data);

@@ -6,7 +6,7 @@
       <div class="col-lg-4 col-xlg-3 col-md-5">
         <div class="card">
           <div class="card-body profile-card">
-            <center> <img src="/foto/<?= $value['foto'] ?>" class="rounded-circle" width="225" height="200" />
+            <center> <img src="/foto/<?= $value['foto'] ?>" class="rounded-circle" width="200" height="200" />
               <h4 class="card-title m-t-10"> <?= $value['nama'] ?> </h4>
               <h6 class="card-subtitle"> <?= $value['kualifikasi_pendidikan'] ?>
                 <?php foreach ($jurusan as $row => $valueJurusan) : ?>

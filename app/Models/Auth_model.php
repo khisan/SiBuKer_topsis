@@ -12,7 +12,7 @@ class Auth_model extends Model
   protected $returnType     = 'array';
   protected $useSoftDeletes = true;
 
-  protected $allowedFields = ['nama', 'jenis_kelamin', 'umur', 'nim', 'password', 'id_jurusan'];
+  protected $allowedFields = ['nama', 'jenis_kelamin', 'umur', 'nim', 'password', 'id_jurusan', 'foto'];
 
   protected $useTimestamps = true;
   protected $createdField  = 'created_at';
