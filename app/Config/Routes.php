@@ -47,7 +47,11 @@ $routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter
 
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
-$routes->match(['get', 'post'], '/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
+$routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
+// Menu Alumni
+$routes->get('/admin/alumni', 'Backend/Admin/Alumni::', ['filter' => 'filter_adm']);
+$routes->get('/admin/alumni/delete', 'Backend/Admin/Alumni::delete', ['filter' => 'filter_adm']);
+// Menu Jurusan
 $routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['filter' => 'filter_adm']);

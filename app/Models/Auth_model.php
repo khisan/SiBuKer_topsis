@@ -19,10 +19,17 @@ class Auth_model extends Model
   protected $updatedField  = 'updated_at';
   protected $deletedField  = 'deleted_at';
 
-  function get_data_login($nim, $tbl)
+  function get_data_login_alu($nim, $tbl)
   {
     $builder = $this->db->table($tbl);
     $builder->where('nim', $nim);
+    $login = $builder->get()->getRow();
+    return $login;
+  }
+  function get_data_login_adm($username, $tbl)
+  {
+    $builder = $this->db->table($tbl);
+    $builder->where('username', $username);
     $login = $builder->get()->getRow();
     return $login;
   }

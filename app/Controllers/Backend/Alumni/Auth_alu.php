@@ -70,7 +70,7 @@ class Auth_alu extends BaseController
     $table = 'tb_alumni';
     $nim = $this->request->getPost('nim');
     $password = $this->request->getPost('password');
-    $row = $model->get_data_login($nim, $table);
+    $row = $model->get_data_login_alu($nim, $table);
     if ($row == NULL) {
       session()->setFlashdata('pesan', 'errorU');
       return redirect()->to('/alumni/login');

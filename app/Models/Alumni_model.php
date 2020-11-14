@@ -8,8 +8,11 @@ class Alumni_model extends Model
 {
   public function allData()
   {
-    return $this->db->table('tb_alumni')
-      ->get()->getResultArray();
+    $builder = $this->db->table('tb_alumni');
+    $builder->select('id_alumni,nim,nama,jenis_kelamin,umur,jurusan,kualifikasi_pendidikan,ipk');
+    $builder->join('tb_jurusan', 'tb_jurusan.id_jurusan = tb_alumni.id_jurusan');
+    $query = $builder->get()->getResultArray();
+    return $query;
   }
 
   function get_alumni_by_nim($nim, $tbl)
@@ -31,5 +34,10 @@ class Alumni_model extends Model
   {
     return $this->db->table('tb_alumni')
       ->update($data, array('id_alumni' => $id_alumni));
+  }
+  public function delete_data($id_alumni)
+  {
+    return $this->db->table('tb_alumni')
+      ->delete(array('id_alumni' => $id_alumni));
   }
 }

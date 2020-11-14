@@ -17,7 +17,7 @@ class Auth_adm extends BaseController
     $table = 'tb_admin';
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');
-    $row = $model->get_data_login($username, $table);
+    $row = $model->get_data_login_adm($username, $table);
     // dd($row->password);
     if ($row == NULL) {
       session()->setFlashdata('pesan', 'username anda salah');

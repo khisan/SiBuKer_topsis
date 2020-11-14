@@ -33,15 +33,21 @@
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
 <script src="/template/auth/js/main.js"></script>
 <script src="/template/sweetalert/sweetalert2.min.js"></script>
-
-<!-- Sweetalert -->
-<!-- <script>
-  const swal = $('.swal').data('swal');
-  if (swal) {
+<!--Sweet Alert Message-->
+<?php if (session()->get('pesan') == 'errorU') : ?>
+  <script>
     Swal.fire({
-      title: swal,
-      text: swal,
-      icon: 'success'
+      title: 'Ada Kesalahan',
+      text: 'Username Anda Salah',
+      icon: 'error'
     })
-  }
-</script> -->
+  </script>
+<?php elseif (session()->get('pesan') == 'errorP') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Password Anda Salah',
+      icon: 'error'
+    })
+  </script>
+<?php endif; ?>

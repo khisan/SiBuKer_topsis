@@ -42,7 +42,7 @@ class Jurusan extends BaseController
   public function ubah($id_jurusan)
   {
     $data = [
-      'title' => 'Edit Data Produk',
+      'title' => 'Edit Jurusan',
       'jurusan' => $this->JurusanModel->edit($id_jurusan),
       'isi'   => 'Backend/Admin/v_edit_jurusan'
     ];
