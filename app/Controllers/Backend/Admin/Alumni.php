@@ -39,16 +39,6 @@ class Alumni extends BaseController
     return redirect()->to('/admin/alumni');
   }
 
-  public function ubah($id_jurusan)
-  {
-    $data = [
-      'title' => 'Edit Alumni',
-      'alumni' => $this->AlumniModel->edit($id_alumni),
-      'isi'   => 'Backend/Admin/v_edit_alumni'
-    ];
-    return view('Backend/Admin/layout/v_wrapper', $data);
-  }
-
   public function update($id_alumni)
   {
     $data = [
