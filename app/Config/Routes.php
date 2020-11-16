@@ -56,6 +56,11 @@ $routes->get('/admin/kriteria-lowongan', 'Backend/Admin/KriteriaLowongan::', ['f
 $routes->get('/admin/kriteria-lowongan/tambah', 'Backend/Admin/KriteriaLowongan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/kriteria-lowongan/add', 'Backend/Admin/KriteriaLowongan::add', ['filter' => 'filter_adm']);
 $routes->get('/admin/kriteria-lowongan/delete', 'Backend/Admin/KriteriaLowongan::delete', ['filter' => 'filter_adm']);
+// Menu Sub Kriteria Lowongan
+$routes->get('/admin/sub-kriteria-lowongan', 'Backend/Admin/SubKriteriaLowongan::', ['filter' => 'filter_adm']);
+$routes->get('/admin/sub-kriteria-lowongan/tambah', 'Backend/Admin/SubKriteriaLowongan::tambah', ['filter' => 'filter_adm']);
+$routes->post('/admin/sub-kriteria-lowongan/add', 'Backend/Admin/SubKriteriaLowongan::add', ['filter' => 'filter_adm']);
+$routes->get('/admin/sub-kriteria-lowongan/delete', 'Backend/Admin/SubKriteriaLowongan::delete', ['filter' => 'filter_adm']);
 // Menu Jurusan
 $routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);

@@ -11,6 +11,7 @@ class KriteriaLowongan extends BaseController
   {
     $this->Kriteria_Lowongan_model = new Kriteria_Lowongan_model();
   }
+
   public function index()
   {
     $data = [
@@ -20,6 +21,7 @@ class KriteriaLowongan extends BaseController
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
   }
+
   public function tambah()
   {
     $data = [
@@ -59,7 +61,6 @@ class KriteriaLowongan extends BaseController
       'kriteria' => $this->request->getPost('kriteria'),
       'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
-    // dd($data);
     $this->Kriteria_Lowongan_model->update_data($data, $id_kriteria_lowongan);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/kriteria-lowongan');

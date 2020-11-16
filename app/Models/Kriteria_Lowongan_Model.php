@@ -12,6 +12,14 @@ class Kriteria_Lowongan_model extends Model
       ->get()->getResultArray();
   }
 
+  function get_kriteria_by_kriteria($kode)
+  {
+    return $this->db->table('tb_kriteria_lowongan')
+      ->select('cost_benefit')
+      ->where('kode', $kode)
+      ->get()->getRowArray();
+  }
+
   public function add($data)
   {
     $this->db->table('tb_kriteria_lowongan')->insert($data);
