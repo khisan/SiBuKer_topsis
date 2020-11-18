@@ -34,6 +34,7 @@ class Profil extends BaseController
     // mengambil file foto dari form input
     $foto = $this->request->getFile('foto');
 
+    // edit tanpa foto
     if ($foto->getError() == 4) {
       $data = [
         'id_alumni' => $id_alumni,

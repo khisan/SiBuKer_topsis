@@ -37,6 +37,8 @@
 <!--Custom JavaScript -->
 <script src="/template/backend/assets/js/pages/dashboards/dashboard1.js"></script>
 <script src="/template/backend/assets/js/custom.js"></script>
+<!--Summernote JavaScript -->
+<script src="/template/summernote/summernote-bs4.js"></script>
 </body>
 
 </html>

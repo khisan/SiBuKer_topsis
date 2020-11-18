@@ -48,6 +48,10 @@ $routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
+// Menu Jurusan
+$routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
+$routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
+$routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['filter' => 'filter_adm']);
 // Menu Alumni
 $routes->get('/admin/alumni', 'Backend/Admin/Alumni::', ['filter' => 'filter_adm']);
 $routes->get('/admin/alumni/delete', 'Backend/Admin/Alumni::delete', ['filter' => 'filter_adm']);
@@ -66,10 +70,11 @@ $routes->get('/admin/sub-kriteria-alumni', 'Backend/Admin/SubKriteriaAlumni::', 
 $routes->get('/admin/sub-kriteria-alumni/tambah', 'Backend/Admin/SubKriteriaAlumni::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/sub-kriteria-alumni/add', 'Backend/Admin/SubKriteriaAlumni::add', ['filter' => 'filter_adm']);
 $routes->get('/admin/sub-kriteria-alumni/delete', 'Backend/Admin/SubKriteriaAlumni::delete', ['filter' => 'filter_adm']);
-// Menu Jurusan
-$routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
-$routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
-$routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['filter' => 'filter_adm']);
+// Menu Data Lowongan
+$routes->get('/admin/lowongan', 'Backend/Admin/Lowongan::', ['filter' => 'filter_adm']);
+$routes->get('/admin/lowongan/tambah', 'Backend/Admin/Lowongan::tambah', ['filter' => 'filter_adm']);
+$routes->post('/admin/lowongan/add', 'Backend/Admin/Lowongan::add', ['filter' => 'filter_adm']);
+$routes->get('/admin/lowongan/delete', 'Backend/Admin/Lowongan::delete', ['filter' => 'filter_adm']);
 
 
 /**

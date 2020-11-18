@@ -23,7 +23,7 @@
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/sub-kriteria-alumni') ?>" aria-expanded="false">
              <i class="mdi mr-2 mdi-arrange-send-to-back"></i><span class="hide-menu">Data Sub <br>Kriteria Alumni</span></a>
          </li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/admin/home/data_lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu">Data Lowongan</span></a></li>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu">Data Lowongan</span></a></li>
        </ul>
      </nav>
      <!-- End Sidebar navigation -->
