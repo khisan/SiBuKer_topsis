@@ -22,7 +22,7 @@
     <form class="login-form" action="/backend/alumni/auth_alu/login" method="post">
       <h3 class="title">Page Login Alumni</h3>
       <!-- <div class="swal" data-swal="<?= session()->get('berhasil') ?>"></div> -->
-      <input type="text" placeholder="NIM" name="nim" />
+      <input type="number" placeholder="NIM" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="7" />
       <input type="password" placeholder="Password" name="password" />
       <button>Login</button>
       <p class="message">Belum punya akun? <a href="/alumni/register">Daftar</a></p>

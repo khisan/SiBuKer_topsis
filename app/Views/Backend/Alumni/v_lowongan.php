@@ -22,9 +22,6 @@
             <div class="col-md-10 col-8 align-self-center">
               <h4 class="card-title">Data Lowongan</h4>
             </div>
-            <div class="col-md-2 col-4 align-self-right">
-              <a href="/admin/lowongan/tambah" class="btn btn-primary text-white mt-4" style="display: inline;">Tambah Data</a>
-            </div>
           </div>
           <div class="table-responsive">
             <table class="table user-table">
@@ -49,10 +46,6 @@
                     <td><?= $hasil['nama_lowongan'] ?></td>
                     <td><?= $hasil['deskripsi_lowongan'] ?></td>
                     <td><img src="/lowongan/<?= $hasil['gambar'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
-                    <td>
-                      <a href="/backend/admin/lowongan/ubah/<?= $hasil['id_lowongan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <a href="/backend/admin/lowongan/delete/<?= $hasil['id_lowongan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
-                    </td>
                   </tr>
                 <?php } ?>
               </tbody>
@@ -63,26 +56,3 @@
     </div>
   </div>
 </div>
-<script src="/template/auth/js/jquery-3.2.1.min.js"></script>
-<script src="/template/sweetalert/sweetalert2.all.min.js"></script>
-<!--Sweet Alert Message-->
-<script>
-  $('.tombol-hapus').on('click', function(e) {
-    e.preventDefault();
-    const href = $(this).attr('href');
-
-    Swal.fire({
-      title: 'Apakah Anda Yakin?',
-      text: "Data Kriteria Lowongan akan Dihapus!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Hapus Data!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.location.href = href;
-      }
-    })
-  })
-</script>

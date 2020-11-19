@@ -19,8 +19,6 @@ class Profil extends BaseController
     $sesiAlumni = session()->get();
     $nim = $sesiAlumni['nim'];
     $data = [
-      $table = 'tb_alumni',
-      $nim = $sesiAlumni['nim'],
       'title'   => 'Profil',
       'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table),
       'jurusan' => $this->JurusanModel->allData(),
