@@ -21,7 +21,6 @@ class Home extends BaseController
       'isi' => 'Backend/Admin/v_home',
       'admin'  => $this->AuthModel->get_data_login_adm($username, $table)
     ];
-    //dd($data);
     echo view('Backend/Admin/layout/v_wrapper', $data);
   }
 }

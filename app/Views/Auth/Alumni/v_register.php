@@ -33,7 +33,7 @@
           </ul>
         </div>
       <?php } ?>
-      <input type="number" placeholder="NIM" name="nim" maxlength="7" />
+      <input type="number" placeholder="NIM" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="7" />
       <input type="password" placeholder="Password" name="password" />
       <input type="text" placeholder="Nama" name="nama" />
       <select class="select" name="jurusan">

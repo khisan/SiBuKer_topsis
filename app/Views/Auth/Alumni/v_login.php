@@ -36,7 +36,7 @@
   <script>
     Swal.fire({
       title: 'Ada Kesalahan',
-      text: 'Username Anda Salah',
+      text: 'NIM Anda Salah',
       icon: 'error'
     })
   </script>

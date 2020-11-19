@@ -11,7 +11,7 @@
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('alumni/profil') ?>" aria-expanded="false">
              <i class="mdi mr-2 mdi-account"></i><span class="hide-menu">Profil</span></a>
          </li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/alumni/home/data_lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu">Data Lowongan</span></a></li>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('alumni/lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu">Data Lowongan</span></a></li>
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('backend/alumni/home/rekomendasi_lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase-check"></i><span class="hide-menu">Rekomendasi <br>Lowongan</span></a></li>
        </ul>
      </nav>

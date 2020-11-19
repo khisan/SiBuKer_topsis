@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 /**
@@ -15,6 +16,7 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+use App\Models\Auth_model;
 
 class BaseController extends Controller
 {
@@ -42,5 +44,4 @@ class BaseController extends Controller
 		// E.g.:
 		// $this->session = \Config\Services::session();
 	}
-
 }

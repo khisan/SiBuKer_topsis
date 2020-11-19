@@ -37,15 +37,18 @@ $routes->get('/', 'Home::index');
 $routes->get('/alumni/login', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/register', 'Auth_front::register', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/cekLogin', '/Backend/alumni/auth_alu::login', ['filter' => 'no_filter_alu']);
-// Admin Auth 
-$routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 // Alumni Backend
 $routes->get('/alumni/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
+// Menu Profil
 $routes->get('/alumni/profil', 'Backend/Alumni/Profil::', ['filter' => 'filter_alu']);
+// Menu Data Lowongan
+$routes->get('/alumni/lowongan', 'Backend/Alumni/Lowongan::', ['filter' => 'filter_alu']);
+// Admin Auth 
+$routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
-$routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
 // Menu Jurusan
+$routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['filter' => 'filter_adm']);

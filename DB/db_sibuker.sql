@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 06:44 AM
+-- Generation Time: Nov 19, 2020 at 05:37 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -39,7 +39,7 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nama`, `username`, `password`) VALUES
-(1, 'coba', 'coba', '$2y$12$DyKQOIecPFZCJqexvbRKe.GzNgUGRG2pDcoSHPHlB18f9ObCVgGiq');
+(1, 'Administrator', 'coba', 'coba');
 
 -- --------------------------------------------------------
 
@@ -110,9 +110,9 @@ INSERT INTO `tb_kriteria_lowongan` (`id_kriteria_lowongan`, `kode`, `kriteria`, 
 (2, 'C1', 'Umur', 'cost'),
 (3, 'C2', 'Kualifikasi Pendidikan', 'benefit'),
 (4, 'C3', 'IPK', 'cost'),
-(5, 'C4', 'Jenis Kelamin', 'benefit'),
 (6, 'C5', 'Pengalaman Kerja', 'cost'),
-(7, 'C6', 'Jurusan', 'benefit');
+(8, 'C4', 'Jenis Kelamin', 'benefit'),
+(9, 'C6', 'Jurusan', 'benefit');
 
 -- --------------------------------------------------------
 
@@ -122,17 +122,24 @@ INSERT INTO `tb_kriteria_lowongan` (`id_kriteria_lowongan`, `kode`, `kriteria`, 
 
 CREATE TABLE `tb_lowongan` (
   `id_lowongan` int(11) NOT NULL,
-  `nama perusahaan` varchar(100) NOT NULL,
-  `nama lowongan` varchar(100) NOT NULL,
-  `umur` int(11) NOT NULL,
-  `kualifikasi_pendidikan` int(11) NOT NULL,
-  `ipk` int(11) NOT NULL,
-  `jenis_kelamin` int(11) NOT NULL,
-  `pengalaman_kerja` int(11) NOT NULL,
-  `jurusan` int(11) NOT NULL,
+  `nama_perusahaan` varchar(100) NOT NULL,
+  `nama_lowongan` varchar(100) NOT NULL,
+  `umur` varchar(50) NOT NULL,
+  `kualifikasi_pendidikan` varchar(50) NOT NULL,
+  `ipk` varchar(50) NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
+  `pengalaman_kerja` varchar(50) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
   `deskripsi_lowongan` text NOT NULL,
-  `gambar` varchar(20) NOT NULL
+  `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_lowongan`
+--
+
+INSERT INTO `tb_lowongan` (`id_lowongan`, `nama_perusahaan`, `nama_lowongan`, `umur`, `kualifikasi_pendidikan`, `ipk`, `jenis_kelamin`, `pengalaman_kerja`, `jurusan`, `deskripsi_lowongan`, `gambar`) VALUES
+(3, 'PT. Tirta Freshindo Jaya Plant 2', 'Analyst', '<= 30 Tahun', 'SMA/SMK', '-', '-', '-', 'Teknik Kimia', '<p class=\"MsoListParagraphCxSpFirst\" style=\"margin-left:3.05pt;mso-add-space:\r\nauto;text-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Usia\r\nmaks 30 Tahun<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Pendidikan\r\nmin.SMK Teknik Kimia, Kimia Analis, Kimia Industri</span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- </span><span style=\"font-family: \"Times New Roman\", serif; font-size: 12pt; text-align: left;\">Bersedia bekerja\r\nsistem 3 shift</span></p>', '1605690216_dd5c0e66f276acd98594.jpg');
 
 -- --------------------------------------------------------
 
@@ -147,6 +154,45 @@ CREATE TABLE `tb_sub_kriteria_alumni` (
   `bobot` int(1) NOT NULL,
   `cost_benefit` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_sub_kriteria_alumni`
+--
+
+INSERT INTO `tb_sub_kriteria_alumni` (`id_sub_kriteria_alumni`, `kode`, `sub_kriteria`, `bobot`, `cost_benefit`) VALUES
+(4, 'C1', '<= 25 Tahun', 1, 'cost'),
+(5, 'C2', '-', 1, 'benefit'),
+(6, 'C1', '<= 30 Tahun', 2, 'cost'),
+(7, 'C2', 'D4', 4, 'benefit'),
+(8, 'C1', '<= 35 Tahun', 3, 'cost'),
+(9, 'C2', '-', 5, 'cost'),
+(10, 'C2', 'S1', 5, 'benefit'),
+(11, 'C2', 'D3', 3, 'benefit'),
+(12, 'C2', 'SMA/SMK', 2, 'benefit'),
+(13, 'C3', '< 2.00', 3, 'cost'),
+(14, 'C3', '2.00 - 3.00', 2, 'cost'),
+(15, 'C3', '> 3.00', 1, 'cost'),
+(16, 'C3', '-', 4, 'cost'),
+(17, 'C4', '-', 1, 'benefit'),
+(18, 'C4', 'Laki-laki', 4, 'benefit'),
+(19, 'C4', 'Perempuan', 4, 'benefit'),
+(20, 'C5', '-', 4, 'cost'),
+(21, 'C5', '> 1 Tahun', 3, 'cost'),
+(22, 'C5', '2 - 3 Tahun', 2, 'cost'),
+(23, 'C5', '>  3 Tahun', 1, 'cost'),
+(24, 'C6', '-', 1, 'benefit'),
+(25, 'C6', 'Teknik Informatika', 3, 'benefit'),
+(26, 'C6', 'Teknik Industri', 3, 'benefit'),
+(27, 'C6', 'Teknik Mesin', 3, 'benefit'),
+(28, 'C6', 'Teknik Elektro', 3, 'benefit'),
+(29, 'C6', 'Teknik Kimia', 3, 'benefit'),
+(30, 'C6', 'Teknik Sipil', 3, 'benefit'),
+(31, 'C6', 'Arsitektur', 3, 'benefit'),
+(32, 'C6', 'Perencanan Wilayah dan Kota', 3, 'benefit'),
+(33, 'C6', 'Teknik Geodesi', 3, 'benefit'),
+(34, 'C6', 'Teknik Lingkungan', 3, 'benefit'),
+(35, 'C1', '<= 40 Tahun', 4, 'cost'),
+(37, 'C1', '-', 5, 'cost');
 
 -- --------------------------------------------------------
 
@@ -167,12 +213,12 @@ CREATE TABLE `tb_sub_kriteria_lowongan` (
 --
 
 INSERT INTO `tb_sub_kriteria_lowongan` (`id_sub_kriteria_lowongan`, `kode`, `sub_kriteria`, `bobot`, `cost_benefit`) VALUES
-(4, 'C1', '< 25 Tahun', 3, 'cost'),
+(4, 'C1', '<= 25 Tahun', 1, 'cost'),
 (5, 'C2', '-', 1, 'benefit'),
-(6, 'C1', '25 - 30 Tahun', 2, 'cost'),
+(6, 'C1', '<= 30 Tahun', 2, 'cost'),
 (7, 'C2', 'D4', 4, 'benefit'),
-(8, 'C1', '> 35 Tahun', 1, 'cost'),
-(9, 'C1', '-', 4, 'cost'),
+(8, 'C1', '<= 35 Tahun', 3, 'cost'),
+(9, 'C1', '-', 5, 'cost'),
 (10, 'C2', 'S1', 5, 'benefit'),
 (11, 'C2', 'D3', 3, 'benefit'),
 (12, 'C2', 'SMA/SMK', 2, 'benefit'),
@@ -188,7 +234,7 @@ INSERT INTO `tb_sub_kriteria_lowongan` (`id_sub_kriteria_lowongan`, `kode`, `sub
 (22, 'C5', '2 - 3 Tahun', 2, 'cost'),
 (23, 'C5', '>  3 Tahun', 1, 'cost'),
 (24, 'C6', '-', 1, 'benefit'),
-(25, 'C2', 'Teknik Informatika', 2, 'benefit'),
+(25, 'C6', 'Teknik Informatika', 2, 'benefit'),
 (26, 'C6', 'Teknik Industri', 2, 'benefit'),
 (27, 'C6', 'Teknik Mesin', 2, 'benefit'),
 (28, 'C6', 'Teknik Elektro', 2, 'benefit'),
@@ -197,7 +243,8 @@ INSERT INTO `tb_sub_kriteria_lowongan` (`id_sub_kriteria_lowongan`, `kode`, `sub
 (31, 'C6', 'Arsitektur', 2, 'benefit'),
 (32, 'C6', 'Perencanan Wilayah dan Kota', 2, 'benefit'),
 (33, 'C6', 'Teknik Geodesi', 2, 'benefit'),
-(34, 'C6', 'Teknik Lingkungan', 2, 'benefit');
+(34, 'C6', 'Teknik Lingkungan', 2, 'benefit'),
+(35, 'C1', '<= 40 Tahun', 4, 'cost');
 
 --
 -- Indexes for dumped tables
@@ -271,25 +318,25 @@ ALTER TABLE `tb_jurusan`
 -- AUTO_INCREMENT for table `tb_kriteria_lowongan`
 --
 ALTER TABLE `tb_kriteria_lowongan`
-  MODIFY `id_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_lowongan`
 --
 ALTER TABLE `tb_lowongan`
-  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_sub_kriteria_alumni`
 --
 ALTER TABLE `tb_sub_kriteria_alumni`
-  MODIFY `id_sub_kriteria_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sub_kriteria_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tb_sub_kriteria_lowongan`
 --
 ALTER TABLE `tb_sub_kriteria_lowongan`
-  MODIFY `id_sub_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_sub_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
