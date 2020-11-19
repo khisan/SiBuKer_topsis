@@ -4,24 +4,21 @@ namespace App\Controllers\Backend\Alumni;
 
 use App\Controllers\BaseController;
 use App\Models\Alumni_model;
-use App\Models\Jurusan_model;
 
 class Profil extends BaseController
 {
   public function __construct()
   {
     $this->AlumniModel = new Alumni_model();
-    $this->JurusanModel = new Jurusan_model();
   }
   public function index()
   {
     $table = 'tb_alumni';
     $sesiAlumni = session()->get();
-    $nim = $sesiAlumni['nim'];
+    $id_alumni = $sesiAlumni['id_alumni'];
     $data = [
       'title'   => 'Profil',
-      'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table),
-      'jurusan' => $this->JurusanModel->allData(),
+      'alumni'  => $this->AlumniModel->get_alumni_by_id($id_alumni, $table),
       'isi'     => 'Backend/Alumni/v_profil'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);
@@ -36,13 +33,9 @@ class Profil extends BaseController
     if ($foto->getError() == 4) {
       $data = [
         'id_alumni' => $id_alumni,
+        'nim' => $this->request->getPost('nim'),
         'password' => $this->request->getPost('password'),
         'nama' => $this->request->getPost('nama'),
-        'id_jurusan' => $this->request->getPost('jurusan'),
-        'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-        'umur' => $this->request->getPost('umur'),
-        'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
-        'ipk' => $this->request->getPost('ipk'),
       ];
       $this->AlumniModel->update_data($data, $id_alumni);
       session()->setFlashdata('pesan', 'success');
@@ -59,13 +52,9 @@ class Profil extends BaseController
       // jika valid
       $data = array(
         'id_alumni' => $id_alumni,
+        'nim' => $this->request->getPost('nim'),
         'password' => $this->request->getPost('password'),
         'nama' => $this->request->getPost('nama'),
-        'id_jurusan' => $this->request->getPost('jurusan'),
-        'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-        'umur' => $this->request->getPost('umur'),
-        'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
-        'ipk' => $this->request->getPost('ipk'),
         'foto' => $nama_file
       );
       // memindahkan file foto dari form input ke folder foto di directory

@@ -15,10 +15,10 @@ class Alumni_model extends Model
     return $query;
   }
 
-  function get_alumni_by_nim($nim, $tbl)
+  function get_alumni_by_id($nim, $tbl)
   {
     $builder = $this->db->table($tbl);
-    $builder->where('nim', $nim);
+    $builder->where('id_alumni', $nim);
     $alumni = $builder->get()->getResultArray();
     return $alumni;
   }

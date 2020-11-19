@@ -15,11 +15,11 @@ class Home extends BaseController
 	{
 		$table = 'tb_alumni';
 		$sesiAlumni = session()->get();
-		$nim = $sesiAlumni['nim'];
+		$id_alumni = $sesiAlumni['id_alumni'];
 		$data = [
 			'title' => 'Home',
 			'isi' => 'Backend/Alumni/v_home',
-			'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table)
+			'alumni'  => $this->AlumniModel->get_alumni_by_id($id_alumni, $table)
 		];
 		echo view('Backend/Alumni/layout/v_wrapper', $data);
 	}

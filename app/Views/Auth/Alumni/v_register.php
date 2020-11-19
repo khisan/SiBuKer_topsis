@@ -36,18 +36,6 @@
       <input type="number" placeholder="NIM" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="7" />
       <input type="password" placeholder="Password" name="password" />
       <input type="text" placeholder="Nama" name="nama" />
-      <select class="select" name="jurusan">
-        <option>Pilih Jurusan</option>
-        <?php foreach ($jurusan as $key => $value) : ?>
-          <option value="<?php echo $value['id_jurusan']; ?>"><?php echo $value['jurusan']; ?></option>
-        <?php endforeach; ?>
-      </select>
-      <select class="select" name="jenis_kelamin">
-        <option value="" disabled selected>Jenis Kelamin</option>
-        <option value="L">Laki-Laki</option>
-        <option value="P">Perempuan</option>
-      </select>
-      <input type="number" placeholder="Umur" name="umur" />
       <button type="submit">Daftar</button>
       <p class="message">Sudah punya akun? <a href="/alumni/login">Login</a></p>
     </form>
