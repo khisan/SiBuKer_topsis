@@ -53,6 +53,14 @@
           <!-- ============================================================== -->
           <!-- Right side toggle and nav items -->
           <!-- ============================================================== -->
+          <ul class="navbar-nav">
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/foto/administrator.png" alt="user" class="profile-pic m-r-10" width="30" height="30"><?= $admin->nama ?></a>
+            </li>
+          </ul>
         </div>
       </nav>
     </header>

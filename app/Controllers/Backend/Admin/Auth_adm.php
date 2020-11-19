@@ -23,9 +23,10 @@ class Auth_adm extends BaseController
       session()->setFlashdata('pesan', 'username anda salah');
       return redirect()->to('/admin/login');
     }
-    if (password_verify($password, $row->password)) {
+    if ($password == $row->password) {
       $data = array(
         'login' => TRUE,
+        'username' => $row->username,
         'nama' => $row->nama,
       );
       session()->set($data);

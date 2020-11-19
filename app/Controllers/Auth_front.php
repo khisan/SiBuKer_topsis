@@ -11,10 +11,6 @@ class Auth_front extends BaseController
     $this->JurusanModel = new Jurusan_model();
   }
 
-  public function index()
-  {
-  }
-
   public function login()
   {
     return view('Auth/Alumni/v_login');
