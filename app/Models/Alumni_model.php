@@ -15,19 +15,12 @@ class Alumni_model extends Model
     return $query;
   }
 
-  function get_alumni_by_id($nim, $tbl)
+  function get_alumni_by_id($id_alumni, $tbl)
   {
     $builder = $this->db->table($tbl);
-    $builder->where('id_alumni', $nim);
-    $alumni = $builder->get()->getResultArray();
+    $builder->where('id_alumni', $id_alumni);
+    $alumni = $builder->get()->getRowArray();
     return $alumni;
-  }
-
-  function detail_data($id_alumni)
-  {
-    return $this->db->table('tb_alumni')
-      ->where('id_alumni', $id_alumni)
-      ->get()->getRowArray();
   }
 
   public function update_data($data, $id_alumni)

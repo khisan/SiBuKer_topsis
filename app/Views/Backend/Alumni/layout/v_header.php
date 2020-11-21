@@ -61,9 +61,9 @@
             <!-- User profile and search -->
             <!-- ============================================================== -->
             <li class="nav-item dropdown">
-              <?php foreach ($alumni as $key => $value) { ?>
-                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/foto/<?= $value['foto'] ?>" alt="user" class="profile-pic m-r-10" width="30" height="30"><?= $value['nama'] ?></a>
-              <?php } ?>
+
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/foto/<?= $alumni['foto'] ?>" alt="user" class="profile-pic m-r-10" width="30" height="30"><?= $alumni['nama'] ?></a>
+
             </li>
           </ul>
         </div>
