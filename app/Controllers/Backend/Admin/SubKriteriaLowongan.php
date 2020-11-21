@@ -4,20 +4,20 @@ namespace App\Controllers\Backend\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Sub_Kriteria_Lowongan_model;
-use App\Models\Kriteria_Lowongan_model;
+use App\Models\Kriteria_model;
 
 class SubKriteriaLowongan extends BaseController
 {
   public function __construct()
   {
     $this->Sub_Kriteria_Lowongan_model = new Sub_Kriteria_Lowongan_model();
-    $this->Kriteria_Lowongan_model = new Kriteria_Lowongan_model();
+    $this->Kriteria_model = new Kriteria_model();
   }
 
   public function get_subkategori()
   {
     $kode = $this->request->getPost('kode');
-    $data = $this->Kriteria_Lowongan_model->get_kriteria_by_kriteria($kode);
+    $data = $this->Kriteria_model->get_kriteria_by_kriteria($kode);
     echo json_encode($data);
   }
 
@@ -35,7 +35,7 @@ class SubKriteriaLowongan extends BaseController
   {
     $data = [
       'title'   => 'Tambah Sub Kriteria Lowongan',
-      'kriteria_lowongan'  => $this->Kriteria_Lowongan_model->allData(),
+      'kriteria'  => $this->Kriteria_model->allData(),
       'isi'     => 'Backend/Admin/v_tambah_sub_kriteria_lowongan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -58,7 +58,7 @@ class SubKriteriaLowongan extends BaseController
   {
     $data = [
       'title' => 'Edit Sub Kriteria Lowongan',
-      'kriteria_lowongan'  => $this->Kriteria_Lowongan_model->allData(),
+      'kriteria'  => $this->Kriteria_model->allData(),
       'sub_kriteria_lowongan' => $this->Sub_Kriteria_Lowongan_model->edit($id_sub_kriteria_lowongan),
       'isi'   => 'Backend/Admin/v_edit_sub_kriteria_lowongan'
     ];

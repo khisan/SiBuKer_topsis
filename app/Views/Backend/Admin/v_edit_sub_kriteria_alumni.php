@@ -14,7 +14,7 @@
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="kode" id="kriteria">
                   <option>Pilih Kriteria</option>
-                  <?php foreach ($kriteria_lowongan as $key => $value) : ?>
+                  <?php foreach ($kriteria as $key => $value) : ?>
                     <?php if ($sub_kriteria_alumni['kode'] == $value['kode']) : ?>
                       <option value="<?php echo $value['kode']; ?>" selected><?php echo $value['kriteria']; ?></option>
                     <?php else : ?>

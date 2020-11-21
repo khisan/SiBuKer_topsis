@@ -6,9 +6,9 @@
       <div class="card">
         <div class="card-body">
           <div>
-            <h3 class="card-title">Form Tambah Kriteria Lowongan</h3>
+            <h3 class="card-title">Form Tambah Kriteria</h3>
           </div>
-          <form class="form-horizontal form-material" action="/admin/kriteria-lowongan/add" method="POST">
+          <form class="form-horizontal form-material" action="/admin/kriteria/add" method="POST">
             <div class="form-group">
               <label class="col-md-12 mb-0">Kode Kriteria</label>
               <div class="col-md-12">

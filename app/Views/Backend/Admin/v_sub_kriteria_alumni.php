@@ -68,7 +68,7 @@
 
     Swal.fire({
       title: 'Apakah Anda Yakin?',
-      text: "Data Kriteria Lowongan akan Dihapus!",
+      text: "Data Sub Kriteria Alumni akan Dihapus!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -80,28 +80,4 @@
       }
     })
   })
-  // Chained Dropdown
-  $(document).ready(function() {
-    $('#kategori').change(function() {
-      var id = $(this).val();
-      $.ajax({
-        url: "<?php echo base_url(); ?>index.php/kategori/get_subkategori",
-        method: "POST",
-        data: {
-          id: id
-        },
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          var html = '';
-          var i;
-          for (i = 0; i < data.length; i++) {
-            html += '<option>' + data[i].subkategori_nama + '</option>';
-          }
-          $('.subkategori').html(html);
-
-        }
-      });
-    });
-  });
 </script>

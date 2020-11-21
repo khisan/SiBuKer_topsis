@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 04:22 AM
+-- Generation Time: Nov 21, 2020 at 10:36 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -52,13 +52,13 @@ CREATE TABLE `tb_alumni` (
   `nim` varchar(8) NOT NULL,
   `password` char(60) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `jenis_kelamin` varchar(50) NOT NULL,
-  `umur` varchar(50) NOT NULL,
+  `jenis_kelamin` int(11) NOT NULL,
+  `umur` int(11) NOT NULL,
   `foto` text NOT NULL,
-  `jurusan` varchar(50) NOT NULL,
-  `kualifikasi_pendidikan` varchar(50) NOT NULL,
-  `ipk` varchar(50) NOT NULL,
-  `pengalaman_kerja` varchar(50) NOT NULL,
+  `jurusan` int(11) NOT NULL,
+  `kualifikasi_pendidikan` int(11) NOT NULL,
+  `ipk` int(11) NOT NULL,
+  `pengalaman_kerja` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -68,7 +68,7 @@ CREATE TABLE `tb_alumni` (
 --
 
 INSERT INTO `tb_alumni` (`id_alumni`, `nim`, `password`, `nama`, `jenis_kelamin`, `umur`, `foto`, `jurusan`, `kualifikasi_pendidikan`, `ipk`, `pengalaman_kerja`, `created_at`, `updated_at`) VALUES
-(63, '1718006', 'coba', 'Khisan Ihza Wahyu Rifaldi', 'Laki-laki', '<= 25 Tahun', '1605791279_1ee746f7c4f4e4d48b0e.jpg', 'Teknik Informatika', 'S1', '> 3.00', '> 1 Tahun', '2020-11-19 06:53:37', '2020-11-19 06:53:37');
+(63, '1718006', 'coba', 'Khisan Ihza Wahyu Rifaldi', 2, 1, '1605791279_1ee746f7c4f4e4d48b0e.jpg', 2, 5, 1, 4, '2020-11-19 06:53:37', '2020-11-19 06:53:37');
 
 -- --------------------------------------------------------
 
@@ -105,12 +105,12 @@ CREATE TABLE `tb_lowongan` (
   `id_lowongan` int(11) NOT NULL,
   `nama_perusahaan` varchar(100) NOT NULL,
   `nama_lowongan` varchar(100) NOT NULL,
-  `umur` varchar(50) NOT NULL,
-  `kualifikasi_pendidikan` varchar(50) NOT NULL,
-  `ipk` varchar(50) NOT NULL,
-  `jenis_kelamin` varchar(50) NOT NULL,
-  `pengalaman_kerja` varchar(50) NOT NULL,
-  `jurusan` varchar(50) NOT NULL,
+  `umur` int(11) NOT NULL,
+  `kualifikasi_pendidikan` int(11) NOT NULL,
+  `ipk` int(11) NOT NULL,
+  `jenis_kelamin` int(11) NOT NULL,
+  `pengalaman_kerja` int(11) NOT NULL,
+  `jurusan` int(11) NOT NULL,
   `deskripsi_lowongan` text NOT NULL,
   `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -120,7 +120,7 @@ CREATE TABLE `tb_lowongan` (
 --
 
 INSERT INTO `tb_lowongan` (`id_lowongan`, `nama_perusahaan`, `nama_lowongan`, `umur`, `kualifikasi_pendidikan`, `ipk`, `jenis_kelamin`, `pengalaman_kerja`, `jurusan`, `deskripsi_lowongan`, `gambar`) VALUES
-(3, 'PT. Tirta Freshindo Jaya Plant 2', 'Analyst', '<= 30 Tahun', 'SMA/SMK', '-', '-', '-', 'Teknik Kimia', '<p class=\"MsoListParagraphCxSpFirst\" style=\"margin-left:3.05pt;mso-add-space:\r\nauto;text-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Usia\r\nmaks 30 Tahun<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Pendidikan\r\nmin.SMK Teknik Kimia, Kimia Analis, Kimia Industri</span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- </span><span style=\"font-family: \"Times New Roman\", serif; font-size: 12pt; text-align: left;\">Bersedia bekerja\r\nsistem 3 shift</span></p>', '1605690216_dd5c0e66f276acd98594.jpg');
+(3, 'PT. Tirta Freshindo Jaya Plant 2', 'Analyst', 2, 2, 4, 1, 4, 2, '<p class=\"MsoListParagraphCxSpFirst\" style=\"margin-left:3.05pt;mso-add-space:\r\nauto;text-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Usia\r\nmaks 30 Tahun<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Pendidikan\r\nmin.SMK Teknik Kimia, Kimia Analis, Kimia Industri</span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- </span><span style=\"font-family: \"Times New Roman\", serif; font-size: 12pt; text-align: left;\">Bersedia bekerja\r\nsistem 3 shift</span></p>', '1605690216_dd5c0e66f276acd98594.jpg');
 
 -- --------------------------------------------------------
 

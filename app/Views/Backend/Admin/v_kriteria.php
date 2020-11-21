@@ -15,10 +15,10 @@
         <div class="card-body">
           <div class="row align-items-center">
             <div class="col-md-10 col-8 align-self-center">
-              <h4 class="card-title">Data Kriteria Lowongan</h4>
+              <h4 class="card-title">Data Kriteria</h4>
             </div>
             <div class="col-md-2 col-4 align-self-right">
-              <a href="/admin/kriteria-lowongan/tambah" class="btn btn-primary text-white mt-4" style="display: inline;">Tambah Data</a>
+              <a href="/admin/kriteria/tambah" class="btn btn-primary text-white mt-4" style="display: inline;">Tambah Data</a>
             </div>
           </div>
           <div class="table-responsive">
@@ -36,15 +36,15 @@
               </thead>
               <tbody>
                 <?php $no = 1;
-                foreach ($kriteria_lowongan as $key => $hasil) { ?>
+                foreach ($kriteria as $key => $hasil) { ?>
                   <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $hasil['kode'] ?></td>
                     <td><?= $hasil['kriteria'] ?></td>
                     <td><?= $hasil['cost_benefit'] ?></td>
                     <td>
-                      <a href="/backend/admin/kriterialowongan/ubah/<?= $hasil['id_kriteria_lowongan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <a href="/backend/admin/kriterialowongan/delete/<?= $hasil['id_kriteria_lowongan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
+                      <a href="/backend/admin/kriteria/ubah/<?= $hasil['id_kriteria'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                      <a href="/backend/admin/kriteria/delete/<?= $hasil['id_kriteria'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -66,7 +66,7 @@
 
     Swal.fire({
       title: 'Apakah Anda Yakin?',
-      text: "Data Kriteria Lowongan akan Dihapus!",
+      text: "Data Kriteria akan Dihapus!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

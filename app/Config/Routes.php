@@ -59,11 +59,11 @@ $routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['f
 // Menu Alumni
 $routes->get('/admin/alumni', 'Backend/Admin/Alumni::', ['filter' => 'filter_adm']);
 $routes->get('/admin/alumni/delete', 'Backend/Admin/Alumni::delete', ['filter' => 'filter_adm']);
-// Menu Kriteria Lowongan
-$routes->get('/admin/kriteria-lowongan', 'Backend/Admin/KriteriaLowongan::', ['filter' => 'filter_adm']);
-$routes->get('/admin/kriteria-lowongan/tambah', 'Backend/Admin/KriteriaLowongan::tambah', ['filter' => 'filter_adm']);
-$routes->post('/admin/kriteria-lowongan/add', 'Backend/Admin/KriteriaLowongan::add', ['filter' => 'filter_adm']);
-$routes->get('/admin/kriteria-lowongan/delete', 'Backend/Admin/KriteriaLowongan::delete', ['filter' => 'filter_adm']);
+// Menu Kriteria
+$routes->get('/admin/kriteria', 'Backend/Admin/Kriteria::', ['filter' => 'filter_adm']);
+$routes->get('/admin/kriteria/tambah', 'Backend/Admin/Kriteria::tambah', ['filter' => 'filter_adm']);
+$routes->post('/admin/kriteria/add', 'Backend/Admin/Kriteria::add', ['filter' => 'filter_adm']);
+$routes->get('/admin/kriteria/delete', 'Backend/Admin/Kriteria::delete', ['filter' => 'filter_adm']);
 // Menu Sub Kriteria Lowongan
 $routes->get('/admin/sub-kriteria-lowongan', 'Backend/Admin/SubKriteriaLowongan::', ['filter' => 'filter_adm']);
 $routes->get('/admin/sub-kriteria-lowongan/tambah', 'Backend/Admin/SubKriteriaLowongan::tambah', ['filter' => 'filter_adm']);
