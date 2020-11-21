@@ -40,13 +40,7 @@
                 foreach ($alumni as $key => $hasil) { ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $hasil['nim'] ?></td>
-                    <td><?= $hasil['nama'] ?></td>
-                    <td><?= $hasil['jenis_kelamin'] ?></td>
-                    <td><?= $hasil['umur'] ?></td>
-                    <td><?= $hasil['jurusan'] ?></td>
-                    <td><?= $hasil['kualifikasi_pendidikan'] ?></td>
-                    <td><?= $hasil['ipk'] ?></td>
+                    <td><?= $hasil['sub_kriteria'] ?></td>
                     <td>
                       <a href="/backend/admin/alumni/delete/<?= $hasil['id_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>

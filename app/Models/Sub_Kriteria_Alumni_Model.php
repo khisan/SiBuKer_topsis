@@ -11,7 +11,7 @@ class Sub_Kriteria_Alumni_model extends Model
     $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('id_sub_kriteria_alumni,kriteria,sub_kriteria,bobot,tb_kriteria_lowongan.cost_benefit');
     $builder->join('tb_kriteria_lowongan', 'tb_kriteria_lowongan.kode = tb_sub_kriteria_alumni.kode and tb_kriteria_lowongan.cost_benefit = tb_sub_kriteria_alumni.cost_benefit');
-    $builder->orderBy('tb_sub_kriteria_alumni.kode',);
+    $builder->orderBy('tb_sub_kriteria_alumni.kode');
     $builder->orderBy('tb_sub_kriteria_alumni.bobot', 'DESC');
     $query = $builder->get()->getResultArray();
     return $query;

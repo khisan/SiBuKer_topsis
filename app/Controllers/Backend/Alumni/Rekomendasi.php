@@ -42,9 +42,8 @@ class Rekomendasi extends BaseController
       'pengalaman_kerja' => $this->request->getPost('pengalaman_kerja'),
       'jurusan' => $this->request->getPost('jurusan'),
     ];
-    //dd($data);
     $this->Alumni_Model->update_data($data, $id_alumni);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
-    return redirect()->to('/alumni/rekomendasi');
+    return redirect()->to('/alumni/hasil-rekomendasi');
   }
 }

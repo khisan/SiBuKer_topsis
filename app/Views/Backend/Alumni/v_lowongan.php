@@ -33,7 +33,6 @@
                     <th class="border-top-0">Nama Lowongan</th>
                     <th class="border-top-0" style="width: 50%">Deskripsi Lowongan</th>
                     <th class="border-top-0">Gambar</th>
-                    <th class="border-top-0">Aksi</th>
                   </center>
                 </tr>
               </thead>

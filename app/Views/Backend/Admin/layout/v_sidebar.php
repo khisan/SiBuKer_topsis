@@ -8,12 +8,9 @@
        <ul id="sidebarnav">
          <!-- User Profile-->
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/home') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-home"></i><span class="hide-menu">Home</span></a></li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/jurusan') ?>" aria-expanded="false">
-             <i class="mdi mr-2 mdi-school"></i><span class="hide-menu">Data Jurusan</span></a>
-         </li>
-         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/alumni') ?>" aria-expanded="false">
+         <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/alumni') ?>" aria-expanded="false">
              <i class="mdi mr-2 mdi-account"></i><span class="hide-menu">Data Alumni</span></a>
-         </li>
+         </li> -->
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('admin/kriteria-lowongan') ?>" aria-expanded="false">
              <i class="mdi mr-2 mdi-arrange-bring-forward"></i><span class="hide-menu">Data Kriteria <br>Lowongan</span></a>
          </li>

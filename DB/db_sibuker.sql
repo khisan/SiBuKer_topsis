@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2020 at 05:37 AM
+-- Generation Time: Nov 21, 2020 at 04:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -52,42 +52,23 @@ CREATE TABLE `tb_alumni` (
   `nim` varchar(8) NOT NULL,
   `password` char(60) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `jenis_kelamin` varchar(2) NOT NULL,
-  `umur` int(11) NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
+  `umur` varchar(50) NOT NULL,
   `foto` text NOT NULL,
-  `id_jurusan` int(11) NOT NULL,
-  `kualifikasi_pendidikan` varchar(2) NOT NULL,
-  `ipk` float NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
+  `kualifikasi_pendidikan` varchar(50) NOT NULL,
+  `ipk` varchar(50) NOT NULL,
+  `pengalaman_kerja` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `tb_jurusan`
+-- Dumping data for table `tb_alumni`
 --
 
-CREATE TABLE `tb_jurusan` (
-  `id_jurusan` int(11) NOT NULL,
-  `jurusan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tb_jurusan`
---
-
-INSERT INTO `tb_jurusan` (`id_jurusan`, `jurusan`) VALUES
-(1, 'Teknik Informatika'),
-(5, 'Teknik Industri'),
-(6, 'Teknik Elektro'),
-(7, 'Teknik Mesin'),
-(8, 'Teknik Kimia'),
-(9, 'Teknik Sipil'),
-(10, 'Arsitektur'),
-(11, 'PWK'),
-(12, 'Teknik Geodesi'),
-(13, 'Teknik Lingkungan');
+INSERT INTO `tb_alumni` (`id_alumni`, `nim`, `password`, `nama`, `jenis_kelamin`, `umur`, `foto`, `jurusan`, `kualifikasi_pendidikan`, `ipk`, `pengalaman_kerja`, `created_at`, `updated_at`) VALUES
+(63, '1718006', 'coba', 'Khisan Ihza Wahyu Rifaldi', 'Laki-laki', '<= 25 Tahun', '1605791279_1ee746f7c4f4e4d48b0e.jpg', 'Teknik Informatika', 'S1', '> 3.00', '> 1 Tahun', '2020-11-19 06:53:37', '2020-11-19 06:53:37');
 
 -- --------------------------------------------------------
 
@@ -263,12 +244,6 @@ ALTER TABLE `tb_alumni`
   ADD PRIMARY KEY (`id_alumni`);
 
 --
--- Indexes for table `tb_jurusan`
---
-ALTER TABLE `tb_jurusan`
-  ADD PRIMARY KEY (`id_jurusan`);
-
---
 -- Indexes for table `tb_kriteria_lowongan`
 --
 ALTER TABLE `tb_kriteria_lowongan`
@@ -306,13 +281,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_alumni`
 --
 ALTER TABLE `tb_alumni`
-  MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
---
--- AUTO_INCREMENT for table `tb_jurusan`
---
-ALTER TABLE `tb_jurusan`
-  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `tb_kriteria_lowongan`

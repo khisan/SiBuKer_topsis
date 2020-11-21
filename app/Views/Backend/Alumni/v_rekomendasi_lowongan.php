@@ -23,10 +23,10 @@
                 <select class="form-control pl-0 form-control-line" name="jurusan">
                   <option>Pilih Jurusan</option>
                   <?php foreach ($jurusan as $key => $value) : ?>
-                    <?php if ($alumni['jurusan'] == $value['sub_kriteria']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                    <?php if ($alumni['jurusan'] == $value['bobot']) : ?>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>
@@ -38,10 +38,10 @@
                 <select class="form-control pl-0 form-control-line" name="jenis_kelamin">
                   <option>Pilih Jenis Kelamin</option>
                   <?php foreach ($jenis_kelamin as $key => $value) : ?>
-                    <?php if ($alumni['jenis_kelamin'] == $value['sub_kriteria']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                    <?php if ($alumni['jenis_kelamin'] == $value['bobot']) : ?>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>
@@ -53,10 +53,10 @@
                 <select class="form-control pl-0 form-control-line" name="umur">
                   <option>Pilih Umur</option>
                   <?php foreach ($umur as $key => $value) : ?>
-                    <?php if ($alumni['umur'] == $value['sub_kriteria']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                    <?php if ($alumni['umur'] == $value['bobot']) : ?>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>
@@ -68,10 +68,10 @@
                 <select class="form-control pl-0 form-control-line" name="kualifikasi_pendidikan">
                   <option>Pilih Kualifikasi Pendidikan</option>
                   <?php foreach ($kualifikasi_pendidikan as $key => $value) : ?>
-                    <?php if ($alumni['kualifikasi_pendidikan'] == $value['sub_kriteria']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                    <?php if ($alumni['kualifikasi_pendidikan'] == $value['bobot']) : ?>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>
@@ -83,10 +83,10 @@
                 <select class="form-control pl-0 form-control-line" name="ipk">
                   <option>Pilih IPK</option>
                   <?php foreach ($ipk as $key => $value) : ?>
-                    <?php if ($alumni['ipk'] == $value['sub_kriteria']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                    <?php if ($alumni['ipk'] == $value['bobot']) : ?>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>
@@ -98,10 +98,10 @@
                 <select class="form-control pl-0 form-control-line" name="pengalaman_kerja">
                   <option>Pilih Pengalaman Kerja</option>
                   <?php foreach ($pengalaman_kerja as $key => $value) : ?>
-                    <?php if ($alumni['pengalaman_kerja'] == $value['sub_kriteria']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                    <?php if ($alumni['pengalaman_kerja'] == $value['bobot']) : ?>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>

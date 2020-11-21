@@ -20,10 +20,10 @@ class Lowongan extends BaseController
   {
     $table = 'tb_alumni';
     $sesiAlumni = session()->get();
-    $nim = $sesiAlumni['nim'];
+    $id_alumni = $sesiAlumni['id_alumni'];
     $data = [
       'title'   => 'Data Lowongan',
-      'alumni'  => $this->AlumniModel->get_alumni_by_nim($nim, $table),
+      'alumni'  => $this->AlumniModel->get_alumni_by_id($id_alumni, $table),
       'lowongan'  => $this->Lowongan_model->allData(),
       'isi'     => 'Backend/Alumni/v_lowongan'
     ];
