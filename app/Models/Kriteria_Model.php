@@ -13,7 +13,12 @@ class Kriteria_model extends Model
       ->get()->getResultArray();
   }
 
-  function get_kriteria_by_kriteria($kode)
+  public function jmlKriteria()
+  {
+    return $this->db->table('tb_kriteria')->countAll();
+  }
+
+  public function get_kriteria_by_kriteria($kode)
   {
     return $this->db->table('tb_kriteria')
       ->select('cost_benefit')

@@ -12,6 +12,19 @@ class Lowongan_model extends Model
       ->get()->getResultArray();
   }
 
+  public function getNilai()
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->select('umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    return $builder->get();
+  }
+
+  // public function getNilai()
+  // {
+  //   $query = ('select umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan from tb_lowongan');
+  //   return $query;
+  // }
+
   function detail_data($id_alumni)
   {
     return $this->db->table('tb_lowongan')
