@@ -277,6 +277,59 @@
       <!-- Column -->
     </div>
   </div>
+  <!-- Matrik Solusi Ideal Positif dan Negatif -->
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-10 col-8 align-self-center">
+              <h4 class="card-title">Matrik Solusi Ideal Positif dan Negatif</h4>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table user-table">
+              <thead>
+                <tr>
+                  <center>
+                    <th class="border-top-0"></th>
+                    <th class="border-top-0">Y1 (Cost)</th>
+                    <th class="border-top-0">Y2 (Benefit)</th>
+                    <th class="border-top-0">Y3 (Cost)</th>
+                    <th class="border-top-0">Y4 (Benefit)</th>
+                    <th class="border-top-0">Y5 (Cost)</th>
+                    <th class="border-top-0">Y6 (Benefit)</th>
+                  </center>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Y+</td>
+                  <td><?= round($matrik_solusi_p[0], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_p[1], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_p[2], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_p[3], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_p[4], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_p[5], 6) ?>&nbsp(max)</td>
+                </tr>
+                <tr>
+                  <td>Y-</td>
+                  <td><?= round($matrik_solusi_n[0], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_n[1], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_n[2], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_n[3], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_n[4], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_n[5], 6) ?>&nbsp(min)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
 </div>
 <script src="/template/sweetalert/sweetalert2.all.min.js"></script>
 <!--Sweet Alert Message-->
