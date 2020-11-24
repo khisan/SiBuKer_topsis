@@ -17,6 +17,26 @@ class Alumni_model extends Model
     return $query;
   }
 
+  public function jmlData()
+  {
+    return $this->db->table('tb_lowongan')->countAll();
+  }
+
+  public function getNilai()
+  {
+    $builder = $this->db->table('tb_alumni');
+    $builder->select('umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    return $builder->get();
+  }
+
+  public function getNilaiByID($id_alumni)
+  {
+    $builder = $this->db->table('tb_alumni');
+    $builder->select('umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    $builder->where('id_alumni', $id_alumni);
+    return $builder->get();
+  }
+
   function get_alumni_by_id($id_alumni, $tbl)
   {
     $builder = $this->db->table($tbl);

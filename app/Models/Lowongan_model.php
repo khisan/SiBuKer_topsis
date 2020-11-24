@@ -19,6 +19,11 @@ class Lowongan_model extends Model
     return $builder->get();
   }
 
+  public function jmlData()
+  {
+    return $this->db->table('tb_lowongan')->countAll();
+  }
+
   // public function getNilai()
   // {
   //   $query = ('select umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan from tb_lowongan');

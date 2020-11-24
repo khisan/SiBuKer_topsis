@@ -162,7 +162,6 @@
               </thead>
               <tbody>
                 <tr>
-
                   <td><?= $alumni['umur'] ?></td>
                   <td><?= $alumni['kualifikasi_pendidikan'] ?></td>
                   <td><?= $alumni['ipk'] ?></td>
@@ -170,7 +169,6 @@
                   <td><?= $alumni['pengalaman_kerja'] ?></td>
                   <td><?= $alumni['jurusan'] ?></td>
                 </tr>
-
               </tbody>
             </table>
           </div>
@@ -208,14 +206,14 @@
               <tbody>
                 <tr>
                   <?php $no = 1;
-                  foreach ($lowongan as $key => $hasil) { ?>
+                  foreach ($normalisasi_bobot as $key => $hasil) { ?>
                     <td><?= "A", $no++ ?></td>
-                    <td><?= round($hasil['umur'] / $tabel_pembagi['0'], 6) ?></td>
-                    <td><?= round($hasil['kualifikasi_pendidikan'] / $tabel_pembagi['1'], 6) ?></td>
-                    <td><?= round($hasil['ipk'] / $tabel_pembagi['2'], 6) ?></td>
-                    <td><?= round($hasil['jenis_kelamin'] / $tabel_pembagi['3'], 6) ?></td>
-                    <td><?= round($hasil['pengalaman_kerja'] / $tabel_pembagi['4'], 6) ?></td>
-                    <td><?= round($hasil['jurusan'] / $tabel_pembagi['5'], 6) ?></td>
+                    <td><?= round($hasil[0], 6) ?></td>
+                    <td><?= round($hasil[1], 6) ?></td>
+                    <td><?= round($hasil[2], 6) ?></td>
+                    <td><?= round($hasil[3], 6) ?></td>
+                    <td><?= round($hasil[4], 6) ?></td>
+                    <td><?= round($hasil[5], 6) ?></td>
                 </tr>
               <?php } ?>
               </tbody>

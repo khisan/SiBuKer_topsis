@@ -58,6 +58,33 @@ class HasilRekomendasi extends BaseController
     return $matrikNormalisasi;
   }
 
+  //Normalisasi Bobot
+  public function normalisasiBobot()
+  {
+    $matrikNormalisasi = $this->matrikNormalisasi();
+    $lowongan = $this->Lowongan_model->getNilai();
+    $sesiNilaiAlumni = session()->get();
+    $umur = $sesiNilaiAlumni['umur'];
+    $kualifikasi_pendidikan = $sesiNilaiAlumni['kualifikasi_pendidikan'];
+    $ipk = $sesiNilaiAlumni['ipk'];
+    $jenis_kelamin = $sesiNilaiAlumni['jenis_kelamin'];
+    $pengalaman_kerja = $sesiNilaiAlumni['pengalaman_kerja'];
+    $jurusan = $sesiNilaiAlumni['jurusan'];
+    $no = 1;
+    while ($lowongan->getUnbufferedRow()) {
+      $normalisasiBobot[$no - 1] = array(
+        $matrikNormalisasi[$no - 1][0] * $umur,
+        $matrikNormalisasi[$no - 1][1] * $kualifikasi_pendidikan,
+        $matrikNormalisasi[$no - 1][2] * $ipk,
+        $matrikNormalisasi[$no - 1][3] * $jenis_kelamin,
+        $matrikNormalisasi[$no - 1][4] * $pengalaman_kerja,
+        $matrikNormalisasi[$no - 1][5] * $jurusan
+      );
+      $no++;
+    }
+    return $normalisasiBobot;
+  }
+
   public function index()
   {
     $table = 'tb_alumni';
@@ -69,6 +96,7 @@ class HasilRekomendasi extends BaseController
       'lowongan'  => $this->Lowongan_model->allData(),
       'tabel_pembagi' => $this->pembagi(),
       'matrik_normalisasi' => $this->matrikNormalisasi(),
+      'normalisasi_bobot' => $this->normalisasiBobot(),
       'isi'     => 'Backend/Alumni/v_hasil_rekomendasi'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);
