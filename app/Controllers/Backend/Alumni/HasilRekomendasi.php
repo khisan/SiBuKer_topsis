@@ -85,6 +85,60 @@ class HasilRekomendasi extends BaseController
     return $normalisasiBobot;
   }
 
+  // Normalisasi Transpose
+  function Transpose($squareArray)
+  {
+    if ($squareArray == null) {
+      return null;
+    }
+    $rotatedArray = array();
+    $r = 0;
+
+    foreach ($squareArray as $row) {
+      $c = 0;
+      if (is_array($row)) {
+        foreach ($row as $cell) {
+          $rotatedArray[$c][$r] = $cell;
+          ++$c;
+        }
+      } else $rotatedArray[$c][$r] = $row;
+      ++$r;
+    }
+    return $rotatedArray;
+  }
+
+  // Matrik Solusi Ideal Positif
+  function matrikSolusiIdealPositif()
+  {
+    $NormalisasiBobot = $this->normalisasiBobot();
+    $NormalisasiBobotTrans = $this->Transpose($NormalisasiBobot);
+    $matrikSolusiIdealPositif = array(
+      min($NormalisasiBobotTrans[0]),
+      max($NormalisasiBobotTrans[1]),
+      min($NormalisasiBobotTrans[2]),
+      max($NormalisasiBobotTrans[3]),
+      min($NormalisasiBobotTrans[4]),
+      max($NormalisasiBobotTrans[5]),
+    );
+    return $matrikSolusiIdealPositif;
+  }
+
+  // Matrik Solusi Ideal Positif Negatif
+  function matrikSolusiIdealNegatif()
+  {
+    $NormalisasiBobot = $this->matrikNormalisasi();
+    $NormalisasiBobotTrans = $this->Transpose($NormalisasiBobot);
+    $matrikSolusiIdealNegatif = array(
+      max($NormalisasiBobotTrans[0]),
+      min($NormalisasiBobotTrans[1]),
+      max($NormalisasiBobotTrans[2]),
+      min($NormalisasiBobotTrans[3]),
+      max($NormalisasiBobotTrans[4]),
+      min($NormalisasiBobotTrans[5]),
+    );
+    return $matrikSolusiIdealNegatif;
+  }
+
   public function index()
   {
     $table = 'tb_alumni';
@@ -97,6 +151,8 @@ class HasilRekomendasi extends BaseController
       'tabel_pembagi' => $this->pembagi(),
       'matrik_normalisasi' => $this->matrikNormalisasi(),
       'normalisasi_bobot' => $this->normalisasiBobot(),
+      'matrik_solusi_p' => $this->matrikSolusiIdealPositif(),
+      'matrik_solusi_n' => $this->matrikSolusiIdealNegatif(),
       'isi'     => 'Backend/Alumni/v_hasil_rekomendasi'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);
