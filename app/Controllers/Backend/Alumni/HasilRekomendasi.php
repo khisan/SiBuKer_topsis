@@ -19,7 +19,7 @@ class HasilRekomendasi extends BaseController
   }
 
   //Pembagi 
-  public function pembagi()
+  function pembagi()
   {
     $jmlKriteria = $this->Kriteria_Model->jmlKriteria();
     $getNilai = $this->Lowongan_model->getNilai();
@@ -39,7 +39,7 @@ class HasilRekomendasi extends BaseController
   }
 
   //Matrik Normalisasi
-  public function matrikNormalisasi()
+  function matrikNormalisasi()
   {
     $pembagi = $this->pembagi();
     $getNilai = $this->Lowongan_model->getNilai();
@@ -59,7 +59,7 @@ class HasilRekomendasi extends BaseController
   }
 
   //Normalisasi Bobot
-  public function normalisasiBobot()
+  function normalisasiBobot()
   {
     $matrikNormalisasi = $this->matrikNormalisasi();
     $lowongan = $this->Lowongan_model->getNilai();
@@ -126,7 +126,7 @@ class HasilRekomendasi extends BaseController
   // Matrik Solusi Ideal Positif Negatif
   function matrikSolusiIdealNegatif()
   {
-    $NormalisasiBobot = $this->matrikNormalisasi();
+    $NormalisasiBobot = $this->normalisasiBobot();
     $NormalisasiBobotTrans = $this->Transpose($NormalisasiBobot);
     $matrikSolusiIdealNegatif = array(
       max($NormalisasiBobotTrans[0]),
@@ -139,6 +139,37 @@ class HasilRekomendasi extends BaseController
     return $matrikSolusiIdealNegatif;
   }
 
+  // Fungsi Mengitung Jarak Antara Nilai Terbobot Setiap Alternatif Terhadap Solusi Ideal Positif
+  function JarakIplus($aplus, $bob)
+  {
+    for ($i = 0; $i < sizeof($bob); $i++) {
+      $dplus[$i] = 0;
+      for ($j = 0; $j < sizeof($aplus); $j++) {
+        $dplus[$i] = $dplus[$i] + pow(($aplus[$j] - $bob[$i][$j]), 2);
+      }
+      $dplus[$i] = round(sqrt($dplus[$i]), 4);
+    }
+    return $dplus;
+  }
+
+  // Dplus Jarak
+  function dPlus()
+  {
+    $NormalisasiBobot = $this->normalisasiBobot();
+    $IdealPositif = $this->matrikSolusiIdealPositif();
+    $dPlus = $this->JarakIplus($IdealPositif, $NormalisasiBobot);
+    return $dPlus;
+  }
+
+  // Dmin Jarak
+  function dMin()
+  {
+    $NormalisasiBobot = $this->normalisasiBobot();
+    $IdealNegatif = $this->matrikSolusiIdealNegatif();
+    $dMin = $this->JarakIplus($IdealNegatif, $NormalisasiBobot);
+    return $dMin;
+  }
+
   public function index()
   {
     $table = 'tb_alumni';
@@ -148,11 +179,14 @@ class HasilRekomendasi extends BaseController
       'title'   => 'Hasil Rekomendasi Lowongan',
       'alumni'  => $this->Alumni_Model->get_alumni_by_id($id_alumni, $table),
       'lowongan'  => $this->Lowongan_model->allData(),
+      'lowongan_get_nilai' => $this->Lowongan_model->getNilai(),
       'tabel_pembagi' => $this->pembagi(),
       'matrik_normalisasi' => $this->matrikNormalisasi(),
       'normalisasi_bobot' => $this->normalisasiBobot(),
       'matrik_solusi_p' => $this->matrikSolusiIdealPositif(),
       'matrik_solusi_n' => $this->matrikSolusiIdealNegatif(),
+      'd_plus' => $this->dPlus(),
+      'd_min' => $this->dMin(),
       'isi'     => 'Backend/Alumni/v_hasil_rekomendasi'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);

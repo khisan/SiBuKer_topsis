@@ -330,6 +330,49 @@
       <!-- Column -->
     </div>
   </div>
+  <!-- Jarak Antara Nilai Terbobot Setiap Alternatif Terhadap Solusi Ideal Positif -->
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-10 col-8 align-self-center">
+              <h4 class="card-title">Jarak Antara Nilai Terbobot Setiap Alternatif Terhadap Solusi Ideal Positif</h4>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table user-table">
+              <thead>
+                <tr>
+                  <center>
+                    <th class="border-top-0">D+</th>
+                    <th class="border-top-0"></th>
+                    <th class="border-top-0">D-</th>
+                    <th class="border-top-0"></th>
+                  </center>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $no = 1;
+                while ($lowongan_get_nilai->getUnbufferedRow()) { ?>
+                  <tr>
+                    <td><?= "D", $no ?></td>
+                    <td><?= round($d_plus[$no - 1], 6) ?></td>
+                    <td><?= "D", $no ?></td>
+                    <td><?= round($d_min[$no - 1], 6) ?></td>
+                    </td>
+                  </tr>
+                <?php $no++;
+                } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
 </div>
 <script src="/template/sweetalert/sweetalert2.all.min.js"></script>
 <!--Sweet Alert Message-->
