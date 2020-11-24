@@ -152,26 +152,25 @@
                 <tr>
                   <center>
                     <th class="border-top-0">Nilai Kriteria Umur</th>
-                    <th class="border-top-0">C2 (Benefit)</th>
-                    <th class="border-top-0">C3 (Cost)</th>
-                    <th class="border-top-0">C4 (Benefit)</th>
-                    <th class="border-top-0">C5 (Cost)</th>
-                    <th class="border-top-0">C6 (Benefit)</th>
+                    <th class="border-top-0">Nilai Kriteria Kualifikasi Pendidikan</th>
+                    <th class="border-top-0">Nilai Kriteria IPK</th>
+                    <th class="border-top-0">Nilai Kriteria Jenis Kelamin</th>
+                    <th class="border-top-0">Nilai Kriteria Pengalaman Kerja</th>
+                    <th class="border-top-0">Nilai Kriteria Jurusan</th>
                   </center>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <?php $no = 1;
-                  foreach ($lowongan as $key => $hasil) { ?>
-                    <td><?= round($hasil['umur'] / $tabel_pembagi['0'], 6) ?></td>
-                    <td><?= round($hasil['kualifikasi_pendidikan'] / $tabel_pembagi['1'], 6) ?></td>
-                    <td><?= round($hasil['ipk'] / $tabel_pembagi['2'], 6) ?></td>
-                    <td><?= round($hasil['jenis_kelamin'] / $tabel_pembagi['3'], 6) ?></td>
-                    <td><?= round($hasil['pengalaman_kerja'] / $tabel_pembagi['4'], 6) ?></td>
-                    <td><?= round($hasil['jurusan'] / $tabel_pembagi['5'], 6) ?></td>
+
+                  <td><?= $alumni['umur'] ?></td>
+                  <td><?= $alumni['kualifikasi_pendidikan'] ?></td>
+                  <td><?= $alumni['ipk'] ?></td>
+                  <td><?= $alumni['jenis_kelamin'] ?></td>
+                  <td><?= $alumni['pengalaman_kerja'] ?></td>
+                  <td><?= $alumni['jurusan'] ?></td>
                 </tr>
-              <?php } ?>
+
               </tbody>
             </table>
           </div>
