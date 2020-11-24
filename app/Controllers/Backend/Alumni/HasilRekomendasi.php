@@ -29,29 +29,13 @@ class HasilRekomendasi extends BaseController
       $no++;
     }
     for ($i = 0; $i < $jmlKriteria; $i++) {
-      // echo $jmlKriteria;
       $pangkatdua[$i] = 0;
       for ($j = 0; $j < sizeof($matrik); $j++) {
         $pangkatdua[$i] = $pangkatdua[$i] + pow($matrik[$j][$i], 2);
-        // print_r($matrik);
-        // echo pow($matrik[$j][$i], 2);
       }
       $pembagi[$i] = sqrt($pangkatdua[$i]);
     }
     return $pembagi;
-  }
-
-  public function matrikNormalisasi()
-  {
-    $jmlRecord = $this->Lowongan_model->jmlRecord();
-    $no = 1;
-    while ($row = $jmlRecord()) {
-      $matrikNormalisasi[$no - 1] = array(
-        $row / $this->pembagiNM[$no]
-      );
-    }
-    $no++;
-    return $row;
   }
 
   public function index()

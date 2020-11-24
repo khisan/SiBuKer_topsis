@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <!-- Matrik Lowongan -->
   <!-- Row -->
   <div class="row">
     <div class="col-sm-12">
@@ -45,7 +46,7 @@
       <!-- Column -->
     </div>
   </div>
-
+  <!-- Tabel Pembagi -->
   <!-- Row -->
   <div class="row">
     <div class="col-sm-12">
@@ -61,7 +62,6 @@
               <thead>
                 <tr>
                   <center>
-                    <th class="border-top-0">Keterangan</th>
                     <th class="border-top-0">C1</th>
                     <th class="border-top-0">C2</th>
                     <th class="border-top-0">C3</th>
@@ -72,9 +72,7 @@
                 </tr>
               </thead>
               <tbody>
-
                 <tr>
-                  <td>Nilai Pembagi</td>
                   <td><?= $tabel_pembagi['0'] ?></td>
                   <td><?= $tabel_pembagi['1'] ?></td>
                   <td><?= $tabel_pembagi['2'] ?></td>
@@ -82,7 +80,98 @@
                   <td><?= $tabel_pembagi['4'] ?></td>
                   <td><?= $tabel_pembagi['5'] ?></td>
                 </tr>
-
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+  <!-- Matriks Normalisasi "R" -->
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-10 col-8 align-self-center">
+              <h4 class="card-title">Matriks Normalisasi "R"</h4>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table user-table">
+              <thead>
+                <tr>
+                  <center>
+                    <th class="border-top-0">Alternatif</th>
+                    <th class="border-top-0">C1 (Cost)</th>
+                    <th class="border-top-0">C2 (Benefit)</th>
+                    <th class="border-top-0">C3 (Cost)</th>
+                    <th class="border-top-0">C4 (Benefit)</th>
+                    <th class="border-top-0">C5 (Cost)</th>
+                    <th class="border-top-0">C6 (Benefit)</th>
+                  </center>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php $no = 1;
+                  foreach ($lowongan as $key => $hasil) { ?>
+                    <td><?= "A", $no++ ?></td>
+                    <td><?= round($hasil['umur'] / $tabel_pembagi['0'], 6) ?></td>
+                    <td><?= round($hasil['kualifikasi_pendidikan'] / $tabel_pembagi['1'], 6) ?></td>
+                    <td><?= round($hasil['ipk'] / $tabel_pembagi['2'], 6) ?></td>
+                    <td><?= round($hasil['jenis_kelamin'] / $tabel_pembagi['3'], 6) ?></td>
+                    <td><?= round($hasil['pengalaman_kerja'] / $tabel_pembagi['4'], 6) ?></td>
+                    <td><?= round($hasil['jurusan'] / $tabel_pembagi['5'], 6) ?></td>
+                </tr>
+              <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+  <!-- BOBOT (W) -->
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-10 col-8 align-self-center">
+              <h4 class="card-title">BOBOT (W)</h4>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table user-table">
+              <thead>
+                <tr>
+                  <center>
+                    <th class="border-top-0">Nilai Kriteria Umur</th>
+                    <th class="border-top-0">C2 (Benefit)</th>
+                    <th class="border-top-0">C3 (Cost)</th>
+                    <th class="border-top-0">C4 (Benefit)</th>
+                    <th class="border-top-0">C5 (Cost)</th>
+                    <th class="border-top-0">C6 (Benefit)</th>
+                  </center>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php $no = 1;
+                  foreach ($lowongan as $key => $hasil) { ?>
+                    <td><?= round($hasil['umur'] / $tabel_pembagi['0'], 6) ?></td>
+                    <td><?= round($hasil['kualifikasi_pendidikan'] / $tabel_pembagi['1'], 6) ?></td>
+                    <td><?= round($hasil['ipk'] / $tabel_pembagi['2'], 6) ?></td>
+                    <td><?= round($hasil['jenis_kelamin'] / $tabel_pembagi['3'], 6) ?></td>
+                    <td><?= round($hasil['pengalaman_kerja'] / $tabel_pembagi['4'], 6) ?></td>
+                    <td><?= round($hasil['jurusan'] / $tabel_pembagi['5'], 6) ?></td>
+                </tr>
+              <?php } ?>
               </tbody>
             </table>
           </div>
