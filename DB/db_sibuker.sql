@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 10:36 PM
+-- Generation Time: Nov 30, 2020 at 10:28 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -68,26 +68,26 @@ CREATE TABLE `tb_alumni` (
 --
 
 INSERT INTO `tb_alumni` (`id_alumni`, `nim`, `password`, `nama`, `jenis_kelamin`, `umur`, `foto`, `jurusan`, `kualifikasi_pendidikan`, `ipk`, `pengalaman_kerja`, `created_at`, `updated_at`) VALUES
-(63, '1718006', 'coba', 'Khisan Ihza Wahyu Rifaldi', 2, 1, '1605791279_1ee746f7c4f4e4d48b0e.jpg', 2, 5, 1, 4, '2020-11-19 06:53:37', '2020-11-19 06:53:37');
+(63, '1718006', 'coba', 'Khisan Ihza Wahyu Rifaldi', 4, 1, '1605791279_1ee746f7c4f4e4d48b0e.jpg', 3, 5, 1, 4, '2020-11-19 06:53:37', '2020-11-19 06:53:37');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kriteria_lowongan`
+-- Table structure for table `tb_kriteria`
 --
 
-CREATE TABLE `tb_kriteria_lowongan` (
-  `id_kriteria_lowongan` int(11) NOT NULL,
+CREATE TABLE `tb_kriteria` (
+  `id_kriteria` int(11) NOT NULL,
   `kode` char(2) NOT NULL,
   `kriteria` varchar(50) NOT NULL,
   `cost_benefit` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_kriteria_lowongan`
+-- Dumping data for table `tb_kriteria`
 --
 
-INSERT INTO `tb_kriteria_lowongan` (`id_kriteria_lowongan`, `kode`, `kriteria`, `cost_benefit`) VALUES
+INSERT INTO `tb_kriteria` (`id_kriteria`, `kode`, `kriteria`, `cost_benefit`) VALUES
 (2, 'C1', 'Umur', 'cost'),
 (3, 'C2', 'Kualifikasi Pendidikan', 'benefit'),
 (4, 'C3', 'IPK', 'cost'),
@@ -120,7 +120,12 @@ CREATE TABLE `tb_lowongan` (
 --
 
 INSERT INTO `tb_lowongan` (`id_lowongan`, `nama_perusahaan`, `nama_lowongan`, `umur`, `kualifikasi_pendidikan`, `ipk`, `jenis_kelamin`, `pengalaman_kerja`, `jurusan`, `deskripsi_lowongan`, `gambar`) VALUES
-(3, 'PT. Tirta Freshindo Jaya Plant 2', 'Analyst', 2, 2, 4, 1, 4, 2, '<p class=\"MsoListParagraphCxSpFirst\" style=\"margin-left:3.05pt;mso-add-space:\r\nauto;text-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Usia\r\nmaks 30 Tahun<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Pendidikan\r\nmin.SMK Teknik Kimia, Kimia Analis, Kimia Industri</span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- </span><span style=\"font-family: \"Times New Roman\", serif; font-size: 12pt; text-align: left;\">Bersedia bekerja\r\nsistem 3 shift</span></p>', '1605690216_dd5c0e66f276acd98594.jpg');
+(3, 'PT. Tirta Freshindo Jaya Plant 2', 'Analyst', 3, 2, 1, 1, 1, 1, '<p class=\"MsoListParagraphCxSpFirst\" style=\"margin-left:3.05pt;mso-add-space:\r\nauto;text-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Usia\r\nmaks 30 Tahun<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- Pendidikan\r\nmin.SMK Teknik Kimia, Kimia Analis, Kimia Industri</span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left:3.05pt;mso-add-space:auto;\r\ntext-align:justify;text-indent:-6.35pt;mso-list:l0 level1 lfo1\"><span style=\"font-size:12.0pt;line-height:107%;font-family:\"Times New Roman\",serif\">- </span><span style=\"font-family: \"Times New Roman\", serif; font-size: 12pt; text-align: left;\">Bersedia bekerja\r\nsistem 3 shift</span></p>', '1605690216_dd5c0e66f276acd98594.jpg'),
+(4, 'coba', 'coba', 3, 1, 1, 1, 1, 1, '', ''),
+(5, 'coba2', 'doba', 4, 5, 3, 2, 5, 1, '', ''),
+(6, 'coba3', 'eoba', 4, 3, 4, 3, 2, 5, '', ''),
+(7, 'coba4', 'foba', 5, 4, 4, 5, 4, 2, '', ''),
+(8, 'coba5', 'goba', 5, 4, 4, 5, 4, 5, '', '');
 
 -- --------------------------------------------------------
 
@@ -244,10 +249,11 @@ ALTER TABLE `tb_alumni`
   ADD PRIMARY KEY (`id_alumni`);
 
 --
--- Indexes for table `tb_kriteria_lowongan`
+-- Indexes for table `tb_kriteria`
 --
-ALTER TABLE `tb_kriteria_lowongan`
-  ADD PRIMARY KEY (`id_kriteria_lowongan`);
+ALTER TABLE `tb_kriteria`
+  ADD PRIMARY KEY (`id_kriteria`),
+  ADD UNIQUE KEY `kode` (`kode`);
 
 --
 -- Indexes for table `tb_lowongan`
@@ -259,13 +265,15 @@ ALTER TABLE `tb_lowongan`
 -- Indexes for table `tb_sub_kriteria_alumni`
 --
 ALTER TABLE `tb_sub_kriteria_alumni`
-  ADD PRIMARY KEY (`id_sub_kriteria_alumni`);
+  ADD PRIMARY KEY (`id_sub_kriteria_alumni`),
+  ADD KEY `kode` (`kode`);
 
 --
 -- Indexes for table `tb_sub_kriteria_lowongan`
 --
 ALTER TABLE `tb_sub_kriteria_lowongan`
-  ADD PRIMARY KEY (`id_sub_kriteria_lowongan`);
+  ADD PRIMARY KEY (`id_sub_kriteria_lowongan`),
+  ADD KEY `kode` (`kode`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -284,16 +292,16 @@ ALTER TABLE `tb_alumni`
   MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
--- AUTO_INCREMENT for table `tb_kriteria_lowongan`
+-- AUTO_INCREMENT for table `tb_kriteria`
 --
-ALTER TABLE `tb_kriteria_lowongan`
-  MODIFY `id_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `tb_kriteria`
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_lowongan`
 --
 ALTER TABLE `tb_lowongan`
-  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_sub_kriteria_alumni`
@@ -306,6 +314,22 @@ ALTER TABLE `tb_sub_kriteria_alumni`
 --
 ALTER TABLE `tb_sub_kriteria_lowongan`
   MODIFY `id_sub_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_sub_kriteria_alumni`
+--
+ALTER TABLE `tb_sub_kriteria_alumni`
+  ADD CONSTRAINT `tb_sub_kriteria_alumni_ibfk_1` FOREIGN KEY (`kode`) REFERENCES `tb_kriteria` (`kode`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tb_sub_kriteria_lowongan`
+--
+ALTER TABLE `tb_sub_kriteria_lowongan`
+  ADD CONSTRAINT `tb_sub_kriteria_lowongan_ibfk_1` FOREIGN KEY (`kode`) REFERENCES `tb_kriteria` (`kode`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
