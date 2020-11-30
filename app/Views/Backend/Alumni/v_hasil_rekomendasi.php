@@ -29,7 +29,7 @@
                 <?php $no = 1;
                 foreach ($lowongan as $key => $hasil) { ?>
                   <tr>
-                    <td><?= "A", $no++ ?></td>
+                    <td><?= $hasil['nama_lowongan'] ?></td>
                     <td><?= $hasil['umur'] ?></td>
                     <td><?= $hasil['kualifikasi_pendidikan'] ?></td>
                     <td><?= $hasil['ipk'] ?></td>
@@ -118,7 +118,7 @@
                 <tr>
                   <?php $no = 1;
                   foreach ($matrik_normalisasi as $key => $hasil) { ?>
-                    <td><?= "A", $no++ ?></td>
+                    <td><?= $hasil[6] ?></td>
                     <td><?= round($hasil[0], 6) ?></td>
                     <td><?= round($hasil[1], 6) ?></td>
                     <td><?= round($hasil[2], 6) ?></td>
@@ -207,7 +207,7 @@
                 <tr>
                   <?php $no = 1;
                   foreach ($normalisasi_bobot as $key => $hasil) { ?>
-                    <td><?= "A", $no++ ?></td>
+                    <td><?= $hasil[6] ?></td>
                     <td><?= round($hasil[0], 6) ?></td>
                     <td><?= round($hasil[1], 6) ?></td>
                     <td><?= round($hasil[2], 6) ?></td>
@@ -355,12 +355,88 @@
               </thead>
               <tbody>
                 <?php $no = 1;
-                while ($lowongan_get_nilai->getUnbufferedRow()) { ?>
+                while ($low = $lowongan_get_nilai->getUnbufferedRow()) { ?>
                   <tr>
-                    <td><?= "D", $no ?></td>
+                    <td><?= $low->nama_lowongan ?></td>
                     <td><?= round($d_plus[$no - 1], 6) ?></td>
-                    <td><?= "D", $no ?></td>
+                    <td><?= $low->nama_lowongan ?></td>
                     <td><?= round($d_min[$no - 1], 6) ?></td>
+                    </td>
+                  </tr>
+                <?php $no++;
+                } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+  <!-- Nilai Preferensi untuk Setiap alternatif (V) -->
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-10 col-8 align-self-center">
+              <h4 class="card-title">Nilai Preferensi untuk Setiap alternatif (V)</h4>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table user-table">
+              <thead>
+                <tr>
+                  <center>
+                    <th class="border-top-0">Nilai Preferensi "V"</th>
+                    <th class="border-top-0">V</th>
+                  </center>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $no = 1;
+                while ($low = $lowongan_get_nilai_2->getUnbufferedRow()) { ?>
+                  <tr>
+                    <td><?= $low->nama_lowongan ?></td>
+                    <td><?= round($nilai_v[$no - 1], 6) ?></td>
+                    </td>
+                  </tr>
+                <?php $no++;
+                } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+  <!-- 5 Nilai Preferensi Tertinggi -->
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-10 col-8 align-self-center">
+              <h4 class="card-title">5 Nilai Preferensi Tertinggi</h4>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table user-table">
+              <thead>
+                <tr>
+                  <th class="border-top-0">Nilai Preferensi Tertinggi</th>
+                  <th class="border-top-0">Alternatif Lowongan Terpilih</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $no = 0;
+                foreach ($nilai_v_tertinggi_limit as $key => $hasil) { ?>
+                  <tr>
+                    <td><?= $hasil[0] ?></td>
+                    <td><?= $hasil[1]; ?></td>
                     </td>
                   </tr>
                 <?php $no++;

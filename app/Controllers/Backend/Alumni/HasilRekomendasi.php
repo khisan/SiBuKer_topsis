@@ -51,7 +51,8 @@ class HasilRekomendasi extends BaseController
         $row->ipk / $pembagi[2],
         $row->jenis_kelamin / $pembagi[3],
         $row->pengalaman_kerja / $pembagi[4],
-        $row->jurusan / $pembagi[5]
+        $row->jurusan / $pembagi[5],
+        $row->nama_lowongan,
       );
       $no++;
     }
@@ -78,7 +79,8 @@ class HasilRekomendasi extends BaseController
         $matrikNormalisasi[$no - 1][2] * $ipk,
         $matrikNormalisasi[$no - 1][3] * $jenis_kelamin,
         $matrikNormalisasi[$no - 1][4] * $pengalaman_kerja,
-        $matrikNormalisasi[$no - 1][5] * $jurusan
+        $matrikNormalisasi[$no - 1][5] * $jurusan,
+        $matrikNormalisasi[$no - 1][6]
       );
       $no++;
     }
@@ -170,6 +172,62 @@ class HasilRekomendasi extends BaseController
     return $dMin;
   }
 
+  // Nilai V
+  function nilaiV()
+  {
+    $lowongan = $this->Lowongan_model->getNilai();
+    $dMin = $this->dMin();
+    $dPlus = $this->dPlus();
+    $nilaiV = array();
+    $no = 1;
+    while ($lowongan->getUnbufferedRow()) {
+      array_push(
+        $nilaiV,
+        $dMin[$no - 1] / ($dMin[$no - 1] + $dPlus[$no - 1]),
+      );
+      $no++;
+    }
+    return $nilaiV;
+  }
+
+  // 5 Nilai V Tertinggi
+  function nilaiVAlt()
+  {
+    $nilaiVTertinggi = $this->nilaiV();
+    $nilaiVAlt = array();
+    $lowongan = $this->Lowongan_model->getNilai();
+    $no = 0;
+    while ($low = $lowongan->getUnbufferedRow('array')) {
+      $nilaiVAlt[$no][0] = $nilaiVTertinggi[$no];
+      $nilaiVAlt[$no][1] = $low['nama_lowongan'];
+      $no++;
+    }
+    return $nilaiVAlt;
+  }
+
+  function nilaiVTertinggi()
+  {
+    $nilaiVAlt = $this->nilaiVAlt();
+    rsort($nilaiVAlt);
+    foreach ($nilaiVAlt as $x_value) {
+      $hsl[] =  array($x_value[1], $x_value[0]);
+    }
+    return $hsl;
+  }
+
+  function nilaiVTertinggiLimit()
+  {
+    $nilaiVTertinggi = $this->nilaiVTertinggi();
+    $nilaiVTertinggiLimit = array();
+    $lowongan = $this->Lowongan_model->getNilaiLimit();
+    $no = 0;
+    while ($low = $lowongan->getUnbufferedRow('array')) {
+      $nilaiVTertinggiLimit[$no] = $nilaiVTertinggi[$no];
+      $no++;
+    }
+    return $nilaiVTertinggiLimit;
+  }
+
   public function index()
   {
     $table = 'tb_alumni';
@@ -180,6 +238,8 @@ class HasilRekomendasi extends BaseController
       'alumni'  => $this->Alumni_Model->get_alumni_by_id($id_alumni, $table),
       'lowongan'  => $this->Lowongan_model->allData(),
       'lowongan_get_nilai' => $this->Lowongan_model->getNilai(),
+      'lowongan_get_nilai_2' => $this->Lowongan_model->getNilai(),
+      'lowongan_get_nilai_limit' => $this->Lowongan_model->getNilaiLimit(),
       'tabel_pembagi' => $this->pembagi(),
       'matrik_normalisasi' => $this->matrikNormalisasi(),
       'normalisasi_bobot' => $this->normalisasiBobot(),
@@ -187,6 +247,10 @@ class HasilRekomendasi extends BaseController
       'matrik_solusi_n' => $this->matrikSolusiIdealNegatif(),
       'd_plus' => $this->dPlus(),
       'd_min' => $this->dMin(),
+      'nilai_v' => $this->nilaiV(),
+      // 'nilai_v' => dd($this->nilaiVAlt()),
+      // 'nilai_v_tertinggi' => dd($this->nilaiVTertinggi()),
+      'nilai_v_tertinggi_limit' => $this->nilaiVTertinggiLimit(),
       'isi'     => 'Backend/Alumni/v_hasil_rekomendasi'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);

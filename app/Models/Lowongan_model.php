@@ -15,8 +15,20 @@ class Lowongan_model extends Model
   public function getNilai()
   {
     $builder = $this->db->table('tb_lowongan');
-    $builder->select('umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    $builder->select('nama_lowongan,umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
     return $builder->get();
+  }
+
+  public function getNilaiLimit()
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->select('*');
+    $builder->limit(5);
+    // $builder->where('id_lowongan', $i);
+    return $builder->get();
+    // $db = \Config\Database::connect();
+    // $query = $this->db->query('select umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan from tb_lowongan limit 5');
+    // return $query;
   }
 
   public function jmlData()
@@ -30,10 +42,10 @@ class Lowongan_model extends Model
   //   return $query;
   // }
 
-  function detail_data($id_alumni)
+  function detail_data($id_lowongan)
   {
     return $this->db->table('tb_lowongan')
-      ->where('id_lowongan', $id_alumni)
+      ->where('id_lowongan', $id_lowongan)
       ->get()->getRowArray();
   }
 
