@@ -19,7 +19,7 @@ class Sub_Kriteria_Alumni_model extends Model
 
   public function getUmur()
   {
-    $builder = $this->db->table('tb_sub_kriteria_lowongan');
+    $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
     $builder->where('kode', 'C1');
     $builder->orderBy('bobot', 'DESC');
@@ -29,7 +29,7 @@ class Sub_Kriteria_Alumni_model extends Model
 
   public function getKualifikasiPendidikan()
   {
-    $builder = $this->db->table('tb_sub_kriteria_lowongan');
+    $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
     $builder->where('kode', 'C2');
     $builder->orderBy('bobot', 'DESC');
@@ -39,7 +39,7 @@ class Sub_Kriteria_Alumni_model extends Model
 
   public function getIpk()
   {
-    $builder = $this->db->table('tb_sub_kriteria_lowongan');
+    $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
     $builder->where('kode', 'C3');
     $builder->orderBy('bobot', 'DESC');
@@ -49,7 +49,7 @@ class Sub_Kriteria_Alumni_model extends Model
 
   public function getJenisKelamin()
   {
-    $builder = $this->db->table('tb_sub_kriteria_lowongan');
+    $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
     $builder->where('kode', 'C4');
     $builder->orderBy('bobot', 'DESC');
@@ -59,7 +59,7 @@ class Sub_Kriteria_Alumni_model extends Model
 
   public function getPengalamanKerja()
   {
-    $builder = $this->db->table('tb_sub_kriteria_lowongan');
+    $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
     $builder->where('kode', 'C5');
     $builder->orderBy('bobot', 'DESC');
@@ -69,7 +69,7 @@ class Sub_Kriteria_Alumni_model extends Model
 
   public function getJurusan()
   {
-    $builder = $this->db->table('tb_sub_kriteria_lowongan');
+    $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
     $builder->where('kode', 'C6');
     $builder->orderBy('bobot', 'DESC');

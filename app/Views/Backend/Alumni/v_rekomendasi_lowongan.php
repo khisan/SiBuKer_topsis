@@ -26,7 +26,7 @@
                     <?php if ($alumni['jurusan'] == $value['bobot']) : ?>
                       <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
-                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria'] ?></option>
                     <?php endif; ?>
                   <?php endforeach; ?>
                 </select>

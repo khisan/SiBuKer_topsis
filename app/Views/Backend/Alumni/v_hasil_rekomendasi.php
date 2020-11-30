@@ -1,3 +1,9 @@
+<style>
+  td,
+  th {
+    text-align: center;
+  }
+</style>
 <div class="container-fluid">
   <!-- Matrik Lowongan -->
   <!-- Row -->
@@ -14,15 +20,13 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">Alternatif</th>
-                    <th class="border-top-0">C1 (Cost)</th>
-                    <th class="border-top-0">C2 (Benefit)</th>
-                    <th class="border-top-0">C3 (Cost)</th>
-                    <th class="border-top-0">C4 (Benefit)</th>
-                    <th class="border-top-0">C5 (Cost)</th>
-                    <th class="border-top-0">C6 (Benefit)</th>
-                  </center>
+                  <th class="border-top-0">Alternatif</th>
+                  <th class="border-top-0">C1 (Cost)</th>
+                  <th class="border-top-0">C2 (Benefit)</th>
+                  <th class="border-top-0">C3 (Cost)</th>
+                  <th class="border-top-0">C4 (Benefit)</th>
+                  <th class="border-top-0">C5 (Cost)</th>
+                  <th class="border-top-0">C6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,14 +65,12 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">C1</th>
-                    <th class="border-top-0">C2</th>
-                    <th class="border-top-0">C3</th>
-                    <th class="border-top-0">C4</th>
-                    <th class="border-top-0">C5</th>
-                    <th class="border-top-0">C6</th>
-                  </center>
+                  <th class="border-top-0">C1</th>
+                  <th class="border-top-0">C2</th>
+                  <th class="border-top-0">C3</th>
+                  <th class="border-top-0">C4</th>
+                  <th class="border-top-0">C5</th>
+                  <th class="border-top-0">C6</th>
                 </tr>
               </thead>
               <tbody>
@@ -103,15 +105,13 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">Alternatif</th>
-                    <th class="border-top-0">C1 (Cost)</th>
-                    <th class="border-top-0">C2 (Benefit)</th>
-                    <th class="border-top-0">C3 (Cost)</th>
-                    <th class="border-top-0">C4 (Benefit)</th>
-                    <th class="border-top-0">C5 (Cost)</th>
-                    <th class="border-top-0">C6 (Benefit)</th>
-                  </center>
+                  <th class="border-top-0">Alternatif</th>
+                  <th class="border-top-0">C1 (Cost)</th>
+                  <th class="border-top-0">C2 (Benefit)</th>
+                  <th class="border-top-0">C3 (Cost)</th>
+                  <th class="border-top-0">C4 (Benefit)</th>
+                  <th class="border-top-0">C5 (Cost)</th>
+                  <th class="border-top-0">C6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -150,14 +150,12 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">Nilai Kriteria Umur</th>
-                    <th class="border-top-0">Nilai Kriteria Kualifikasi Pendidikan</th>
-                    <th class="border-top-0">Nilai Kriteria IPK</th>
-                    <th class="border-top-0">Nilai Kriteria Jenis Kelamin</th>
-                    <th class="border-top-0">Nilai Kriteria Pengalaman Kerja</th>
-                    <th class="border-top-0">Nilai Kriteria Jurusan</th>
-                  </center>
+                  <th class="border-top-0">Nilai Kriteria Umur</th>
+                  <th class="border-top-0">Nilai Kriteria Kualifikasi Pendidikan</th>
+                  <th class="border-top-0">Nilai Kriteria IPK</th>
+                  <th class="border-top-0">Nilai Kriteria Jenis Kelamin</th>
+                  <th class="border-top-0">Nilai Kriteria Pengalaman Kerja</th>
+                  <th class="border-top-0">Nilai Kriteria Jurusan</th>
                 </tr>
               </thead>
               <tbody>
@@ -192,15 +190,13 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">Alternatif</th>
-                    <th class="border-top-0">C1 (Cost)</th>
-                    <th class="border-top-0">C2 (Benefit)</th>
-                    <th class="border-top-0">C3 (Cost)</th>
-                    <th class="border-top-0">C4 (Benefit)</th>
-                    <th class="border-top-0">C5 (Cost)</th>
-                    <th class="border-top-0">C6 (Benefit)</th>
-                  </center>
+                  <th class="border-top-0">Alternatif</th>
+                  <th class="border-top-0">C1 (Cost)</th>
+                  <th class="border-top-0">C2 (Benefit)</th>
+                  <th class="border-top-0">C3 (Cost)</th>
+                  <th class="border-top-0">C4 (Benefit)</th>
+                  <th class="border-top-0">C5 (Cost)</th>
+                  <th class="border-top-0">C6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -239,15 +235,13 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0"></th>
-                    <th class="border-top-0">Y1 (Cost)</th>
-                    <th class="border-top-0">Y2 (Benefit)</th>
-                    <th class="border-top-0">Y3 (Cost)</th>
-                    <th class="border-top-0">Y4 (Benefit)</th>
-                    <th class="border-top-0">Y5 (Cost)</th>
-                    <th class="border-top-0">Y6 (Benefit)</th>
-                  </center>
+                  <th class="border-top-0"></th>
+                  <th class="border-top-0">Y1 (Cost)</th>
+                  <th class="border-top-0">Y2 (Benefit)</th>
+                  <th class="border-top-0">Y3 (Cost)</th>
+                  <th class="border-top-0">Y4 (Benefit)</th>
+                  <th class="border-top-0">Y5 (Cost)</th>
+                  <th class="border-top-0">Y6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -292,15 +286,13 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0"></th>
-                    <th class="border-top-0">Y1 (Cost)</th>
-                    <th class="border-top-0">Y2 (Benefit)</th>
-                    <th class="border-top-0">Y3 (Cost)</th>
-                    <th class="border-top-0">Y4 (Benefit)</th>
-                    <th class="border-top-0">Y5 (Cost)</th>
-                    <th class="border-top-0">Y6 (Benefit)</th>
-                  </center>
+                  <th class="border-top-0"></th>
+                  <th class="border-top-0">Y1 (Cost)</th>
+                  <th class="border-top-0">Y2 (Benefit)</th>
+                  <th class="border-top-0">Y3 (Cost)</th>
+                  <th class="border-top-0">Y4 (Benefit)</th>
+                  <th class="border-top-0">Y5 (Cost)</th>
+                  <th class="border-top-0">Y6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -345,12 +337,10 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">D+</th>
-                    <th class="border-top-0"></th>
-                    <th class="border-top-0">D-</th>
-                    <th class="border-top-0"></th>
-                  </center>
+                  <th class="border-top-0">D+</th>
+                  <th class="border-top-0"></th>
+                  <th class="border-top-0">D-</th>
+                  <th class="border-top-0"></th>
                 </tr>
               </thead>
               <tbody>
@@ -388,10 +378,8 @@
             <table class="table user-table">
               <thead>
                 <tr>
-                  <center>
-                    <th class="border-top-0">Nilai Preferensi "V"</th>
-                    <th class="border-top-0">V</th>
-                  </center>
+                  <th class="border-top-0">Nilai Preferensi "V"</th>
+                  <th class="border-top-0">V</th>
                 </tr>
               </thead>
               <tbody>
@@ -435,8 +423,8 @@
                 <?php $no = 0;
                 foreach ($nilai_v_tertinggi_limit as $key => $hasil) { ?>
                   <tr>
-                    <td><?= $hasil[0] ?></td>
-                    <td><?= $hasil[1]; ?></td>
+                    <td><?= $hasil[0]; ?></td>
+                    <td><?= round($hasil[1], 6); ?></td>
                     </td>
                   </tr>
                 <?php $no++;
