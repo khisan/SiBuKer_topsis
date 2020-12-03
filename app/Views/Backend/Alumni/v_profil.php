@@ -7,7 +7,6 @@
         <div class="card-body profile-card">
           <center> <img src="/foto/<?= $alumni['foto'] ?>" class="rounded-circle" width="200" height="200" />
             <h4 class="card-title m-t-10"> <?= $alumni['nama'] ?> </h4>
-            <h6 class="card-subtitle"><?= $alumni['kualifikasi_pendidikan'] ?></h6>
             <div class="row text-center justify-content-center">
               <div class="col-8">
                 <p class="link">

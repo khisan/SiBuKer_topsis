@@ -20,7 +20,7 @@ class Auth_adm extends BaseController
     $row = $model->get_data_login_adm($username, $table);
     // dd($row->password);
     if ($row == NULL) {
-      session()->setFlashdata('pesan', 'username anda salah');
+      session()->setFlashdata('pesan', 'errorU');
       return redirect()->to('/admin/login');
     }
     if ($password == $row->password) {
@@ -33,7 +33,7 @@ class Auth_adm extends BaseController
       session()->setFlashdata('pesan', 'Berhasil Login');
       return redirect()->to('/admin/home');
     }
-    session()->setFlashdata('pesan', 'Password Salah');
+    session()->setFlashdata('pesan', 'errorP');
     return redirect()->to('/admin/login');
   }
 

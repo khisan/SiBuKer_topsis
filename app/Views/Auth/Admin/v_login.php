@@ -20,10 +20,9 @@
 <link rel="stylesheet" type="text/css" href="/template/auth/css/main.css">
 <div class="login-page">
   <div class="form">
-    <!-- <div class="swal" data-swal="<?php session()->get('gagal') ?>"></div> -->
     <form class="login-form" action="/backend/admin/auth_adm/login" method="post">
       <h3 class="title">Page Login Admin</h3>
-      <?= session()->get('pesan') ?>
+      <?php session()->get('pesan') ?>
       <input type="text" placeholder="Username" name="username" />
       <input type="password" placeholder="Password" name="password" />
       <button>Login</button>
@@ -31,8 +30,7 @@
   </div>
 </div>
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
-<script src="/template/auth/js/main.js"></script>
-<script src="/template/sweetalert/sweetalert2.min.js"></script>
+<script src="/template/sweetalert/sweetalert2.all.min.js"></script>
 <!--Sweet Alert Message-->
 <?php if (session()->get('pesan') == 'errorU') : ?>
   <script>

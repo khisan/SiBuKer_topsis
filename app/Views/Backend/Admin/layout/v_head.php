@@ -23,4 +23,6 @@
   <link href="/template/backend/assets/css/style.min.css" rel="stylesheet">
   <!-- Summernote CSS -->
   <link href="/template/summernote/summernote-bs4.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="/template/DataTables/datatables.min.css" rel="stylesheet">
 </head>

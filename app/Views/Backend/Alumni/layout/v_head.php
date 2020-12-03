@@ -21,4 +21,6 @@
   <link href="/template/backend/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link href="/template/backend/assets/css/style.min.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="/template/DataTables/datatables.min.css" rel="stylesheet">
 </head>

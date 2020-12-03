@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="table-responsive">
-            <table class="table user-table">
+            <table id="tables" class="table user-table">
               <thead>
                 <tr>
                   <center>

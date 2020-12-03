@@ -39,6 +39,21 @@
 <script src="/template/backend/assets/js/custom.js"></script>
 <!--Summernote JavaScript -->
 <script src="/template/summernote/summernote-bs4.js"></script>
+<!--DataTables JavaScript -->
+<script src="/template/DataTables/datatables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#tables').dataTable({
+      pageLength: 5,
+      lengthMenu: [
+        [5, 10, 25, 50],
+        [5, 10, 25, 50]
+      ]
+    });
+  });
+</script>
 </body>
+
+
 
 </html>

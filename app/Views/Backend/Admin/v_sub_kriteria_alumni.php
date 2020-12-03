@@ -13,7 +13,7 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-body">
-          <div class="row align-items-center">
+          <div class="row align-items-center" style="margin-bottom: 10px;">
             <div class="col-md-10 col-8 align-self-center">
               <h4 class="card-title">Data Sub Kriteria Alumni</h4>
             </div>
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="table-responsive">
-            <table class="table user-table">
+            <table id="tables" class="table user-table">
               <thead>
                 <tr>
                   <center>

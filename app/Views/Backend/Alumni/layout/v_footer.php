@@ -37,6 +37,19 @@
 <!--Custom JavaScript -->
 <script src="/template/backend/assets/js/pages/dashboards/dashboard1.js"></script>
 <script src="/template/backend/assets/js/custom.js"></script>
+<!--DataTables JavaScript -->
+<script src="/template/DataTables/datatables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#tables').dataTable({
+      pageLength: 5,
+      lengthMenu: [
+        [5, 10, 25, 50],
+        [5, 10, 25, 50]
+      ]
+    });
+  });
+</script>
 </body>
 
 </html>

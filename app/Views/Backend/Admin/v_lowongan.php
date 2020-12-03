@@ -19,7 +19,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row align-items-center">
-            <div class="col-md-10 col-8 align-self-center">
+            <div class="col-md-10 col-8 align-self-center" style="margin-bottom: 10px;">
               <h4 class="card-title">Data Lowongan</h4>
             </div>
             <div class="col-md-2 col-4 align-self-right">
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="table-responsive">
-            <table class="table user-table">
+            <table id="tables" class="table user-table">
               <thead>
                 <tr>
                   <center>
