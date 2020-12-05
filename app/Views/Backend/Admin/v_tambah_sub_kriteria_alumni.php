@@ -40,12 +40,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-12 mb-0">Cost/Benefit</label>
-              <div class="col-md-12">
-                <input type="text" class="cost_benefit form-control pl-0 form-control-line" name="cost_benefit" required readonly>
-              </div>
-            </div>
-            <div class="form-group">
               <div class="col-sm-12 d-flex">
                 <button class="btn btn-success mx-auto mx-md-0 text-white" type="submit">Tambah</button>
               </div>
@@ -57,26 +51,3 @@
     <!-- Column -->
   </div>
 </div>
-<script src="/template/auth/js/jquery-3.2.1.min.js"></script>
-<script>
-  // Chained Dropdown
-  $(document).ready(function() {
-    $('#kriteria').change(function() {
-      var kode = $(this).val();
-      $.ajax({
-        url: "/backend/admin/subkriterialowongan/get_subkategori",
-        method: "POST",
-        data: {
-          kode: kode
-        },
-        // async: false,
-        dataType: 'json',
-        success: function(data) {
-          var isi = '';
-          isi += data.cost_benefit;
-          $('.cost_benefit').val(isi);
-        }
-      });
-    });
-  });
-</script>

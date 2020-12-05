@@ -30,7 +30,6 @@
                     <th class="border-top-0">Kriteria</th>
                     <th class="border-top-0">Sub Kriteria</th>
                     <th class="border-top-0">Bobot</th>
-                    <th class="border-top-0">Cost/Benefit</th>
                     <th class="border-top-0">Aksi</th>
                   </center>
                 </tr>
@@ -43,7 +42,6 @@
                     <td><?= $hasil['kriteria'] ?></td>
                     <td><?= $hasil['sub_kriteria'] ?></td>
                     <td><?= $hasil['bobot'] ?></td>
-                    <td><?= $hasil['cost_benefit'] ?></td>
                     <td>
                       <a href="/backend/admin/subkriteriaalumni/ubah/<?= $hasil['id_sub_kriteria_alumni'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
                       <a href="/backend/admin/subkriteriaalumni/delete/<?= $hasil['id_sub_kriteria_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>

@@ -47,7 +47,6 @@ class SubKriteriaAlumni extends BaseController
       'kode' => $this->request->getPost('kode'),
       'sub_kriteria' => $this->request->getPost('sub_kriteria'),
       'bobot' => $this->request->getPost('bobot'),
-      'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
     $this->Sub_Kriteria_Alumni_model->add($data);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
@@ -72,7 +71,6 @@ class SubKriteriaAlumni extends BaseController
       'kode' => $this->request->getPost('kode'),
       'bobot' => $this->request->getPost('bobot'),
       'sub_kriteria' => $this->request->getPost('sub_kriteria'),
-      'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
     $this->Sub_Kriteria_Alumni_model->update_data($data, $id_sub_kriteria_alumni);
     session()->setFlashdata('success', 'Data Berhasil Diubah');

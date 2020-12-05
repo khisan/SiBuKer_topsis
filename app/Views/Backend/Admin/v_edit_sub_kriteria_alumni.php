@@ -43,12 +43,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-12 mb-0">Cost/Benefit</label>
-              <div class="col-md-12">
-                <input type="text" class="cost_benefit form-control pl-0 form-control-line" required readonly name="cost_benefit" value="<?= $sub_kriteria_alumni['cost_benefit'] ?>">
-              </div>
-            </div>
-            <div class="form-group">
               <div class="col-sm-12 d-flex">
                 <button class="btn btn-success mx-auto mx-md-0 text-white" type="submit">Ubah</button>
               </div>

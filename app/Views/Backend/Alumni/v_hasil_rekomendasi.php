@@ -415,14 +415,16 @@
             <table class="table user-table">
               <thead>
                 <tr>
+                  <th class="border-top-0">Perankingan</th>
                   <th class="border-top-0">Nilai Preferensi Tertinggi</th>
                   <th class="border-top-0">Alternatif Lowongan Terpilih</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $no = 0;
+                <?php $no = 1;
                 foreach ($nilai_v_tertinggi_limit as $key => $hasil) { ?>
                   <tr>
+                    <td><?= $no; ?></td>
                     <td><?= $hasil[0]; ?></td>
                     <td><?= round($hasil[1], 6); ?></td>
                     </td>
