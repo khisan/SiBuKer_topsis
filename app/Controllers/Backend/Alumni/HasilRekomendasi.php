@@ -117,9 +117,9 @@ class HasilRekomendasi extends BaseController
     $matrikSolusiIdealPositif = array(
       min($NormalisasiBobotTrans[0]),
       max($NormalisasiBobotTrans[1]),
-      min($NormalisasiBobotTrans[2]),
+      max($NormalisasiBobotTrans[2]),
       max($NormalisasiBobotTrans[3]),
-      min($NormalisasiBobotTrans[4]),
+      max($NormalisasiBobotTrans[4]),
       max($NormalisasiBobotTrans[5]),
     );
     return $matrikSolusiIdealPositif;
@@ -133,9 +133,9 @@ class HasilRekomendasi extends BaseController
     $matrikSolusiIdealNegatif = array(
       max($NormalisasiBobotTrans[0]),
       min($NormalisasiBobotTrans[1]),
-      max($NormalisasiBobotTrans[2]),
+      min($NormalisasiBobotTrans[2]),
       min($NormalisasiBobotTrans[3]),
-      max($NormalisasiBobotTrans[4]),
+      min($NormalisasiBobotTrans[4]),
       min($NormalisasiBobotTrans[5]),
     );
     return $matrikSolusiIdealNegatif;
