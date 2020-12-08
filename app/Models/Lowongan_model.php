@@ -19,11 +19,11 @@ class Lowongan_model extends Model
     return $builder->get()->getResultArray();
   }
 
-  public function getLowonganByJurusan($jurusan)
+  public function countLowonganByJurusan($jurusan)
   {
     $builder = $this->db->table('tb_lowongan');
     $builder->like('deskripsi_lowongan', $jurusan);
-    return $builder->get()->getResultArray();
+    return $builder->countAll();
   }
 
   public function getNilai($jurusan)

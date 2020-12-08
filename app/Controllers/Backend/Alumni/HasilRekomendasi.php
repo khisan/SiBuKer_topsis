@@ -220,13 +220,30 @@ class HasilRekomendasi extends BaseController
 
   function nilaiVTertinggiLimit()
   {
-    $nilaiVTertinggi = $this->nilaiVTertinggi();
-    $nilaiVTertinggiLimit = array();
-    $lowongan = $this->Lowongan_model->getNilaiLimit();
-    $no = 0;
-    while ($low = $lowongan->getUnbufferedRow('array')) {
-      $nilaiVTertinggiLimit[$no] = $nilaiVTertinggi[$no];
-      $no++;
+    $sesiJurusan = session()->get();
+    $jurusan = $sesiJurusan['jurusan'];
+    try {
+      if ($this->Lowongan_model->countLowonganByJurusan($jurusan) < 5) {
+        $nilaiVTertinggi = $this->nilaiVTertinggi();
+        $nilaiVTertinggiLimit = array();
+        $lowongan = $this->Lowongan_model->getLowonganByJurusan($jurusan);
+        $no = 0;
+        while ($low = $lowongan->getUnbufferedRow('array')) {
+          $nilaiVTertinggiLimit[$no] = $nilaiVTertinggi[$no];
+          $no++;
+        }
+      } elseif ($this->Lowongan_model->countLowonganByJurusan($jurusan) > 5) {
+        $nilaiVTertinggi = $this->nilaiVTertinggi();
+        $nilaiVTertinggiLimit = array();
+        $lowongan = $this->Lowongan_model->getNilaiLimit();
+        $no = 0;
+        while ($low = $lowongan->getUnbufferedRow('array')) {
+          $nilaiVTertinggiLimit[$no] = $nilaiVTertinggi[$no];
+          $no++;
+        }
+      }
+    } catch (\Throwable $th) {
+      "error";
     }
     return $nilaiVTertinggiLimit;
   }
