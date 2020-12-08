@@ -21,11 +21,14 @@ class HasilRekomendasi extends BaseController
   //Pembagi 
   function pembagi()
   {
+    $sesiJurusan = session()->get();
+    $jurusan = $sesiJurusan['jurusan'];
     $jmlKriteria = $this->Kriteria_Model->jmlKriteria();
-    $getNilai = $this->Lowongan_model->getNilai();
+    $getNilai = $this->Lowongan_model->getNilai($jurusan);
     $no = 1;
+    $matrikNormalisasi = array();
     while ($row = $getNilai->getUnbufferedRow()) {
-      $matrikNormalisasi[$no - 1] = array($row->umur, $row->kualifikasi_pendidikan, $row->ipk, $row->jenis_kelamin, $row->pengalaman_kerja, $row->jurusan);
+      $matrikNormalisasi[$no - 1] = array($row->umur, $row->kualifikasi_pendidikan, $row->ipk, $row->pengalaman_kerja);
       $no++;
     }
     for ($i = 0; $i < $jmlKriteria; $i++) {
@@ -41,17 +44,18 @@ class HasilRekomendasi extends BaseController
   //Matrik Normalisasi
   function matrikNormalisasi()
   {
+    $sesiJurusan = session()->get();
+    $jurusan = $sesiJurusan['jurusan'];
     $pembagi = $this->pembagi();
-    $getNilai = $this->Lowongan_model->getNilai();
+    $getNilai = $this->Lowongan_model->getNilai($jurusan);
     $no = 1;
+    $matrikNormalisasi = array();
     while ($row = $getNilai->getUnbufferedRow()) {
       $matrikNormalisasi[$no - 1] = array(
         $row->umur / $pembagi[0],
         $row->kualifikasi_pendidikan / $pembagi[1],
         $row->ipk / $pembagi[2],
-        $row->jenis_kelamin / $pembagi[3],
-        $row->pengalaman_kerja / $pembagi[4],
-        $row->jurusan / $pembagi[5],
+        $row->pengalaman_kerja / $pembagi[3],
         $row->nama_lowongan,
       );
       $no++;
@@ -62,25 +66,24 @@ class HasilRekomendasi extends BaseController
   //Normalisasi Bobot
   function normalisasiBobot()
   {
+    $sesiJurusan = session()->get();
+    $jurusan = $sesiJurusan['jurusan'];
     $matrikNormalisasi = $this->matrikNormalisasi();
-    $lowongan = $this->Lowongan_model->getNilai();
+    $lowongan = $this->Lowongan_model->getNilai($jurusan);
     $sesiNilaiAlumni = session()->get();
     $umur = $sesiNilaiAlumni['umur'];
     $kualifikasi_pendidikan = $sesiNilaiAlumni['kualifikasi_pendidikan'];
     $ipk = $sesiNilaiAlumni['ipk'];
-    $jenis_kelamin = $sesiNilaiAlumni['jenis_kelamin'];
     $pengalaman_kerja = $sesiNilaiAlumni['pengalaman_kerja'];
-    $jurusan = $sesiNilaiAlumni['jurusan'];
     $no = 1;
+    $normalisasiBobot = array();
     while ($lowongan->getUnbufferedRow()) {
       $normalisasiBobot[$no - 1] = array(
         $matrikNormalisasi[$no - 1][0] * $umur,
         $matrikNormalisasi[$no - 1][1] * $kualifikasi_pendidikan,
         $matrikNormalisasi[$no - 1][2] * $ipk,
-        $matrikNormalisasi[$no - 1][3] * $jenis_kelamin,
-        $matrikNormalisasi[$no - 1][4] * $pengalaman_kerja,
-        $matrikNormalisasi[$no - 1][5] * $jurusan,
-        $matrikNormalisasi[$no - 1][6]
+        $matrikNormalisasi[$no - 1][3] * $pengalaman_kerja,
+        $matrikNormalisasi[$no - 1][4]
       );
       $no++;
     }
@@ -119,8 +122,6 @@ class HasilRekomendasi extends BaseController
       max($NormalisasiBobotTrans[1]),
       max($NormalisasiBobotTrans[2]),
       max($NormalisasiBobotTrans[3]),
-      max($NormalisasiBobotTrans[4]),
-      max($NormalisasiBobotTrans[5]),
     );
     return $matrikSolusiIdealPositif;
   }
@@ -135,8 +136,6 @@ class HasilRekomendasi extends BaseController
       min($NormalisasiBobotTrans[1]),
       min($NormalisasiBobotTrans[2]),
       min($NormalisasiBobotTrans[3]),
-      min($NormalisasiBobotTrans[4]),
-      min($NormalisasiBobotTrans[5]),
     );
     return $matrikSolusiIdealNegatif;
   }
@@ -175,7 +174,9 @@ class HasilRekomendasi extends BaseController
   // Nilai V
   function nilaiV()
   {
-    $lowongan = $this->Lowongan_model->getNilai();
+    $sesiJurusan = session()->get();
+    $jurusan = $sesiJurusan['jurusan'];
+    $lowongan = $this->Lowongan_model->getNilai($jurusan);
     $dMin = $this->dMin();
     $dPlus = $this->dPlus();
     $nilaiV = array();
@@ -193,9 +194,11 @@ class HasilRekomendasi extends BaseController
   // 5 Nilai V Tertinggi
   function nilaiVAlt()
   {
+    $sesiJurusan = session()->get();
+    $jurusan = $sesiJurusan['jurusan'];
     $nilaiVTertinggi = $this->nilaiV();
     $nilaiVAlt = array();
-    $lowongan = $this->Lowongan_model->getNilai();
+    $lowongan = $this->Lowongan_model->getNilai($jurusan);
     $no = 0;
     while ($low = $lowongan->getUnbufferedRow('array')) {
       $nilaiVAlt[$no][0] = $nilaiVTertinggi[$no];
@@ -233,12 +236,13 @@ class HasilRekomendasi extends BaseController
     $table = 'tb_alumni';
     $sesiAlumni = session()->get();
     $id_alumni = $sesiAlumni['id_alumni'];
+    $jurusan = $sesiAlumni['jurusan'];
     $data = [
       'title'   => 'Hasil Rekomendasi Lowongan',
       'alumni'  => $this->Alumni_Model->get_alumni_by_id($id_alumni, $table),
-      'lowongan'  => $this->Lowongan_model->allData(),
-      'lowongan_get_nilai' => $this->Lowongan_model->getNilai(),
-      'lowongan_get_nilai_2' => $this->Lowongan_model->getNilai(),
+      'lowongan'  => $this->Lowongan_model->getLowonganByJurusan($jurusan),
+      'lowongan_get_nilai' => $this->Lowongan_model->getNilai($jurusan),
+      'lowongan_get_nilai_2' => $this->Lowongan_model->getNilai($jurusan),
       'lowongan_get_nilai_limit' => $this->Lowongan_model->getNilaiLimit(),
       'tabel_pembagi' => $this->pembagi(),
       'matrik_normalisasi' => $this->matrikNormalisasi(),

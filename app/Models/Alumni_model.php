@@ -9,8 +9,8 @@ class Alumni_model extends Model
   public function allData()
   {
     $builder = $this->db->table('tb_alumni');
-    $builder->select('id_alumni,nama,jenis_kelamin,umur,jurusan,kualifikasi_pendidikan,ipk,pengalaman_kerja,tb_sub_kriteria_alumni.sub_kriteria');
-    $builder->join('tb_sub_kriteria_alumni', 'tb_sub_kriteria_alumni.bobot = tb_alumni.jenis_kelamin and tb_sub_kriteria_alumni.bobot = tb_alumni.umur and tb_sub_kriteria_alumni.bobot = tb_alumni.jurusan and tb_sub_kriteria_alumni.bobot = tb_alumni.kualifikasi_pendidikan and tb_sub_kriteria_alumni.bobot = tb_alumni.ipk and tb_sub_kriteria_alumni.bobot = tb_alumni.pengalaman_kerja', 'left');
+    $builder->select('id_alumni,nama,umur,jurusan,kualifikasi_pendidikan,ipk,pengalaman_kerja,tb_sub_kriteria_alumni.sub_kriteria');
+    $builder->join('tb_sub_kriteria_alumni', ' tb_sub_kriteria_alumni.bobot = tb_alumni.umur and tb_sub_kriteria_alumni.bobot = tb_alumni.kualifikasi_pendidikan and tb_sub_kriteria_alumni.bobot = tb_alumni.ipk and tb_sub_kriteria_alumni.bobot = tb_alumni.pengalaman_kerja', 'left');
     $builder->groupBy('tb_sub_kriteria_alumni.kode');
     $builder->orderBy('tb_alumni.nama', 'DESC');
     $query = $builder->get()->getResultArray();
@@ -25,16 +25,24 @@ class Alumni_model extends Model
   public function getNilai()
   {
     $builder = $this->db->table('tb_alumni');
-    $builder->select('umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    $builder->select('umur,kualifikasi_pendidikan,ipk,pengalaman_kerja');
     return $builder->get();
   }
 
   public function getNilaiByID($id_alumni)
   {
     $builder = $this->db->table('tb_alumni');
-    $builder->select('umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    $builder->select('umur,kualifikasi_pendidikan,ipk,pengalaman_kerja');
     $builder->where('id_alumni', $id_alumni);
     return $builder->get();
+  }
+
+  public function getJurusan($id_alumni)
+  {
+    $builder = $this->db->table('tb_alumni');
+    $builder->select('jurusan');
+    $builder->where('id_alumni', $id_alumni);
+    return $builder->get()->getRowArray();
   }
 
   function get_alumni_by_id($id_alumni, $tbl)

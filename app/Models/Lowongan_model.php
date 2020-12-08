@@ -12,10 +12,33 @@ class Lowongan_model extends Model
       ->get()->getResultArray();
   }
 
-  public function getNilai()
+  public function getLowonganByJurusan($jurusan)
   {
     $builder = $this->db->table('tb_lowongan');
-    $builder->select('nama_lowongan,umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan');
+    $builder->like('deskripsi_lowongan', $jurusan);
+    return $builder->get()->getResultArray();
+  }
+
+  public function getLowonganByJurusan($jurusan)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->like('deskripsi_lowongan', $jurusan);
+    return $builder->get()->getResultArray();
+  }
+
+  public function getNilai($jurusan)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->select('nama_lowongan,umur,kualifikasi_pendidikan,ipk,pengalaman_kerja,deskripsi_lowongan');
+    $builder->like('deskripsi_lowongan', $jurusan);
+    return $builder->get();
+  }
+
+  public function getNilaiCoba($jurusan)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->select('nama_lowongan,umur,kualifikasi_pendidikan,ipk,pengalaman_kerja,deskripsi_lowongan');
+    $builder->where('deskripsi_lowongan', $jurusan);
     return $builder->get();
   }
 

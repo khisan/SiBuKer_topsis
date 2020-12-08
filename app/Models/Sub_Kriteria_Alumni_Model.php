@@ -47,31 +47,11 @@ class Sub_Kriteria_Alumni_model extends Model
     return $query;
   }
 
-  public function getJenisKelamin()
-  {
-    $builder = $this->db->table('tb_sub_kriteria_alumni');
-    $builder->select('kode,sub_kriteria,bobot');
-    $builder->where('kode', 'C4');
-    $builder->orderBy('bobot', 'DESC');
-    $query = $builder->get()->getResultArray();
-    return $query;
-  }
-
   public function getPengalamanKerja()
   {
     $builder = $this->db->table('tb_sub_kriteria_alumni');
     $builder->select('kode,sub_kriteria,bobot');
-    $builder->where('kode', 'C5');
-    $builder->orderBy('bobot', 'DESC');
-    $query = $builder->get()->getResultArray();
-    return $query;
-  }
-
-  public function getJurusan()
-  {
-    $builder = $this->db->table('tb_sub_kriteria_alumni');
-    $builder->select('kode,sub_kriteria,bobot');
-    $builder->where('kode', 'C6');
+    $builder->where('kode', 'C4');
     $builder->orderBy('bobot', 'DESC');
     $query = $builder->get()->getResultArray();
     return $query;

@@ -65,8 +65,6 @@
                   <th class="border-top-0">C2</th>
                   <th class="border-top-0">C3</th>
                   <th class="border-top-0">C4</th>
-                  <th class="border-top-0">C5</th>
-                  <th class="border-top-0">C6</th>
                 </tr>
               </thead>
               <tbody>
@@ -75,8 +73,6 @@
                   <td><?= $tabel_pembagi['1'] ?></td>
                   <td><?= $tabel_pembagi['2'] ?></td>
                   <td><?= $tabel_pembagi['3'] ?></td>
-                  <td><?= $tabel_pembagi['4'] ?></td>
-                  <td><?= $tabel_pembagi['5'] ?></td>
                 </tr>
               </tbody>
             </table>
@@ -104,23 +100,19 @@
                   <th class="border-top-0">Alternatif</th>
                   <th class="border-top-0">C1 (Cost)</th>
                   <th class="border-top-0">C2 (Benefit)</th>
-                  <th class="border-top-0">C3 (Cost)</th>
+                  <th class="border-top-0">C3 (Benefit)</th>
                   <th class="border-top-0">C4 (Benefit)</th>
-                  <th class="border-top-0">C5 (Cost)</th>
-                  <th class="border-top-0">C6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <?php $no = 1;
                   foreach ($matrik_normalisasi as $key => $hasil) { ?>
-                    <td><?= $hasil[6] ?></td>
+                    <td><?= $hasil[4] ?></td>
                     <td><?= round($hasil[0], 6) ?></td>
                     <td><?= round($hasil[1], 6) ?></td>
                     <td><?= round($hasil[2], 6) ?></td>
                     <td><?= round($hasil[3], 6) ?></td>
-                    <td><?= round($hasil[4], 6) ?></td>
-                    <td><?= round($hasil[5], 6) ?></td>
                 </tr>
               <?php } ?>
               </tbody>
@@ -149,9 +141,7 @@
                   <th class="border-top-0">Nilai Kriteria Umur</th>
                   <th class="border-top-0">Nilai Kriteria Kualifikasi Pendidikan</th>
                   <th class="border-top-0">Nilai Kriteria IPK</th>
-                  <th class="border-top-0">Nilai Kriteria Jenis Kelamin</th>
                   <th class="border-top-0">Nilai Kriteria Pengalaman Kerja</th>
-                  <th class="border-top-0">Nilai Kriteria Jurusan</th>
                 </tr>
               </thead>
               <tbody>
@@ -159,9 +149,7 @@
                   <td><?= $alumni['umur'] ?></td>
                   <td><?= $alumni['kualifikasi_pendidikan'] ?></td>
                   <td><?= $alumni['ipk'] ?></td>
-                  <td><?= $alumni['jenis_kelamin'] ?></td>
                   <td><?= $alumni['pengalaman_kerja'] ?></td>
-                  <td><?= $alumni['jurusan'] ?></td>
                 </tr>
               </tbody>
             </table>
@@ -189,23 +177,19 @@
                   <th class="border-top-0">Alternatif</th>
                   <th class="border-top-0">C1 (Cost)</th>
                   <th class="border-top-0">C2 (Benefit)</th>
-                  <th class="border-top-0">C3 (Cost)</th>
+                  <th class="border-top-0">C3 (Benefit)</th>
                   <th class="border-top-0">C4 (Benefit)</th>
-                  <th class="border-top-0">C5 (Cost)</th>
-                  <th class="border-top-0">C6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <?php $no = 1;
                   foreach ($normalisasi_bobot as $key => $hasil) { ?>
-                    <td><?= $hasil[6] ?></td>
+                    <td><?= $hasil[4] ?></td>
                     <td><?= round($hasil[0], 6) ?></td>
                     <td><?= round($hasil[1], 6) ?></td>
                     <td><?= round($hasil[2], 6) ?></td>
                     <td><?= round($hasil[3], 6) ?></td>
-                    <td><?= round($hasil[4], 6) ?></td>
-                    <td><?= round($hasil[5], 6) ?></td>
                 </tr>
               <?php } ?>
               </tbody>
@@ -234,10 +218,8 @@
                   <th class="border-top-0"></th>
                   <th class="border-top-0">Y1 (Cost)</th>
                   <th class="border-top-0">Y2 (Benefit)</th>
-                  <th class="border-top-0">Y3 (Cost)</th>
+                  <th class="border-top-0">Y3 (Benefit)</th>
                   <th class="border-top-0">Y4 (Benefit)</th>
-                  <th class="border-top-0">Y5 (Cost)</th>
-                  <th class="border-top-0">Y6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -245,19 +227,15 @@
                   <td>Y+</td>
                   <td><?= round($matrik_solusi_p[0], 6) ?>&nbsp(min)</td>
                   <td><?= round($matrik_solusi_p[1], 6) ?>&nbsp(max)</td>
-                  <td><?= round($matrik_solusi_p[2], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_p[2], 6) ?>&nbsp(max)</td>
                   <td><?= round($matrik_solusi_p[3], 6) ?>&nbsp(max)</td>
-                  <td><?= round($matrik_solusi_p[4], 6) ?>&nbsp(min)</td>
-                  <td><?= round($matrik_solusi_p[5], 6) ?>&nbsp(max)</td>
                 </tr>
                 <tr>
                   <td>Y-</td>
                   <td><?= round($matrik_solusi_n[0], 6) ?>&nbsp(max)</td>
                   <td><?= round($matrik_solusi_n[1], 6) ?>&nbsp(min)</td>
-                  <td><?= round($matrik_solusi_n[2], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_n[2], 6) ?>&nbsp(min)</td>
                   <td><?= round($matrik_solusi_n[3], 6) ?>&nbsp(min)</td>
-                  <td><?= round($matrik_solusi_n[4], 6) ?>&nbsp(max)</td>
-                  <td><?= round($matrik_solusi_n[5], 6) ?>&nbsp(min)</td>
                 </tr>
               </tbody>
             </table>
@@ -285,10 +263,8 @@
                   <th class="border-top-0"></th>
                   <th class="border-top-0">Y1 (Cost)</th>
                   <th class="border-top-0">Y2 (Benefit)</th>
-                  <th class="border-top-0">Y3 (Cost)</th>
+                  <th class="border-top-0">Y3 (Benefit)</th>
                   <th class="border-top-0">Y4 (Benefit)</th>
-                  <th class="border-top-0">Y5 (Cost)</th>
-                  <th class="border-top-0">Y6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -296,19 +272,15 @@
                   <td>Y+</td>
                   <td><?= round($matrik_solusi_p[0], 6) ?>&nbsp(min)</td>
                   <td><?= round($matrik_solusi_p[1], 6) ?>&nbsp(max)</td>
-                  <td><?= round($matrik_solusi_p[2], 6) ?>&nbsp(min)</td>
+                  <td><?= round($matrik_solusi_p[2], 6) ?>&nbsp(max)</td>
                   <td><?= round($matrik_solusi_p[3], 6) ?>&nbsp(max)</td>
-                  <td><?= round($matrik_solusi_p[4], 6) ?>&nbsp(min)</td>
-                  <td><?= round($matrik_solusi_p[5], 6) ?>&nbsp(max)</td>
                 </tr>
                 <tr>
                   <td>Y-</td>
                   <td><?= round($matrik_solusi_n[0], 6) ?>&nbsp(max)</td>
                   <td><?= round($matrik_solusi_n[1], 6) ?>&nbsp(min)</td>
-                  <td><?= round($matrik_solusi_n[2], 6) ?>&nbsp(max)</td>
+                  <td><?= round($matrik_solusi_n[2], 6) ?>&nbsp(min)</td>
                   <td><?= round($matrik_solusi_n[3], 6) ?>&nbsp(min)</td>
-                  <td><?= round($matrik_solusi_n[4], 6) ?>&nbsp(max)</td>
-                  <td><?= round($matrik_solusi_n[5], 6) ?>&nbsp(min)</td>
                 </tr>
               </tbody>
             </table>
