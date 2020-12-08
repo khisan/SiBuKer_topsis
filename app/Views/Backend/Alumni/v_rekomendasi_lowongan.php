@@ -33,21 +33,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-12 mb-0">Jenis Kelamin</label>
-              <div class="col-md-12">
-                <select class="form-control pl-0 form-control-line" name="jenis_kelamin">
-                  <option>Pilih Jenis Kelamin</option>
-                  <?php foreach ($jenis_kelamin as $key => $value) : ?>
-                    <?php if ($alumni['jenis_kelamin'] == $value['bobot']) : ?>
-                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
-                    <?php else : ?>
-                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
               <label class="col-md-12 mb-0">Umur</label>
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="umur">

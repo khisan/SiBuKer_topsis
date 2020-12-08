@@ -55,33 +55,11 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-12 mb-0">Jenis Kelamin</label>
-              <div class="col-md-12">
-                <select class="form-control pl-0 form-control-line" name="jenis_kelamin">
-                  <option>Pilih Jenis Kelamin</option>
-                  <?php foreach ($jenis_kelamin as $key => $value) : ?>
-                    <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
               <label class="col-md-12 mb-0">Pengalaman Kerja</label>
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="pengalaman_kerja">
                   <option>Pilih Pengalaman Kerja</option>
                   <?php foreach ($pengalaman_kerja as $key => $value) : ?>
-                    <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-12 mb-0">Jurusan</label>
-              <div class="col-md-12">
-                <select class="form-control pl-0 form-control-line" name="jurusan">
-                  <option>Pilih Jurusan</option>
-                  <?php foreach ($jurusan as $key => $value) : ?>
                     <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                   <?php endforeach; ?>
                 </select>

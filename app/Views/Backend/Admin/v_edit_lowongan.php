@@ -25,7 +25,7 @@
               <label class="col-md-12 mb-0">Umur</label>
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="umur">
-                  <option>Pilih Umur</option>
+                  <option disabled="">Pilih Umur</option>
                   <?php foreach ($umur as $key => $value) : ?>
                     <?php if ($lowongan['umur'] == $value['bobot']) : ?>
                       <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
@@ -40,7 +40,7 @@
               <label class="col-md-12 mb-0">Kualifikasi Pendidikan</label>
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="kualifikasi_pendidikan">
-                  <option>Pilih Kualifikasi Pendidikan</option>
+                  <option disabled="">Pilih Kualifikasi Pendidikan</option>
                   <?php foreach ($kualifikasi_pendidikan as $key => $value) : ?>
                     <?php if ($lowongan['kualifikasi_pendidikan'] == $value['bobot']) : ?>
                       <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
@@ -55,7 +55,7 @@
               <label class="col-md-12 mb-0">IPK</label>
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="ipk">
-                  <option>Pilih IPK</option>
+                  <option disabled="">Pilih IPK</option>
                   <?php foreach ($ipk as $key => $value) : ?>
                     <?php if ($lowongan['ipk'] == $value['bobot']) : ?>
                       <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
@@ -67,42 +67,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-12 mb-0">Jenis Kelamin</label>
-              <div class="col-md-12">
-                <select class="form-control pl-0 form-control-line" name="jenis_kelamin">
-                  <option>Pilih Jenis Kelamin</option>
-                  <?php foreach ($jenis_kelamin as $key => $value) : ?>
-                    <?php if ($lowongan['jenis_kelamin'] == $value['bobot']) : ?>
-                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
-                    <?php else : ?>
-                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
               <label class="col-md-12 mb-0">Pengalaman Kerja</label>
               <div class="col-md-12">
                 <select class="form-control pl-0 form-control-line" name="pengalaman_kerja">
-                  <option>Pilih Pengalaman Kerja</option>
+                  <option disabled="">Pilih Pengalaman Kerja</option>
                   <?php foreach ($pengalaman_kerja as $key => $value) : ?>
                     <?php if ($lowongan['pengalaman_kerja'] == $value['bobot']) : ?>
-                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
-                    <?php else : ?>
-                      <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-12 mb-0">Jurusan</label>
-              <div class="col-md-12">
-                <select class="form-control pl-0 form-control-line" name="jurusan">
-                  <option>Pilih Jurusan</option>
-                  <?php foreach ($jurusan as $key => $value) : ?>
-                    <?php if ($lowongan['jurusan'] == $value['bobot']) : ?>
                       <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
                       <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>

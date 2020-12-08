@@ -23,10 +23,8 @@
                   <th class="border-top-0">Alternatif</th>
                   <th class="border-top-0">C1 (Cost)</th>
                   <th class="border-top-0">C2 (Benefit)</th>
-                  <th class="border-top-0">C3 (Cost)</th>
+                  <th class="border-top-0">C3 (Benefit)</th>
                   <th class="border-top-0">C4 (Benefit)</th>
-                  <th class="border-top-0">C5 (Cost)</th>
-                  <th class="border-top-0">C6 (Benefit)</th>
                 </tr>
               </thead>
               <tbody>
@@ -37,9 +35,7 @@
                     <td><?= $hasil['umur'] ?></td>
                     <td><?= $hasil['kualifikasi_pendidikan'] ?></td>
                     <td><?= $hasil['ipk'] ?></td>
-                    <td><?= $hasil['jenis_kelamin'] ?></td>
                     <td><?= $hasil['pengalaman_kerja'] ?></td>
-                    <td><?= $hasil['jurusan'] ?></td>
                   </tr>
                 <?php } ?>
               </tbody>

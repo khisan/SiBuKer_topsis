@@ -31,9 +31,7 @@ class Lowongan extends BaseController
       'umur'  => $this->Sub_Kriteria_Lowongan_model->getUmur(),
       'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_model->getKualifikasiPendidikan(),
       'ipk'  => $this->Sub_Kriteria_Lowongan_model->getIpk(),
-      'jenis_kelamin'  => $this->Sub_Kriteria_Lowongan_model->getJenisKelamin(),
       'pengalaman_kerja'  => $this->Sub_Kriteria_Lowongan_model->getPengalamanKerja(),
-      'jurusan'  => $this->Sub_Kriteria_Lowongan_model->getJurusan(),
       'isi'     => 'Backend/Admin/v_tambah_lowongan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -45,20 +43,32 @@ class Lowongan extends BaseController
     $gambar = $this->request->getFile('gambar');
     // merename nama file gambar
     $nama_file = $gambar->getRandomName();
-    $data = [
-      'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
-      'nama_lowongan' => $this->request->getPost('nama_lowongan'),
-      'umur' => $this->request->getPost('umur'),
-      'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
-      'ipk' => $this->request->getPost('ipk'),
-      'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-      'pengalaman_kerja' => $this->request->getPost('pengalaman_kerja'),
-      'jurusan' => $this->request->getPost(htmlspecialchars('jurusan', ENT_QUOTES)),
-      'deskripsi_lowongan' => $this->request->getPost('deskripsi_lowongan'),
-      'gambar' => $nama_file,
-    ];
-    // memindahkan file gambar dari form input ke folder gambar di directory
-    $gambar->move('lowongan', $nama_file);
+    $gambar_default = 'default.png';
+    if ($gambar->getError() == 4) {
+      $data = [
+        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'nama_lowongan' => $this->request->getPost('nama_lowongan'),
+        'umur' => $this->request->getPost('umur'),
+        'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
+        'ipk' => $this->request->getPost('ipk'),
+        'pengalaman_kerja' => $this->request->getPost('pengalaman_kerja'),
+        'deskripsi_lowongan' => $this->request->getPost('deskripsi_lowongan'),
+        'gambar' => $gambar_default,
+      ];
+    } else {
+      $data = [
+        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'nama_lowongan' => $this->request->getPost('nama_lowongan'),
+        'umur' => $this->request->getPost('umur'),
+        'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
+        'ipk' => $this->request->getPost('ipk'),
+        'pengalaman_kerja' => $this->request->getPost('pengalaman_kerja'),
+        'deskripsi_lowongan' => $this->request->getPost('deskripsi_lowongan'),
+        'gambar' => $nama_file,
+      ];
+      // memindahkan file gambar dari form input ke folder gambar di directory
+      $gambar->move('lowongan', $nama_file);
+    }
     $this->Lowongan_model->add($data);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
     return redirect()->to('/admin/lowongan');
@@ -71,9 +81,7 @@ class Lowongan extends BaseController
       'umur'  => $this->Sub_Kriteria_Lowongan_model->getUmur(),
       'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_model->getKualifikasiPendidikan(),
       'ipk'  => $this->Sub_Kriteria_Lowongan_model->getIpk(),
-      'jenis_kelamin'  => $this->Sub_Kriteria_Lowongan_model->getJenisKelamin(),
       'pengalaman_kerja'  => $this->Sub_Kriteria_Lowongan_model->getPengalamanKerja(),
-      'jurusan'  => $this->Sub_Kriteria_Lowongan_model->getJurusan(),
       'lowongan' => $this->Lowongan_model->edit($id_lowongan),
       'isi'   => 'Backend/Admin/v_edit_lowongan'
     ];
@@ -93,9 +101,7 @@ class Lowongan extends BaseController
         'umur' => $this->request->getPost('umur'),
         'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
         'ipk' => $this->request->getPost('ipk'),
-        'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
         'pengalaman_kerja' => $this->request->getPost('pengalaman_kerja'),
-        'jurusan' => $this->request->getPost('jurusan'),
         'deskripsi_lowongan' => $this->request->getPost('deskripsi_lowongan'),
       ];
       $this->Lowongan_model->update_data($data, $id_lowongan);
@@ -116,9 +122,7 @@ class Lowongan extends BaseController
         'umur' => $this->request->getPost('umur'),
         'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
         'ipk' => $this->request->getPost('ipk'),
-        'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
         'pengalaman_kerja' => $this->request->getPost('pengalaman_kerja'),
-        'jurusan' => $this->request->getPost('jurusan'),
         'deskripsi_lowongan' => $this->request->getPost('deskripsi_lowongan'),
         'gambar' => $nama_file,
       );
