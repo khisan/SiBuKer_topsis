@@ -110,7 +110,7 @@ class Lowongan extends BaseController
     } else {
       // menghapus gambar lama
       $lowongan = $this->Lowongan_model->detail_data($id_lowongan);
-      if ($lowongan['gambar'] !== "") {
+      if ($lowongan['gambar'] !== "" && $lowongan['gambar'] !== "default.png") {
         unlink('lowongan/' . $lowongan['gambar']);
       }
       // merename nama file gambar

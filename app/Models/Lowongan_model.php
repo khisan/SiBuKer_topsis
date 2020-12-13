@@ -15,7 +15,7 @@ class Lowongan_model extends Model
   public function getLowonganByJurusan($jurusan)
   {
     $builder = $this->db->table('tb_lowongan');
-    $builder->like('deskripsi_lowongan', $jurusan);
+    $builder->like('deskripsi_lowongan', $jurusan, 'both');
     return $builder->get()->getResultArray();
   }
 

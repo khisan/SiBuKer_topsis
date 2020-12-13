@@ -42,8 +42,8 @@ class Profil extends BaseController
       return redirect()->to('/alumni/profil');
     } else {
       // menghapus foto lama
-      $alumni = $this->AlumniModel->detail_data($id_alumni);
-      if ($alumni['foto'] !== "") {
+      $alumni = $this->AlumniModel->get_alumni_by_id($id_alumni, 'tb_alumni');
+      if ($alumni['foto'] !== "" && $alumni['foto'] !== "user_default.png") {
         unlink('foto/' . $alumni['foto']);
       }
 

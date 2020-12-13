@@ -29,7 +29,7 @@
                   <option value="kimia" <?php if ($jurusan['jurusan'] == "kimia") { ?> selected="selected" <?php } ?>>Teknik Kimia</option>
                   <option value="sipil" <?php if ($jurusan['jurusan'] == "sipil") { ?> selected="selected" <?php } ?>>Teknik Sipil</option>
                   <option value="arsitektur" <?php if ($jurusan['jurusan'] == "arsitektur") { ?> selected="selected" <?php } ?>>Arsitektur</option>
-                  <option value="pwk" <?php if ($jurusan['jurusan'] == "pwk") { ?> selected="selected" <?php } ?>>Perencanaan Wilayah dan Kota</option>
+                  <option value="planologi" <?php if ($jurusan['jurusan'] == "pwk") { ?> selected="selected" <?php } ?>>Perencanaan Wilayah dan Kota</option>
                   <option value="geodesi" <?php if ($jurusan['jurusan'] == "geodesi") { ?> selected="selected" <?php } ?>>Teknik Geodesi</option>
                   <option value="lingkungan" <?php if ($jurusan['jurusan'] == "lingkungan") { ?> selected="selected" <?php } ?>>Teknik Lingkungan</option>
                 </select>
