@@ -11,16 +11,9 @@
 <div class="container">
   <div class="row mt mb">
     <div class="col-lg-12">
-      <div class="container mt-4">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-9">
-            <div class="card p-4 mt-3">
-              <h3 class="heading mt-5 text-center">Hi! How can we help You?</h3>
-              <div class="d-flex justify-content-center px-5">
-                <div class="search"> <input type="text" class="search-input" placeholder="Search..." name=""> <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
-              </div>
-            </div>
-          </div>
+      <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+          <div class="search"> <i class="fa fa-search"></i> <input type="text" class="form-control" placeholder="Cari Lowongan"> <button class="btn btn-primary">Search</button> </div>
         </div>
       </div>
       <div class="row">
