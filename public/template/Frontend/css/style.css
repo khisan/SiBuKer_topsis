@@ -90,6 +90,12 @@ h6 {
   background-color: transparent;
 }
 
+.btn.active,
+.btn:active {
+  background: #cecece;
+  text-decoration: none;
+}
+
 .navbar-default .navbar-nav > li > a {
   color: #fff;
 }
@@ -218,14 +224,15 @@ h6 {
 }
 
 #aboutwrap {
-  background: url(../img/about.jpg) no-repeat center top;
+  /* background: url(../img/about.jpg) no-repeat center top; */
   margin-top: -70px;
-  padding-top: 250px;
+  padding-top: 50px;
   text-align: center;
   background-attachment: relative;
   background-position: center center;
-  min-height: 550px;
+  /* min-height: 550px; */
   width: 100%;
+  height: auto;
 
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -396,6 +403,9 @@ h6 {
   background: #222222;
   padding: 20px 0;
   text-align: center;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
 
 #copyrights p {
