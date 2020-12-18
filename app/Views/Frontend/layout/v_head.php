@@ -9,20 +9,20 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="template/Frontend/img/favicon.png" rel="icon">
-  <link href="template/Frontend/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/template/Frontend/img/favicon.png" rel="icon">
+  <link href="/template/Frontend/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="template/Frontend/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/template/Frontend/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="template/Frontend/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/template/Frontend/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="template/Frontend/css/style.css" rel="stylesheet">
+  <link href="/template/Frontend/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Instant

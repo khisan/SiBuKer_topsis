@@ -6,10 +6,21 @@ use CodeIgniter\Model;
 
 class Lowongan_model extends Model
 {
+  protected $table = 'tb_lowongan';
+
   public function allData()
   {
     return $this->db->table('tb_lowongan')
       ->get()->getResultArray();
+  }
+
+  public function cari($keyword)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->like('nama_perusahaan', $keyword);
+    $builder->orlike('nama_lowongan', $keyword);
+    $builder->orlike('deskripsi_lowongan', $keyword);
+    return $builder->get()->getResultArray();
   }
 
   public function getLowonganByJurusan($jurusan)
@@ -47,23 +58,13 @@ class Lowongan_model extends Model
     $builder = $this->db->table('tb_lowongan');
     $builder->select('*');
     $builder->limit(5);
-    // $builder->where('id_lowongan', $i);
     return $builder->get();
-    // $db = \Config\Database::connect();
-    // $query = $this->db->query('select umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan from tb_lowongan limit 5');
-    // return $query;
   }
 
   public function jmlData()
   {
     return $this->db->table('tb_lowongan')->countAll();
   }
-
-  // public function getNilai()
-  // {
-  //   $query = ('select umur,kualifikasi_pendidikan,ipk,jenis_kelamin,pengalaman_kerja,jurusan from tb_lowongan');
-  //   return $query;
-  // }
 
   function detail_data($id_lowongan)
   {

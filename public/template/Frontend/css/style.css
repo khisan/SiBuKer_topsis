@@ -122,9 +122,8 @@ h6 {
    ========================================================================== */
 
 #headerwrap {
-  background: url(../img/back.jpg) no-repeat center top;
-  margin-top: -70px;
-  padding-top: 300px;
+  background: url(../img/work.jpg) no-repeat center top;
+  padding-top: 200px;
   text-align: center;
   background-attachment: relative;
   background-position: center center;
@@ -160,7 +159,8 @@ h6 {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
 
 .height {
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .form-control {
@@ -195,6 +195,11 @@ h6 {
   height: 40px;
   width: 80px;
   background: #1abc9c;
+}
+
+/* list card lowongan */
+p .card-text {
+  padding: 10px 0;
 }
 
 @media (max-width: 768px) {
@@ -445,7 +450,7 @@ h6 {
   padding: 20px 0;
   text-align: center;
   bottom: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 

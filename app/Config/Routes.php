@@ -32,8 +32,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home');
+$routes->get('/lowker', 'ListLowongan');
+$routes->post('/lowker/cari', 'ListLowongan::cari');
 
 // Alumni Auth
+$routes->get('/alumni', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/login', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/register', 'Auth_front::register', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/cekLogin', '/Backend/alumni/auth_alu::login', ['filter' => 'no_filter_alu']);
@@ -47,8 +50,12 @@ $routes->get('/alumni/lowongan', 'Backend/Alumni/Lowongan::', ['filter' => 'filt
 $routes->get('/alumni/rekomendasi', 'Backend/Alumni/Rekomendasi::', ['filter' => 'filter_alu']);
 // Page Hasil Rekomendasi
 $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', ['filter' => 'filter_alu']);
+
+/* */
+/* */
+
 // Admin Auth 
-$routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
+$routes->get('/admin', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 // Menu Jurusan
