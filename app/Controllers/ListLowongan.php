@@ -34,4 +34,13 @@ class ListLowongan extends BaseController
     ];
     return view('Frontend/layout/v_wrapper', $data);
   }
+
+  public function detail($id_lowongan)
+  {
+    $data = [
+      'isi' => 'Frontend/v_detail_lowongan',
+      'detail_lowongan' => $this->Lowongan_model->detail_data($id_lowongan),
+    ];
+    return view('Frontend/layout/v_wrapper', $data);
+  }
 }

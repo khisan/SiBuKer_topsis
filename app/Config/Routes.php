@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home');
 $routes->get('/lowker', 'ListLowongan');
 $routes->post('/lowker/cari', 'ListLowongan::cari');
+$routes->get('/lowker/detail/(:num)', 'ListLowongan::detail/$1');
 
 // Alumni Auth
 $routes->get('/alumni', 'Auth_front::login', ['filter' => 'no_filter_alu']);
