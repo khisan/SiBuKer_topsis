@@ -20,8 +20,8 @@
 <link rel="stylesheet" type="text/css" href="/template/bootstrap/css/bootstrap.min.css">
 <div class="login-page">
   <div class="form">
-    <form class="login-form" action="/Backend/Alumni/Auth_alu/register" method="POST">
-      <h3 class="title">Page Daftar Alumni</h3>
+    <form class="login-form" action="/Backend/Perusahaan/Auth_prshn/register" method="POST">
+      <h3 class="title">Page Daftar Perusahaan</h3>
       <?php
       $errors = session()->getFlashdata('errors');
       if (!empty($errors)) { ?>
@@ -33,12 +33,12 @@
           </ul>
         </div>
       <?php } ?>
-      <input type="number" placeholder="NIM" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="7" />
-      <input type="text" placeholder="Email" name="email" />
-      <input type="text" placeholder="Nama" name="nama" />
+      <input type="text" placeholder="Nama Perusahaan" name="nama" />
+      <input type="text" placeholder="E-mail" name="email" />
+      <input type="text" placeholder="Username" name="username" />
       <input type="password" placeholder="Password" name="password" />
       <button type="submit">Daftar</button>
-      <p class="message">Sudah punya akun? <a href="/alumni/login">Login</a></p>
+      <p class="message">Sudah punya akun? <a href="/alumn/login">Login</a></p>
     </form>
   </div>
 </div>
@@ -52,7 +52,7 @@
   <script>
     Swal.fire({
       title: 'Sukses',
-      text: 'Berhasil Melakukan Registrasi ! Silahkan aktivasi email anda',
+      text: 'Berhasil Melakukan Registrasi ! Silahkan Login',
       icon: 'success'
     })
   </script>

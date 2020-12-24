@@ -32,7 +32,39 @@
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
 <script src="/template/sweetalert/sweetalert2.all.min.js"></script>
 <!--Sweet Alert Message-->
-<?php if (session()->get('pesan') == 'errorU') : ?>
+<?php if (session()->get('pesan') == 'success') : ?>
+  <script>
+    Swal.fire({
+      title: 'Berhasil',
+      text: 'Email Sudah Diaktivasi! Silahkan login',
+      icon: 'success'
+    })
+  </script>
+<?php elseif (session()->get('pesan') == 'errorTokenExp') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Aktivasi Akun Gagal! Token Kadaluarsa',
+      icon: 'error'
+    })
+  </script>
+<?php elseif (session()->get('pesan') == 'errorTokenWro') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Aktivasi Akun Gagal! Token Salah',
+      icon: 'error'
+    })
+  </script>
+<?php elseif (session()->get('pesan') == 'emailS') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Aktivasi Akun Gagal! Email Salah',
+      icon: 'error'
+    })
+  </script>
+<?php elseif (session()->get('pesan') == 'errorU') : ?>
   <script>
     Swal.fire({
       title: 'Ada Kesalahan',
@@ -45,6 +77,14 @@
     Swal.fire({
       title: 'Ada Kesalahan',
       text: 'Password Anda Salah',
+      icon: 'error'
+    })
+  </script>
+<?php elseif (session()->get('pesan') == 'errorT') : ?>
+  <script>
+    Swal.fire({
+      title: 'Ada Kesalahan',
+      text: 'Aktivasi Akun Gagal! Token Salah',
       icon: 'error'
     })
   </script>

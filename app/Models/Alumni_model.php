@@ -22,6 +22,14 @@ class Alumni_model extends Model
     return $this->db->table('tb_lowongan')->countAll();
   }
 
+  public function getEmail($email)
+  {
+    $builder = $this->db->table('tb_alumni');
+    $builder->select('email');
+    $builder->where('email', $email);
+    return $builder->get()->getRowArray();
+  }
+
   public function getNilai()
   {
     $builder = $this->db->table('tb_alumni');
@@ -58,9 +66,16 @@ class Alumni_model extends Model
     return $this->db->table('tb_alumni')
       ->update($data, array('id_alumni' => $id_alumni));
   }
+
   public function delete_data($id_alumni)
   {
     return $this->db->table('tb_alumni')
       ->delete(array('id_alumni' => $id_alumni));
+  }
+
+  public function delete_email($email)
+  {
+    return $this->db->table('tb_alumni')
+      ->delete(array('email' => $email));
   }
 }

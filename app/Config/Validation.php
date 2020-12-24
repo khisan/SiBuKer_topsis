@@ -20,6 +20,7 @@ class Validation
 		\CodeIgniter\Validation\FileRules::class,
 		\CodeIgniter\Validation\CreditCardRules::class,
 		\Config\CustomRules::class,
+		\Myth\Auth\Authentication\Passwords\ValidationRules::class
 	];
 
 	/**

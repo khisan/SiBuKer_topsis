@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Instant - Bootstrap Personal Template</title>
+  <title>SiBuKer</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="/template/Frontend/img/favicon.png" rel="icon">
+  <link href="/foto/itn.png" rel="icon">
   <link href="/template/Frontend/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -23,11 +23,4 @@
 
   <!-- Main Stylesheet File -->
   <link href="/template/Frontend/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Template Name: Instant
-    Template URL: https://templatemag.com/instant-bootstrap-personal-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
 </head>

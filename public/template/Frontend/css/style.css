@@ -122,7 +122,11 @@ h6 {
    ========================================================================== */
 
 #headerwrap {
-  background: url(../img/work.jpg) no-repeat center top;
+  background: url(/foto/gedung_pusat_karir.jpg),
+    linear-gradient(0deg, white 33%, black 66%) no-repeat center top;
+  background-blend-mode: luminosity, multiply;
+  transition: all 1.5s;
+  backdrop-filter: filter(5px);
   padding-top: 200px;
   text-align: center;
   background-attachment: relative;
@@ -142,7 +146,7 @@ h6 {
 }
 
 #headerwrap h1 {
-  color: #ffffff;
+  color: #1abc9c;
   padding-top: 10px;
   padding-bottom: 20px;
   letter-spacing: 4px;
@@ -151,8 +155,8 @@ h6 {
 }
 
 #headerwrap h4 {
-  font-weight: 400;
-  color: #ffffff;
+  font-weight: 300;
+  color: white;
 }
 
 /* Search Box */
