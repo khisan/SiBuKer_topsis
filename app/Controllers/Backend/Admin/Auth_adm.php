@@ -21,9 +21,9 @@ class Auth_adm extends BaseController
     // dd($row->password);
     if ($row == NULL) {
       session()->setFlashdata('pesan', 'errorU');
-      return redirect()->to('/admin/login');
+      return redirect()->to('/admin');
     }
-    if ($password == $row->password) {
+    if (password_verify($password, $row->password)) {
       $data = array(
         'login' => TRUE,
         'username' => $row->username,
@@ -34,7 +34,7 @@ class Auth_adm extends BaseController
       return redirect()->to('/admin/home');
     }
     session()->setFlashdata('pesan', 'errorP');
-    return redirect()->to('/admin/login');
+    return redirect()->to('/admin');
   }
 
   public function logout()
@@ -42,6 +42,6 @@ class Auth_adm extends BaseController
     $session = session();
     $session->destroy();
     session()->setFlashData('pesan', 'Berhasil Logout');
-    return redirect()->to('/admin/login');
+    return redirect()->to('/admin');
   }
 }

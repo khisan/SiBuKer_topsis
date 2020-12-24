@@ -60,6 +60,8 @@ $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', [
 
 // Admin Auth 
 $routes->get('/admin', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
+$routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
+$routes->post('/admin/cekLogin', 'Backend/Admin/Auth_adm::login', ['filter' => 'no_filter_alu']);
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 // Menu Jurusan
