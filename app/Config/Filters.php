@@ -17,8 +17,10 @@ class Filters extends BaseConfig
 		'permission' => \Myth\Auth\Filters\PermissionFilter::class,
 		'filter_adm' => \App\Filters\Filter_adm::class,
 		'filter_alu' => \App\Filters\Filter_alu::class,
+		'filter_prshn' => \App\Filters\Filter_prshn::class,
 		'no_filter_adm' => \App\Filters\No_filter_adm::class,
 		'no_filter_alu' => \App\Filters\No_filter_alu::class,
+		'no_filter_prshn' => \App\Filters\No_filter_prshn::class,
 	];
 
 	// Always applied before every request

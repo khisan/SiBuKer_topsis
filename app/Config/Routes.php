@@ -99,13 +99,13 @@ $routes->get('/admin/lowongan/delete', 'Backend/Admin/Lowongan::delete', ['filte
 /* */
 
 // Perusahaan Auth
-$routes->get('/perusahaan', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_alu']);
-$routes->get('/perusahaan/login', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_alu']);
-$routes->get('/perusahaan/register', 'Backend/Perusahaan/Auth_prshn::daftar', ['filter' => 'no_filter_alu']);
-$routes->get('/perusahaan/cekLogin', '/Backend/perusahaan/Auth_prshn::login', ['filter' => 'no_filter_alu']);
+$routes->get('/perusahaan', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
+$routes->get('/perusahaan/login', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
+$routes->get('/perusahaan/register', 'Backend/Perusahaan/Auth_prshn::daftar', ['filter' => 'no_filter_prshn']);
+$routes->get('/perusahaan/cekLogin', 'Backend/Perusahaan/Auth_prshn::login', ['filter' => 'no_filter_prshn']);
 
 // Perusahaan Backend
-$routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filter_alu']);
+$routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filter_prshn']);
 
 /**
  * --------------------------------------------------------------------

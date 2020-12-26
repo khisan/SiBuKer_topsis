@@ -96,7 +96,7 @@ class Auth_prshn extends BaseController
         if (password_verify($password, $row->password)) {
           $data = array(
             'login' => TRUE,
-            'nama'  => $row->nama_perusahaan,
+            'nama_perusahaan'  => $row->nama_perusahaan,
             'id_perusahaan'   => $row->id_perusahaan
           );
           session()->set($data);

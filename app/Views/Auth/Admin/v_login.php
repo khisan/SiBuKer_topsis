@@ -21,7 +21,7 @@
 <div class="login-page">
   <div class="form">
     <form class="login-form" action="/perusahaan/cekLogin" method="post">
-      <h3 class="title">Page Login perusahaan</h3>
+      <h3 class="title">Page Login Admin</h3>
       <?php session()->get('pesan') ?>
       <input type="text" placeholder="Username" name="username" />
       <input type="password" placeholder="Password" name="password" />

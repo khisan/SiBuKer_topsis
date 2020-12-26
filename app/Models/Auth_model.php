@@ -35,7 +35,7 @@ class Auth_model extends Model
   //   return $login;
   // }
 
-  function get_data_login_adm($username, $tbl)
+  function get_data_login_prshn($username, $tbl)
   {
     $builder = $this->db->table($tbl);
     $builder->where('username', $username);
@@ -43,7 +43,7 @@ class Auth_model extends Model
     return $login;
   }
 
-  function get_data_login_prshn($username, $tbl)
+  function get_data_login_adm($username, $tbl)
   {
     $builder = $this->db->table($tbl);
     $builder->where('username', $username);
