@@ -5,16 +5,8 @@
     <div class="col-lg-4 col-xlg-3 col-md-5">
       <div class="card">
         <div class="card-body profile-card">
-          <center> <img src="/foto/<?= $alumni['foto'] ?>" class="rounded-circle" width="200" height="200" />
-            <h4 class="card-title m-t-10"> <?= $alumni['nama'] ?> </h4>
-            <div class="row text-center justify-content-center">
-              <div class="col-8">
-                <p class="link">
-                  <i class="mdi mdi-account-card-details" aria-hidden="true"></i>
-                  <span><?= $alumni['nim'] ?></span>
-                </p>
-              </div>
-            </div>
+          <center> <img src="/foto/<?= $perusahaan['foto'] ?>" class="rounded-circle" width="200" height="200" />
+            <h4 class="card-title m-t-10"> <?= $perusahaan['nama_perusahaan'] ?> </h4>
           </center>
         </div>
       </div>
@@ -23,17 +15,11 @@
     <div class="col-lg-8 col-xlg-9 col-md-7">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal form-material" action="/backend/alumni/profil/update/<?= $alumni['id_alumni'] ?>" method="POST" enctype="multipart/form-data">
+          <form class="form-horizontal form-material" action="/backend/perusahaan/profil/update/<?= $perusahaan['id_perusahaan'] ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-              <label class="col-md-12 mb-0">NIM</label>
+              <label class="col-md-12 mb-0">Nama Perusahaan</label>
               <div class="col-md-12">
-                <input type="text" placeholder="NIM" class="form-control pl-0 form-control-line" name="nim" value="<?= $alumni['nim'] ?>">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-12 mb-0">Nama</label>
-              <div class="col-md-12">
-                <input type="text" placeholder="Nama" class="form-control pl-0 form-control-line" name="nama" value="<?= $alumni['nama'] ?>">
+                <input type="text" placeholder="Nama Perusahaan" class="form-control pl-0 form-control-line" name="nama_perusahaan" value="<?= $perusahaan['nama_perusahaan'] ?>">
               </div>
             </div>
             <div class=" form-group">

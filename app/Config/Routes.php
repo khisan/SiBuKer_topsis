@@ -106,6 +106,8 @@ $routes->get('/perusahaan/cekLogin', 'Backend/Perusahaan/Auth_prshn::login', ['f
 
 // Perusahaan Backend
 $routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filter_prshn']);
+// Menu Profil
+$routes->get('/perusahaan/profil', 'Backend/Perusahaan/Profil::', ['filter' => 'filter_prshn']);
 
 /**
  * --------------------------------------------------------------------
