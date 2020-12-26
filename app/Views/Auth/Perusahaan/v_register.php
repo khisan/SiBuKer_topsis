@@ -33,12 +33,12 @@
           </ul>
         </div>
       <?php } ?>
-      <input type="text" placeholder="Nama Perusahaan" name="nama" />
-      <input type="text" placeholder="E-mail" name="email" />
       <input type="text" placeholder="Username" name="username" />
+      <input type="text" placeholder="E-mail" name="email" />
+      <input type="text" placeholder="Nama Perusahaan" name="nama_perusahaan" />
       <input type="password" placeholder="Password" name="password" />
       <button type="submit">Daftar</button>
-      <p class="message">Sudah punya akun? <a href="/alumn/login">Login</a></p>
+      <p class="message">Sudah punya akun? <a href="/perusahaan/login">Login</a></p>
     </form>
   </div>
 </div>

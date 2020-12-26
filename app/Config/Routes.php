@@ -61,7 +61,9 @@ $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', [
 // Admin Auth 
 $routes->get('/admin', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 $routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
-$routes->post('/admin/cekLogin', 'Backend/Admin/Auth_adm::login', ['filter' => 'no_filter_alu']);
+$routes->post('/admin/cekLogin', 'Backend/Admin/Auth_adm::login', ['filter' =>
+'no_filter_alu']);
+
 // Admin Backend
 $routes->get('/admin/home', 'Backend/Admin/Home::', ['filter' => 'filter_adm']);
 // Menu Jurusan
@@ -98,11 +100,12 @@ $routes->get('/admin/lowongan/delete', 'Backend/Admin/Lowongan::delete', ['filte
 
 // Perusahaan Auth
 $routes->get('/perusahaan', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_alu']);
-$routes->get('/perusahaan/login', 'Backend/Perusahaan/Auth_prshn::login', ['filter' => 'no_filter_alu']);
+$routes->get('/perusahaan/login', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_alu']);
 $routes->get('/perusahaan/register', 'Backend/Perusahaan/Auth_prshn::daftar', ['filter' => 'no_filter_alu']);
-$routes->get('/perusahaan/cekLogin', '/Backend/alumni/auth_alu::login', ['filter' => 'no_filter_alu']);
-// Alumni Backend
-$routes->get('/perusahaan/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
+$routes->get('/perusahaan/cekLogin', '/Backend/perusahaan/Auth_prshn::login', ['filter' => 'no_filter_alu']);
+
+// Perusahaan Backend
+$routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filter_alu']);
 
 /**
  * --------------------------------------------------------------------

@@ -4,6 +4,8 @@ namespace App\Controllers\Backend\Perusahaan;
 
 use App\Controllers\BaseController;
 use App\Models\Auth_model;
+use App\Models\Perusahaan_Token_model;
+use App\Models\Perusahaan_model;
 
 class Auth_prshn extends BaseController
 {
@@ -14,33 +16,104 @@ class Auth_prshn extends BaseController
 
   public function daftar()
   {
-    return view('Auth/Perusahaan/v_register');
+    session();
+    $data = [
+      'validate' => \Config\Services::validation(),
+    ];
+    return view('Auth/Perusahaan/v_register', $data);
+  }
+
+  public function register()
+  {
+    if ($this->validate([
+      'username' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} Tidak Boleh Kosong',
+        ]
+      ],
+      'email' => [
+        'rules' => 'required|is_unique[tb_perusahaan.email]|valid_email|trim',
+        'errors' => [
+          'required' => '{field} Tidak Boleh Kosong',
+          'is_unique' => '{field} Sudah Ada',
+          'valid_email' => '{field} Harus yang Valid'
+        ]
+      ],
+      'nama_perusahaan' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} Tidak Boleh Kosong',
+        ]
+      ],
+      'password' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} Tidak Boleh Kosong',
+          'is_unique' => '{field} Sudah Dipakai'
+        ]
+      ]
+    ])) {
+      $Foto = 'perusahaan.png';
+      $email = $this->request->getPost('email');
+      $data = array(
+        'username'        => $this->request->getPost('username'),
+        'email'           => $email,
+        'password'        => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'foto'            => $Foto,
+        'is_active'       => 0,
+      );
+      // siapkan token
+      $buat_token = base64_encode(random_bytes(32));
+      $token = [
+        'email'         => $email,
+        'token'         => $buat_token,
+        'date_created'  => time()
+      ];
+      $Tokenmodel = new Perusahaan_Token_model();
+      $Perusahaanmodel = new Perusahaan_model();
+      $Perusahaanmodel->add($data);
+      $Tokenmodel->add($token);
+      $this->sendEmail($buat_token, 'verify');
+      session()->setFlashdata('pesan', 'success');
+      return redirect()->to('/perusahaan/register');
+    } else {
+      session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+      return redirect()->to('/perusahaan/register');
+    }
   }
 
   public function login()
   {
-    $model = new Auth_model;
+    $model = new Auth_model();
     $table = 'tb_perusahaan';
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');
-    $row = $model->get_data_login_adm($username, $table);
-    // dd($row->password);
-    if ($row == NULL) {
+    $row = $model->get_data_login_prshn($username, $table);
+    if ($row != NULL) {
+      if ($row->is_active == 1) {
+        if (password_verify($password, $row->password)) {
+          $data = array(
+            'login' => TRUE,
+            'nama'  => $row->nama_perusahaan,
+            'id_perusahaan'   => $row->id_perusahaan
+          );
+          session()->set($data);
+          session()->setFlashdata('pesan', 'success');
+          return redirect()->to('/perusahaan/home');
+        } else {
+          session()->setFlashdata('pesan', 'errorP');
+          return redirect()->to('/perusahaan/login');
+        }
+      } else {
+        session()->setFlashdata('pesan', 'errorT');
+        return redirect()->to('/perusahaan/login');
+      }
+    } else {
       session()->setFlashdata('pesan', 'errorU');
-      return redirect()->to('/Perusahaan/login');
+      return redirect()->to('/perusahaan/login');
     }
-    if ($password == $row->password) {
-      $data = array(
-        'login' => TRUE,
-        'username' => $row->username,
-        'nama' => $row->nama,
-      );
-      session()->set($data);
-      session()->setFlashdata('pesan', 'Berhasil Login');
-      return redirect()->to('/Perusahaan/home');
-    }
-    session()->setFlashdata('pesan', 'errorP');
-    return redirect()->to('/Perusahaan/login');
   }
 
   public function logout()
@@ -48,6 +121,84 @@ class Auth_prshn extends BaseController
     $session = session();
     $session->destroy();
     session()->setFlashData('pesan', 'Berhasil Logout');
-    return redirect()->to('/Perusahaan/login');
+    return redirect()->to('/perusahaan/login');
+  }
+
+  private function sendEmail($buat_token, $type)
+  {
+    $email = \Config\Services::email();
+    $config = [
+      'protocol'  => 'smtp',
+      'SMTPHost'  => 'smtp.mailtrap.io',
+      'SMTPUser'  => '578f8babe1d93b',
+      'SMTPPass'  => 'dd6049cc527214',
+      'SMTPPort'  => 2525,
+      'mailType'  => 'html',
+      'charset'   => 'utf-8',
+      'crlf'      => "\r\n",
+      'newline'   => "\r\n"
+    ];
+
+    $email->initialize($config);
+
+    $email->setFrom('578f8babe1d93b', 'Pusat Karir ITN Malang');
+    $email->setTo($this->request->getPost('email'));
+
+    if ($type == 'verify') {
+      $email->setSubject('Verifikasi Akun');
+      $email->setMessage('Klik link berikut untuk aktivasi akun : <a href="' . base_url() . '/Backend/perusahaan/auth_prshn/verify?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Activate</a>');
+    } else if ($type == 'forgot') {
+      $email->setSubject('Reset Password');
+      $email->setMessage('Click this link to reset your password : <a href="' . base_url() . '/Backend/perusahaan/auth_prshn/resetpassword?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Reset Password</a>');
+    }
+
+    if ($email->send()) {
+      return true;
+    } else {
+      echo $email->printDebugger();
+      die;
+    }
+  }
+
+  public function verify()
+  {
+    $email = $this->request->getGet('email');
+    $token = $this->request->getGet('token');
+    $Perusahaanmodel = new Perusahaan_model();
+    $Tokenmodel = new Perusahaan_Token_model();
+
+    $perusahaan = $Perusahaanmodel->getEmail($email);
+
+    if ($perusahaan) {
+      $token = $Tokenmodel->getToken($token);
+      $perusahaan_token = $Tokenmodel->getAllByToken($token);
+
+      if ($token) {
+        if (time() - $perusahaan_token['date_created'] < (60 * 60 * 24)) {
+          $db      = \Config\Database::connect();
+          $builder = $db->table('tb_perusahaan');
+          $builder->set('is_active', 1);
+          $builder->where('email', $email);
+          $builder->update();
+
+          $Tokenmodel->delete_data($email);
+
+          session()->setFlashdata('pesan', 'success');
+          return redirect()->to('/perusahaan/login');
+        } else {
+          $Perusahaanmodel->delete_email($email);
+          $Tokenmodel->delete_data($email);
+
+          session()->setFlashdata('pesan', 'tokenExp');
+          return redirect()->to('/perusahaan/login');
+        }
+      } else {
+        session()->setFlashdata('pesan', 'tokenWro');
+        return redirect()->to('/perusahaan/login');
+      }
+    } else {
+      session()->setFlashdata('pesan', 'emailS');
+      return redirect()->to('/perusahaan/login');
+    }
   }
 }
