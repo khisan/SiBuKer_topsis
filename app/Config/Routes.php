@@ -110,6 +110,11 @@ $routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filt
 $routes->get('/perusahaan/profil', 'Backend/Perusahaan/Profil::', ['filter' => 'filter_prshn']);
 // Menu Lowongan
 $routes->get('/perusahaan/lowongan', 'Backend/Perusahaan/Lowongan::', ['filter' => 'filter_prshn']);
+$routes->get('/perusahaan/lowongan/tambah', 'Backend/Perusahaan/Lowongan::tambah', ['filter' => 'filter_prshn']);
+$routes->post('/perusahaan/lowongan/add', 'Backend/Perusahaan/Lowongan::add', ['filter' => 'filter_prshn']);
+$routes->get('/perusahaan/lowongan/ubah/(:num)', 'Backend\Perusahaan\Lowongan::ubah/$1', ['filter' => 'filter_prshn']);
+$routes->post('/perusahaan/lowongan/update/(:num)', 'Backend\Perusahaan\Lowongan::update/$1', ['filter' => 'filter_prshn']);
+$routes->get('/perusahaan/lowongan/delete/(:num)', 'Backend\Perusahaan\Lowongan::delete/$1', ['filter' => 'filter_prshn']);
 
 /**
  * --------------------------------------------------------------------

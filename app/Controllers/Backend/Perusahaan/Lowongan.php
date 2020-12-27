@@ -25,6 +25,7 @@ class Lowongan extends BaseController
       'title'   => 'Data Lowongan',
       'perusahaan'  => $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $table),
       'lowongan'  => $this->Lowongan_model->getLowonganByPerusahaan($id_perusahaan),
+      'id_perusahaan' => $id_perusahaan,
       'isi'     => 'Backend/Perusahaan/v_lowongan'
     ];
     return view('Backend/Perusahaan/layout/v_wrapper', $data);
@@ -32,8 +33,13 @@ class Lowongan extends BaseController
 
   public function tambah()
   {
+    $table = 'tb_perusahaan';
+    $sesiPerusahaan = session()->get();
+    $id_perusahaan = $sesiPerusahaan['id_perusahaan'];
     $data = [
       'title'   => 'Tambah Data Lowongan',
+      'perusahaan'  => $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $table),
+      'id_perusahaan' => $id_perusahaan,
       'umur'  => $this->Sub_Kriteria_Lowongan_model->getUmur(),
       'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_model->getKualifikasiPendidikan(),
       'ipk'  => $this->Sub_Kriteria_Lowongan_model->getIpk(),
@@ -52,7 +58,7 @@ class Lowongan extends BaseController
     $gambar_default = 'default.png';
     if ($gambar->getError() == 4) {
       $data = [
-        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'id_perusahaan' => $this->request->getPost('id_perusahaan'),
         'nama_lowongan' => $this->request->getPost('nama_lowongan'),
         'umur' => $this->request->getPost('umur'),
         'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
@@ -63,7 +69,7 @@ class Lowongan extends BaseController
       ];
     } else {
       $data = [
-        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'id_perusahaan' => $this->request->getPost('id_perusahaan'),
         'nama_lowongan' => $this->request->getPost('nama_lowongan'),
         'umur' => $this->request->getPost('umur'),
         'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
@@ -77,13 +83,17 @@ class Lowongan extends BaseController
     }
     $this->Lowongan_model->add($data);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
-    return redirect()->to('/Perusahaan/lowongan');
+    return redirect()->to('/perusahaan/lowongan');
   }
 
   public function ubah($id_lowongan)
   {
+    $table = 'tb_perusahaan';
+    $sesiPerusahaan = session()->get();
+    $id_perusahaan = $sesiPerusahaan['id_perusahaan'];
     $data = [
       'title' => 'Edit Data Lowongan',
+      'perusahaan'  => $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $table),
       'umur'  => $this->Sub_Kriteria_Lowongan_model->getUmur(),
       'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_model->getKualifikasiPendidikan(),
       'ipk'  => $this->Sub_Kriteria_Lowongan_model->getIpk(),
@@ -102,7 +112,6 @@ class Lowongan extends BaseController
     // edit tanpa gambar
     if ($gambar->getError() == 4) {
       $data = [
-        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
         'nama_lowongan' => $this->request->getPost('nama_lowongan'),
         'umur' => $this->request->getPost('umur'),
         'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
@@ -112,7 +121,7 @@ class Lowongan extends BaseController
       ];
       $this->Lowongan_model->update_data($data, $id_lowongan);
       session()->setFlashdata('success', 'Data Berhasil Diubah');
-      return redirect()->to('/Perusahaan/lowongan');
+      return redirect()->to('/perusahaan/lowongan');
     } else {
       // menghapus gambar lama
       $lowongan = $this->Lowongan_model->detail_data($id_lowongan);
@@ -123,7 +132,6 @@ class Lowongan extends BaseController
       $nama_file = $gambar->getRandomName();
       // jika valid
       $data = array(
-        'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
         'nama_lowongan' => $this->request->getPost('nama_lowongan'),
         'umur' => $this->request->getPost('umur'),
         'kualifikasi_pendidikan' => $this->request->getPost('kualifikasi_pendidikan'),
@@ -136,7 +144,7 @@ class Lowongan extends BaseController
       $gambar->move('lowongan', $nama_file);
       $this->Lowongan_model->update_data($data, $id_lowongan);
       session()->setFlashdata('pesan', 'success');
-      return redirect()->to('/Perusahaan/lowongan');
+      return redirect()->to('/perusahaan/lowongan');
     }
   }
 
@@ -144,6 +152,6 @@ class Lowongan extends BaseController
   {
     $this->Lowongan_model->delete_data($id_lowongan);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
-    return redirect()->to('/Perusahaan/lowongan');
+    return redirect()->to('/perusahaan/lowongan');
   }
 }

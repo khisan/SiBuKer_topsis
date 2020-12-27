@@ -8,13 +8,8 @@
           <div>
             <h3 class="card-title">Form Tambah Lowongan</h3>
           </div>
-          <form class="form-horizontal form-material" action="/admin/lowongan/add" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-              <label class="col-md-12 mb-0">Nama Perusahaan</label>
-              <div class="col-md-12">
-                <input type="text" placeholder="Nama Perusahaan" class="form-control pl-0 form-control-line" name="nama_perusahaan" required>
-              </div>
-            </div>
+          <form class="form-horizontal form-material" action="/perusahaan/lowongan/add" method="POST" enctype="multipart/form-data">
+            <input type="hidden" class="form-control pl-0 form-control-line" name="id_perusahaan" required value="<?= $id_perusahaan ?>">
             <div class="form-group">
               <label class="col-md-12 mb-0">Nama Lowongan</label>
               <div class="col-md-12">
@@ -91,26 +86,6 @@
 </div>
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
 <script>
-  // Chained Dropdown
-  $(document).ready(function() {
-    $('#kriteria').change(function() {
-      var kode = $(this).val();
-      $.ajax({
-        url: "/backend/admin/subkriterialowongan/get_subkategori",
-        method: "POST",
-        data: {
-          kode: kode
-        },
-        // async: false,
-        dataType: 'json',
-        success: function(data) {
-          var isi = '';
-          isi += data.cost_benefit;
-          $('.cost_benefit').val(isi);
-        }
-      });
-    });
-  });
   // summernote
   $(document).ready(function() {
     $('#summernote').summernote({

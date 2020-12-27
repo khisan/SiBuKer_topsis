@@ -23,7 +23,7 @@
               <h4 class="card-title">Data Lowongan</h4>
             </div>
             <div class="col-md-2 col-4 align-self-right">
-              <a href="/admin/lowongan/tambah" class="btn btn-primary text-white mt-4" style="display: inline;">Tambah Data</a>
+              <a href="/perusahaan/lowongan/tambah" class="btn btn-primary text-white mt-4" style="display: inline;">Tambah Data</a>
             </div>
           </div>
           <div class="table-responsive">
@@ -46,8 +46,8 @@
                     <td><?= $hasil['deskripsi_lowongan'] ?></td>
                     <td><img src="/lowongan/<?= $hasil['gambar'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
                     <td>
-                      <a href="/backend/admin/lowongan/ubah/<?= $hasil['id_lowongan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <a href="/backend/admin/lowongan/delete/<?= $hasil['id_lowongan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
+                      <a href="/perusahaan/lowongan/ubah/<?= $hasil['id_lowongan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                      <a href="/perusahaan/lowongan/delete/<?= $hasil['id_lowongan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -69,7 +69,7 @@
 
     Swal.fire({
       title: 'Apakah Anda Yakin?',
-      text: "Data Kriteria Lowongan akan Dihapus!",
+      text: "Data Lowongan akan Dihapus!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

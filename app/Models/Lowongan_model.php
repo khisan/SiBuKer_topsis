@@ -86,6 +86,12 @@ class Lowongan_model extends Model
     $this->db->table('tb_lowongan')->insert($data);
   }
 
+  public function tambah($id_perusahaan)
+  {
+    return $this->db->table('tb_lowongan')
+      ->where('id_perusahaan', $id_perusahaan)->get()->getRowArray();
+  }
+
   public function add($data)
   {
     $this->db->table('tb_lowongan')->insert($data);
@@ -93,7 +99,7 @@ class Lowongan_model extends Model
 
   public function edit($id_lowongan)
   {
-    return $kriteria = $this->db->table('tb_lowongan')
+    return $this->db->table('tb_lowongan')
       ->where('id_lowongan', $id_lowongan)->get()->getRowArray();
   }
 

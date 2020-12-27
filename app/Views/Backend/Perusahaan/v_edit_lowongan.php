@@ -8,13 +8,7 @@
           <div>
             <h3 class="card-title">Form Edit Lowongan</h3>
           </div>
-          <form class="form-horizontal form-material" action="/backend/admin/lowongan/update/<?= $lowongan['id_lowongan'] ?>" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-              <label class="col-md-12 mb-0">Nama Perusahaan</label>
-              <div class="col-md-12">
-                <input type="text" class="form-control pl-0 form-control-line" name="nama_perusahaan" value="<?= $lowongan['nama_perusahaan'] ?>">
-              </div>
-            </div>
+          <form class="form-horizontal form-material" action="/perusahaan/lowongan/update/<?= $lowongan['id_lowongan'] ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label class="col-md-12 mb-0">Nama Lowongan</label>
               <div class="col-md-12">
