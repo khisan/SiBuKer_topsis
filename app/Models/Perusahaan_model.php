@@ -24,11 +24,6 @@ class Perusahaan_model extends Model
     return $perusahaan;
   }
 
-  public function add($data)
-  {
-    $this->db->table('tb_perusahaan')->insert($data);
-  }
-
   public function update_data($data, $id_perusahaan)
   {
     return $this->db->table('tb_perusahaan')

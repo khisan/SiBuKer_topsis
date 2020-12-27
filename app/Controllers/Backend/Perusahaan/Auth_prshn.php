@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Auth_model;
 use App\Models\Perusahaan_Token_model;
 use App\Models\Perusahaan_model;
+use App\Models\Lowongan_model;
 
 class Auth_prshn extends BaseController
 {
@@ -27,9 +28,10 @@ class Auth_prshn extends BaseController
   {
     if ($this->validate([
       'username' => [
-        'rules' => 'required',
+        'rules' => 'required|is_unique[tb_perusahaan.username]',
         'errors' => [
           'required' => '{field} Tidak Boleh Kosong',
+          'is_unique' => '{field} Sudah Ada',
         ]
       ],
       'email' => [
@@ -83,6 +85,20 @@ class Auth_prshn extends BaseController
       return redirect()->to('/perusahaan/register');
     }
   }
+
+  // function looping()
+  // {
+  //   $modelwoi = new Lowongan_model();
+  //   for ($i = 1; $i <= 75; $i++) {
+  //     dd($i);
+  //   }
+  //   $data = [
+  //     'id_perusahaan' => $i
+  //   ];
+  //   $modelwoi->add($data);
+  //   // dd($data);
+  //   return redirect()->to('/Home');
+  // }
 
   public function login()
   {

@@ -19,6 +19,9 @@
 <link rel="stylesheet" type="text/css" href="/template/auth/css/main.css">
 <div class="login-page">
   <div class="form">
+    <!-- <form class="login-form" action="/backend/perusahaan/auth_prshn/looping" method="post">
+      <button>Looping</button>
+    </form> -->
     <form class="login-form" action="/backend/perusahaan/auth_prshn/login" method="post">
       <h3 class="title">Page Login Perusahaan</h3>
       <!-- <div class="swal" data-swal="<?= session()->get('berhasil') ?>"></div> -->

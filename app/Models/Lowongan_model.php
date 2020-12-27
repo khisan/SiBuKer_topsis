@@ -37,6 +37,14 @@ class Lowongan_model extends Model
     return $builder->countAll();
   }
 
+  public function getLowonganByPerusahaan($id_perusahaan)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->where('id_perusahaan', $id_perusahaan);
+    $lowongan = $builder->get()->getResultArray();
+    return $lowongan;
+  }
+
   public function getNilai($jurusan)
   {
     $builder = $this->db->table('tb_lowongan');
@@ -71,6 +79,11 @@ class Lowongan_model extends Model
     return $this->db->table('tb_lowongan')
       ->where('id_lowongan', $id_lowongan)
       ->get()->getRowArray();
+  }
+
+  public function addLooping($data)
+  {
+    $this->db->table('tb_lowongan')->insert($data);
   }
 
   public function add($data)

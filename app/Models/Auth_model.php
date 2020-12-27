@@ -50,4 +50,9 @@ class Auth_model extends Model
     $login = $builder->get()->getRow();
     return $login;
   }
+
+  function looping($data)
+  {
+    $this->db->table('tb_lowongan')->insert($data);
+  }
 }

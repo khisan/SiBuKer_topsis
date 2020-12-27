@@ -108,6 +108,8 @@ $routes->get('/perusahaan/cekLogin', 'Backend/Perusahaan/Auth_prshn::login', ['f
 $routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filter_prshn']);
 // Menu Profil
 $routes->get('/perusahaan/profil', 'Backend/Perusahaan/Profil::', ['filter' => 'filter_prshn']);
+// Menu Lowongan
+$routes->get('/perusahaan/lowongan', 'Backend/Perusahaan/Lowongan::', ['filter' => 'filter_prshn']);
 
 /**
  * --------------------------------------------------------------------
