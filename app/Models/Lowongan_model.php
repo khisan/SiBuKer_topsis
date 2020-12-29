@@ -10,9 +10,24 @@ class Lowongan_model extends Model
 
   public function allData()
   {
-    return $this->db->table('tb_lowongan')
-      ->get()->getResultArray();
+    $builder = $this->db->table('tb_lowongan');
+    $builder->select('id_lowongan,nama_lowongan,deskripsi_lowongan,gambar,tb_perusahaan.nama_perusahaan');
+    $builder->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lowongan.id_perusahaan');
+    $builder->orderBy('tb_perusahaan.id_perusahaan', 'ASC');
+    $query = $builder->get()->getResultArray();
+    return $query;
   }
+
+  public function detailLowongan($id_lowongan)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->select('id_lowongan,nama_lowongan,deskripsi_lowongan,gambar,tb_perusahaan.nama_perusahaan');
+    $builder->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lowongan.id_perusahaan');
+    $builder->where('id_lowongan', $id_lowongan);
+    $query = $builder->get()->getRowArray();
+    return $query;
+  }
+
 
   public function cari($keyword)
   {
@@ -72,13 +87,6 @@ class Lowongan_model extends Model
   public function jmlData()
   {
     return $this->db->table('tb_lowongan')->countAll();
-  }
-
-  function detail_data($id_lowongan)
-  {
-    return $this->db->table('tb_lowongan')
-      ->where('id_lowongan', $id_lowongan)
-      ->get()->getRowArray();
   }
 
   public function addLooping($data)

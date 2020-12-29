@@ -33,6 +33,7 @@
                     <th class="border-top-0">Nama Lowongan</th>
                     <th class="border-top-0" style="width: 50%">Deskripsi Lowongan</th>
                     <th class="border-top-0">Gambar</th>
+                    <th class="border-top-0">Aksi</th>
                   </center>
                 </tr>
               </thead>
@@ -45,6 +46,9 @@
                     <td><?= $hasil['nama_lowongan'] ?></td>
                     <td><?= $hasil['deskripsi_lowongan'] ?></td>
                     <td><img src="/lowongan/<?= $hasil['gambar'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
+                    <td>
+                      <a href="/alumni/lowongan/detail/<?= $hasil['id_lowongan'] ?>" class="btn btn-primary">Detail</a>
+                    </td>
                   </tr>
                 <?php } ?>
               </tbody>

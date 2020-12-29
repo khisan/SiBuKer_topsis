@@ -16,7 +16,7 @@ class ListLowongan extends BaseController
     \Config\Services::pager();
     $data = [
       'isi' => 'Frontend/v_list_lowongan',
-      'lowongan'  => $this->Lowongan_model->paginate(4),
+      'lowongan'  => $this->Lowongan_model->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lowongan.id_perusahaan')->paginate(4),
       'pager' => $this->Lowongan_model->pager
     ];
     return view('Frontend/layout/v_wrapper', $data);
@@ -39,7 +39,7 @@ class ListLowongan extends BaseController
   {
     $data = [
       'isi' => 'Frontend/v_detail_lowongan',
-      'detail_lowongan' => $this->Lowongan_model->detail_data($id_lowongan),
+      'detail_lowongan' => $this->Lowongan_model->detailLowongan($id_lowongan),
     ];
     return view('Frontend/layout/v_wrapper', $data);
   }

@@ -29,4 +29,18 @@ class Lowongan extends BaseController
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);
   }
+
+  public function detail($id_lowongan)
+  {
+    $table = 'tb_alumni';
+    $sesiAlumni = session()->get();
+    $id_alumni = $sesiAlumni['id_alumni'];
+    $data = [
+      'title'   => 'Detail Lowongan',
+      'alumni'  => $this->AlumniModel->get_alumni_by_id($id_alumni, $table),
+      'lowongan'  => $this->Lowongan_model->detailLowongan($id_lowongan),
+      'isi'     => 'Backend/Alumni/v_detail_lowongan'
+    ];
+    return view('Backend/Alumni/layout/v_wrapper', $data);
+  }
 }
