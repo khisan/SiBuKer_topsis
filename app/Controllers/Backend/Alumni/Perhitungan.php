@@ -8,7 +8,7 @@ use App\Models\Lowongan_model;
 use App\Models\Sub_Kriteria_Lowongan_model;
 use App\Models\Kriteria_Model;
 
-class HasilRekomendasi extends BaseController
+class Perhitungan extends BaseController
 {
   public function __construct()
   {
@@ -255,7 +255,7 @@ class HasilRekomendasi extends BaseController
     $id_alumni = $sesiAlumni['id_alumni'];
     $jurusan = $sesiAlumni['jurusan'];
     $data = [
-      'title'   => 'Hasil Rekomendasi Lowongan',
+      'title'   => 'Detail Perhitungan',
       'alumni'  => $this->Alumni_Model->get_alumni_by_id($id_alumni, $table),
       'lowongan'  => $this->Lowongan_model->getLowonganByJurusan($jurusan),
       'lowongan_get_nilai' => $this->Lowongan_model->getNilai($jurusan),
@@ -270,7 +270,7 @@ class HasilRekomendasi extends BaseController
       'd_min' => $this->dMin(),
       'nilai_v' => $this->nilaiV(),
       'nilai_v_tertinggi_limit' => $this->nilaiVTertinggiLimit(),
-      'isi'     => 'Backend/Alumni/v_hasil_rekomendasi'
+      'isi'     => 'Backend/Alumni/v_detail_perhitungan'
     ];
     return view('Backend/Alumni/layout/v_wrapper', $data);
   }

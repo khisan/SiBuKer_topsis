@@ -54,6 +54,8 @@ $routes->get('/alumni/lowongan', 'Backend/Alumni/Lowongan::', ['filter' => 'filt
 $routes->get('/alumni/rekomendasi', 'Backend/Alumni/Rekomendasi::', ['filter' => 'filter_alu']);
 // Page Hasil Rekomendasi
 $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', ['filter' => 'filter_alu']);
+// Page Detail Perhitungan
+$routes->get('/alumni/detail-perhitungan', 'Backend/Alumni/Perhitungan::', ['filter' => 'filter_alu']);
 
 /* */
 /* */
