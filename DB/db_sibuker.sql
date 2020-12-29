@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2020 at 06:24 AM
+-- Generation Time: Dec 28, 2020 at 01:14 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -386,7 +386,8 @@ ALTER TABLE `tb_kriteria`
 -- Indexes for table `tb_lowongan`
 --
 ALTER TABLE `tb_lowongan`
-  ADD PRIMARY KEY (`id_lowongan`);
+  ADD PRIMARY KEY (`id_lowongan`),
+  ADD KEY `id_perusahaan` (`id_perusahaan`);
 
 --
 -- Indexes for table `tb_perusahaan`
@@ -448,7 +449,7 @@ ALTER TABLE `tb_kriteria`
 -- AUTO_INCREMENT for table `tb_lowongan`
 --
 ALTER TABLE `tb_lowongan`
-  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
 
 --
 -- AUTO_INCREMENT for table `tb_perusahaan`
@@ -477,6 +478,12 @@ ALTER TABLE `tb_sub_kriteria_lowongan`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tb_lowongan`
+--
+ALTER TABLE `tb_lowongan`
+  ADD CONSTRAINT `tb_lowongan_ibfk_1` FOREIGN KEY (`id_perusahaan`) REFERENCES `tb_perusahaan` (`id_perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_sub_kriteria_alumni`

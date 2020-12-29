@@ -33,7 +33,9 @@
           </ul>
         </div>
       <?php } ?>
-      <input type="number" placeholder="NIM" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="7" />
+      <input type="number" placeholder="NIM" id="nim" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);myFunction()" maxlength="7" />
+      <input type="hidden" placeholder="" id="kualifikasi_pendidikan" name="kualifikasi_pendidikan" />
+      <input type="hidden" placeholder="" id="jurusan" name="jurusan" />
       <input type="text" placeholder="Email" name="email" />
       <input type="text" placeholder="Nama" name="nama" />
       <input type="password" placeholder="Password" name="password" />
@@ -42,6 +44,57 @@
     </form>
   </div>
 </div>
+<!-- Coba Fungsi on input -->
+<script>
+  function myFunction() {
+    var x = document.getElementById("nim").value;
+    var res = x.substr(2, 2);
+
+    if (res == "18") {
+      document.getElementById("jurusan").value = "informatika";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "51") {
+      document.getElementById("jurusan").value = "mesin";
+      document.getElementById("kualifikasi_pendidikan").value = 3;
+    } else if (res == "11") {
+      document.getElementById("jurusan").value = "mesin";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "53") {
+      document.getElementById("jurusan").value = "industri";
+      document.getElementById("kualifikasi_pendidikan").value = 3;
+    } else if (res == "13") {
+      document.getElementById("jurusan").value = "industri";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "12") {
+      document.getElementById("jurusan").value = "elektro";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "52") {
+      document.getElementById("jurusan").value = "elektro";
+      document.getElementById("kualifikasi_pendidikan").value = 3;
+    } else if (res == "14") {
+      document.getElementById("jurusan").value = "kimia";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "21") {
+      document.getElementById("jurusan").value = "sipil";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "26") {
+      document.getElementById("jurusan").value = "lingkungan";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "24") {
+      document.getElementById("jurusan").value = "planologi";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "25") {
+      document.getElementById("jurusan").value = "geodesi";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else if (res == "22") {
+      document.getElementById("jurusan").value = "arsitek";
+      document.getElementById("kualifikasi_pendidikan").value = 5;
+    } else {
+      document.getElementById("jurusan").value = "";
+      document.getElementById("kualifikasi_pendidikan").value = "";
+    }
+  }
+</script>
 <script src="/template/auth/js/jquery-3.2.1.min.js"></script>
 <script src="/template/sweetalert/sweetalert2.all.min.js"></script>
 <!--Sweet Alert Message-->

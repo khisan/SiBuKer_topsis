@@ -21,9 +21,9 @@ class CustomRules
       return true;
     } elseif ($cek == "13") {
       return true;
-    } elseif ($cek == "51") {
-      return true;
     } elseif ($cek == "12") {
+      return true;
+    } elseif ($cek == "52") {
       return true;
     } elseif ($cek == "14") {
       return true;

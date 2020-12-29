@@ -45,11 +45,13 @@ class Auth_alu extends BaseController
       $namaFoto = 'user_default.png';
       $email = $this->request->getPost('email');
       $data = array(
-        'nim'           => $this->request->getPost('nim'),
-        'email'         => $email,
-        'password'      => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-        'nama'          => $this->request->getPost('nama'),
-        'foto'          => $namaFoto,
+        'nim'                     => $this->request->getPost('nim'),
+        'email'                   => $email,
+        'password'                => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+        'nama'                    => $this->request->getPost('nama'),
+        'foto'                    => $namaFoto,
+        'kualifikasi_pendidikan'  => $this->request->getPost('kualifikasi_pendidikan'),
+        'jurusan'                 => $this->request->getPost('jurusan'),
         'is_active'     => 0,
       );
       // siapkan token
