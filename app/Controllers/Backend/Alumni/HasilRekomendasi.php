@@ -202,7 +202,10 @@ class HasilRekomendasi extends BaseController
     $no = 0;
     while ($low = $lowongan->getUnbufferedRow('array')) {
       $nilaiVAlt[$no][0] = $nilaiVTertinggi[$no];
-      $nilaiVAlt[$no][1] = $low['nama_lowongan'];
+      $nilaiVAlt[$no][1] = $low['id_lowongan'];
+      $nilaiVAlt[$no][2] = $low['nama_lowongan'];
+      $nilaiVAlt[$no][3] = $low['nama_perusahaan'];
+      $nilaiVAlt[$no][4] = $low['id_perusahaan'];
       $no++;
     }
     return $nilaiVAlt;
@@ -213,7 +216,7 @@ class HasilRekomendasi extends BaseController
     $nilaiVAlt = $this->nilaiVAlt();
     rsort($nilaiVAlt);
     foreach ($nilaiVAlt as $x_value) {
-      $hsl[] =  array($x_value[1], $x_value[0]);
+      $hsl[] =  array($x_value[3], $x_value[2], $x_value[1], $x_value[0], $x_value[4]);
     }
     return $hsl;
   }

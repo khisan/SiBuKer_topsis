@@ -58,6 +58,12 @@ $routes->get('/alumni/rekomendasi', 'Backend/Alumni/Rekomendasi::', ['filter' =>
 $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', ['filter' => 'filter_alu']);
 // Page Detail Perhitungan
 $routes->get('/alumni/detail-perhitungan', 'Backend/Alumni/Perhitungan::', ['filter' => 'filter_alu']);
+// Menu Data Lamaran
+$routes->get('/alumni/lamar', 'Backend/Alumni/Lamar::', ['filter' => 'filter_alu']);
+// Page Tambah Lamaran
+$routes->get('/alumni/lamar/tambah/(:num)/(:num)', 'Backend\Alumni\Lamar::tambah/$1/$2', ['filter' => 'filter_alu']);
+$routes->post('/alumni/lamar/add', 'Backend/Alumni/Lamar::add', ['filter' => 'filter_alu']);
+
 
 /* */
 /* */
@@ -98,6 +104,11 @@ $routes->get('/admin/lowongan', 'Backend/Admin/Lowongan::', ['filter' => 'filter
 $routes->get('/admin/lowongan/tambah', 'Backend/Admin/Lowongan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/lowongan/add', 'Backend/Admin/Lowongan::add', ['filter' => 'filter_adm']);
 $routes->get('/admin/lowongan/delete', 'Backend/Admin/Lowongan::delete', ['filter' => 'filter_adm']);
+// Menu Data Perusahaan
+$routes->get('/admin/perusahaan', 'Backend/Admin/Perusahaan::', ['filter' => 'filter_adm']);
+$routes->get('/admin/perusahaan/ubah/(:num)', 'Backend\Admin\Perusahaan::ubah/$1', ['filter' => 'filter_adm']);
+$routes->post('/admin/perusahaan/update/(:num)', 'Backend\Admin\Perusahaan::update/$1', ['filter' => 'filter_adm']);
+$routes->get('/admin/perusahaan/delete/(:num)', 'Backend\Admin\Perusahaan::delete/$1', ['filter' => 'filter_adm']);
 
 /* */
 /* */
@@ -113,12 +124,12 @@ $routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filt
 // Menu Profil
 $routes->get('/perusahaan/profil', 'Backend/Perusahaan/Profil::', ['filter' => 'filter_prshn']);
 // Menu Lowongan
-$routes->get('/perusahaan/lowongan', 'Backend/Perusahaan/Lowongan::', ['filter' => 'filter_prshn']);
-$routes->get('/perusahaan/lowongan/tambah', 'Backend/Perusahaan/Lowongan::tambah', ['filter' => 'filter_prshn']);
-$routes->post('/perusahaan/lowongan/add', 'Backend/Perusahaan/Lowongan::add', ['filter' => 'filter_prshn']);
-$routes->get('/perusahaan/lowongan/ubah/(:num)', 'Backend\Perusahaan\Lowongan::ubah/$1', ['filter' => 'filter_prshn']);
-$routes->post('/perusahaan/lowongan/update/(:num)', 'Backend\Perusahaan\Lowongan::update/$1', ['filter' => 'filter_prshn']);
-$routes->get('/perusahaan/lowongan/delete/(:num)', 'Backend\Perusahaan\Lowongan::delete/$1', ['filter' => 'filter_prshn']);
+$routes->get('/admin/perusahaan', 'Backend/admin/perusahaan::', ['filter' => 'filter_prshn']);
+$routes->get('/admin/perusahaan/tambah', 'Backend/admin/perusahaan::tambah', ['filter' => 'filter_prshn']);
+$routes->post('/admin/perusahaan/add', 'Backend/admin/perusahaan::add', ['filter' => 'filter_prshn']);
+$routes->get('/admin/perusahaan/ubah/(:num)', 'Backend\Perusahaan\Lowongan::ubah/$1', ['filter' => 'filter_prshn']);
+$routes->post('/admin/perusahaan/update/(:num)', 'Backend\Perusahaan\Lowongan::update/$1', ['filter' => 'filter_prshn']);
+$routes->get('/admin/perusahaan/delete/(:num)', 'Backend\Perusahaan\Lowongan::delete/$1', ['filter' => 'filter_prshn']);
 
 /**
  * --------------------------------------------------------------------

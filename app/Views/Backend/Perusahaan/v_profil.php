@@ -22,6 +22,12 @@
                 <input type="text" placeholder="Nama Perusahaan" class="form-control pl-0 form-control-line" name="nama_perusahaan" value="<?= $perusahaan['nama_perusahaan'] ?>">
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-md-12 mb-0">Username</label>
+              <div class="col-md-12">
+                <input type="text" placeholder="Username" class="form-control pl-0 form-control-line" name="username" value="<?= $perusahaan['username'] ?>">
+              </div>
+            </div>
             <div class=" form-group">
               <label class="col-md-12 mb-0">Foto</label>
               <div class="col-md-12">

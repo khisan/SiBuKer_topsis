@@ -13,6 +13,7 @@
          </li>
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('alumni/lowongan') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase"></i><span class="hide-menu">Data Lowongan</span></a></li>
          <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('alumni/rekomendasi') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-briefcase-check"></i><span class="hide-menu">Rekomendasi <br>Lowongan</span></a></li>
+         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('alumni/lamar') ?>" aria-expanded="false"><i class="mdi mr-2 mdi-archive"></i><span class="hide-menu">Data Lamaran</span></a></li>
        </ul>
      </nav>
      <!-- End Sidebar navigation -->

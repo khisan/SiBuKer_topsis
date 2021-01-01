@@ -4,15 +4,15 @@
       <div class="wrapper row">
         <div class="preview col-md-4">
 
-          <div class="preview-pic tab-content">
+          <div class="preview-pic tab-content" style="margin-top: 20px;margin-bottom: 20px;">
             <div class="tab-pane active"><img src="/lowongan/<?= $lowongan['gambar'] ?>" width="250px" height="400px" /></div>
           </div>
         </div>
-        <div class="details col-md-6" style="margin-top: 20px;">
+        <div class="details col-md-6" style="margin-top: 20px;margin-bottom: 20px;">
           <h3 class="product-title"><?= $lowongan['nama_lowongan'] ?></h3>
           <h4 class="price"><?= $lowongan['nama_perusahaan'] ?></h4>
           <p class="product-description"><?= $lowongan['deskripsi_lowongan'] ?></p>
-          <a href="" class="btn btn-primary" style="margin-bottom: 20px;">Lamar</a>
+          <a href="" class="btn btn-primary">Lamar</a>
         </div>
       </div>
     </div>

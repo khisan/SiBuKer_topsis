@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2020 at 01:14 AM
+-- Generation Time: Dec 30, 2020 at 11:53 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -53,7 +53,6 @@ CREATE TABLE `tb_alumni` (
   `email` varchar(100) NOT NULL,
   `password` char(60) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `jenis_kelamin` int(11) NOT NULL,
   `umur` int(11) NOT NULL,
   `foto` text NOT NULL,
   `kualifikasi_pendidikan` int(11) NOT NULL,
@@ -69,8 +68,8 @@ CREATE TABLE `tb_alumni` (
 -- Dumping data for table `tb_alumni`
 --
 
-INSERT INTO `tb_alumni` (`id_alumni`, `nim`, `email`, `password`, `nama`, `jenis_kelamin`, `umur`, `foto`, `kualifikasi_pendidikan`, `ipk`, `pengalaman_kerja`, `jurusan`, `is_active`, `created_at`, `updated_at`) VALUES
-(34, '1718006', 'pemulungon@gmail.com', '$2y$10$NXVztTBWErHPJT6glf4TX.JGvYy.42VYYkvNkBT8.Qz8bv5vsexiS', 'Khisan', 0, 0, 'user_default.png', 0, 0, 0, '', 1, '2020-12-23 18:22:31', '2020-12-23 18:22:31');
+INSERT INTO `tb_alumni` (`id_alumni`, `nim`, `email`, `password`, `nama`, `umur`, `foto`, `kualifikasi_pendidikan`, `ipk`, `pengalaman_kerja`, `jurusan`, `is_active`, `created_at`, `updated_at`) VALUES
+(41, '1718006', 'pemulungon@gmail.com', '$2y$10$hRRu6h7PTgc4y8ujRIDtK.wRqfHazWyBerS9Ymmjwdwtk/P571nfa', 'Khisan', 4, 'user_default.png', 5, 3, 3, 'informatika', 1, '2020-12-28 18:28:10', '2020-12-28 18:28:10');
 
 -- --------------------------------------------------------
 
@@ -84,13 +83,6 @@ CREATE TABLE `tb_alumni_token` (
   `token` varchar(100) NOT NULL,
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tb_alumni_token`
---
-
-INSERT INTO `tb_alumni_token` (`id_token`, `email`, `token`, `date_created`) VALUES
-(33, 'ui@gmail.com', 'uBUOpY1j1v80wLiqP/C7eXKPOxECCA54GNWYEciQWNI=', 1608809025);
 
 -- --------------------------------------------------------
 
@@ -114,6 +106,21 @@ INSERT INTO `tb_kriteria` (`id_kriteria`, `kode`, `kriteria`, `cost_benefit`) VA
 (3, 'C2', 'Kualifikasi Pendidikan', 'benefit'),
 (4, 'C3', 'IPK', 'benefit'),
 (6, 'C4', 'Pengalaman Kerja', 'benefit');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_lamar`
+--
+
+CREATE TABLE `tb_lamar` (
+  `id_lamar` int(11) NOT NULL,
+  `id_alumni` int(11) NOT NULL,
+  `id_perusahaan` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `catatan` text NOT NULL,
+  `cv` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -383,6 +390,14 @@ ALTER TABLE `tb_kriteria`
   ADD UNIQUE KEY `kode` (`kode`);
 
 --
+-- Indexes for table `tb_lamar`
+--
+ALTER TABLE `tb_lamar`
+  ADD PRIMARY KEY (`id_lamar`),
+  ADD KEY `id_alumni` (`id_alumni`),
+  ADD KEY `id_perusahaan` (`id_perusahaan`);
+
+--
 -- Indexes for table `tb_lowongan`
 --
 ALTER TABLE `tb_lowongan`
@@ -431,19 +446,25 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_alumni`
 --
 ALTER TABLE `tb_alumni`
-  MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tb_alumni_token`
 --
 ALTER TABLE `tb_alumni_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `tb_kriteria`
 --
 ALTER TABLE `tb_kriteria`
   MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tb_lamar`
+--
+ALTER TABLE `tb_lamar`
+  MODIFY `id_lamar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_lowongan`
@@ -478,6 +499,13 @@ ALTER TABLE `tb_sub_kriteria_lowongan`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tb_lamar`
+--
+ALTER TABLE `tb_lamar`
+  ADD CONSTRAINT `tb_lamar_ibfk_1` FOREIGN KEY (`id_alumni`) REFERENCES `tb_alumni` (`id_alumni`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_lamar_ibfk_2` FOREIGN KEY (`id_perusahaan`) REFERENCES `tb_perusahaan` (`id_perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_lowongan`

@@ -34,15 +34,16 @@ class Profil extends BaseController
       $data = [
         'id_perusahaan' => $id_perusahaan,
         'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'username' => $this->request->getPost('username')
       ];
       $this->PerusahaanModel->update_data($data, $id_perusahaan);
       session()->setFlashdata('pesan', 'success');
-      return redirect()->to('/alumni/profil');
+      return redirect()->to('/perusahaan/profil');
     } else {
       // menghapus foto lama
       $perusahaan = $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, 'tb_perusahaan');
       if ($perusahaan['foto'] !== "" && $perusahaan['foto'] !== "perusahaan.png") {
-        unlink('foto/' . $perusahaan['foto']);
+        unlink('perusahaan/' . $perusahaan['foto']);
       }
 
       // merename nama file foto
@@ -54,7 +55,7 @@ class Profil extends BaseController
         'foto' => $nama_file
       );
       // memindahkan file foto dari form input ke folder foto di directory
-      $foto->move('foto', $nama_file);
+      $foto->move('perusahaan', $nama_file);
       $this->PerusahaanModel->update_data($data, $id_perusahaan);
       session()->setFlashdata('pesan', 'success');
       return redirect()->to('/perusahaan/profil');

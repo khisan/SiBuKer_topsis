@@ -164,7 +164,8 @@ class Auth_alu extends BaseController
           $data = array(
             'login' => TRUE,
             'nama'  => $row['nama'],
-            'id_alumni'   => $row['id_alumni']
+            'id_alumni'   => $row['id_alumni'],
+            'nim'   => $row['nim']
           );
           session()->set($data);
           session()->setFlashdata('pesan', 'success');

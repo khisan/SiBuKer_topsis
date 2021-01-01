@@ -7,6 +7,11 @@ use CodeIgniter\Model;
 class Perusahaan_model extends Model
 {
 
+  public function allData()
+  {
+    return $this->db->table('tb_perusahaan')
+      ->get()->getResultArray();
+  }
 
   public function getEmail($email)
   {
@@ -22,6 +27,12 @@ class Perusahaan_model extends Model
     $builder->where('id_perusahaan', $id_perusahaan);
     $perusahaan = $builder->get()->getRowArray();
     return $perusahaan;
+  }
+
+  public function edit($id_perusahaan)
+  {
+    return $this->db->table('tb_perusahaan')
+      ->where('id_perusahaan', $id_perusahaan)->get()->getRowArray();
   }
 
   public function update_data($data, $id_perusahaan)

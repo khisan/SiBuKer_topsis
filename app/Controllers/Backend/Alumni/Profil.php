@@ -44,7 +44,7 @@ class Profil extends BaseController
       // menghapus foto lama
       $alumni = $this->AlumniModel->get_alumni_by_id($id_alumni, 'tb_alumni');
       if ($alumni['foto'] !== "" && $alumni['foto'] !== "user_default.png") {
-        unlink('foto/' . $alumni['foto']);
+        unlink('alumni/' . $alumni['foto']);
       }
 
       // merename nama file foto
@@ -58,7 +58,7 @@ class Profil extends BaseController
         'foto' => $nama_file
       );
       // memindahkan file foto dari form input ke folder foto di directory
-      $foto->move('foto', $nama_file);
+      $foto->move('alumni', $nama_file);
       $this->AlumniModel->update_data($data, $id_alumni);
       session()->setFlashdata('pesan', 'success');
       return redirect()->to('/alumni/profil');

@@ -63,9 +63,11 @@ class Lowongan_model extends Model
   public function getNilai($jurusan)
   {
     $builder = $this->db->table('tb_lowongan');
-    $builder->select('nama_lowongan,umur,kualifikasi_pendidikan,ipk,pengalaman_kerja,deskripsi_lowongan');
+    $builder->select('id_lowongan,nama_lowongan,deskripsi_lowongan,gambar,tb_perusahaan.nama_perusahaan,tb_perusahaan.id_perusahaan,umur,kualifikasi_pendidikan,ipk,pengalaman_kerja');
+    $builder->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lowongan.id_perusahaan');
     $builder->like('deskripsi_lowongan', $jurusan);
-    return $builder->get();
+    $query = $builder->get();
+    return $query;
   }
 
   public function getNilaiCoba($jurusan)

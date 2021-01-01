@@ -255,7 +255,7 @@ class Perhitungan extends BaseController
     $id_alumni = $sesiAlumni['id_alumni'];
     $jurusan = $sesiAlumni['jurusan'];
     $data = [
-      'title'   => 'Detail Perhitungan',
+      'title'   => 'Detail Perhitungan TOPSIS',
       'alumni'  => $this->Alumni_Model->get_alumni_by_id($id_alumni, $table),
       'lowongan'  => $this->Lowongan_model->getLowonganByJurusan($jurusan),
       'lowongan_get_nilai' => $this->Lowongan_model->getNilai($jurusan),

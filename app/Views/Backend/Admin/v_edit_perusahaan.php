@@ -6,13 +6,19 @@
       <div class="card">
         <div class="card-body">
           <div>
-            <h3 class="card-title">Form Edit Jurusan</h3>
+            <h3 class="card-title">Form Edit Perusahaan</h3>
           </div>
-          <form class="form-horizontal form-material" action="/backend/admin/jurusan/update/<?= $jurusan['id_jurusan'] ?>" method="POST">
+          <form class="form-horizontal form-material" action="/admin/perusahaan/update/<?= $perusahaan['id_perusahaan'] ?>" method="POST">
             <div class="form-group">
-              <label class="col-md-12 mb-0">Nama Jurusan</label>
+              <label class="col-md-12 mb-0">Username</label>
               <div class="col-md-12">
-                <input type="text" placeholder="Jurusan" class="form-control pl-0 form-control-line" name="jurusan" value="<?= $jurusan['jurusan'] ?>">
+                <input type="text" class="form-control pl-0 form-control-line" name="username" value="<?= $perusahaan['username'] ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12 mb-0">Nama Perusahaan</label>
+              <div class="col-md-12">
+                <input type="text" class="form-control pl-0 form-control-line" name="nama_perusahaan" value="<?= $perusahaan['nama_perusahaan'] ?>">
               </div>
             </div>
             <div class="form-group">
