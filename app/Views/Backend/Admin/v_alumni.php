@@ -26,11 +26,8 @@
                     <th class="border-top-0">No</th>
                     <th class="border-top-0">NIM</th>
                     <th class="border-top-0">Nama</th>
-                    <th class="border-top-0">Jenis Kelamin</th>
-                    <th class="border-top-0">Umur</th>
-                    <th class="border-top-0">Jurusan</th>
-                    <th class="border-top-0">Kualifikasi Pendidikan</th>
-                    <th class="border-top-0">IPK</th>
+                    <th class="border-top-0">Email</th>
+                    <th class="border-top-0">Foto</th>
                     <th class="border-top-0">Aksi</th>
                   </center>
                 </tr>
@@ -40,9 +37,12 @@
                 foreach ($alumni as $key => $hasil) { ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $hasil['sub_kriteria'] ?></td>
+                    <td><?= $hasil['nim'] ?></td>
+                    <td><?= $hasil['nama'] ?></td>
+                    <td><?= $hasil['email'] ?></td>
+                    <td><img src="/foto/<?= $hasil['foto'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
                     <td>
-                      <a href="/backend/admin/alumni/delete/<?= $hasil['id_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
+                      <a href="/admin/alumni/delete/<?= $hasil['id_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>
                 <?php } ?>

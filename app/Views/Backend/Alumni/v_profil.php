@@ -25,18 +25,12 @@
         <div class="card-body">
           <form class="form-horizontal form-material" action="/backend/alumni/profil/update/<?= $alumni['id_alumni'] ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-              <label class="col-md-12 mb-0">NIM</label>
-              <div class="col-md-12">
-                <input type="text" placeholder="NIM" class="form-control pl-0 form-control-line" name="nim" value="<?= $alumni['nim'] ?>">
-              </div>
-            </div>
-            <div class="form-group">
               <label class="col-md-12 mb-0">Nama</label>
               <div class="col-md-12">
                 <input type="text" placeholder="Nama" class="form-control pl-0 form-control-line" name="nama" value="<?= $alumni['nama'] ?>">
               </div>
             </div>
-            <div class=" form-group">
+            <div class="form-group">
               <label class="col-md-12 mb-0">Foto</label>
               <div class="col-md-12">
                 <input type="file" name="foto" class="form-control pl-0 form-control-line">

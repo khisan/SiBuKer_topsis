@@ -40,10 +40,11 @@ $routes->get('/lowker/detail/(:num)', 'ListLowongan::detail/$1');
 /* */
 
 // Alumni Auth
-$routes->get('/alumni', 'Auth_front::login', ['filter' => 'no_filter_alu']);
+$routes->get('/alumni', 'Auth_front::login::', ['filter' => 'no_filter_adm']);
 $routes->get('/alumni/login', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/register', 'Auth_front::register', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/cekLogin', '/Backend/alumni/auth_alu::login', ['filter' => 'no_filter_alu']);
+
 // Alumni Backend
 $routes->get('/alumni/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
 // Menu Profil
@@ -69,7 +70,7 @@ $routes->post('/alumni/lamar/add', 'Backend/Alumni/Lamar::add', ['filter' => 'fi
 /* */
 
 // Admin Auth 
-$routes->get('/admin', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
+$routes->get('admin', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 $routes->get('/admin/login', 'Backend/Admin/Auth_adm::', ['filter' => 'no_filter_adm']);
 $routes->post('/admin/cekLogin', 'Backend/Admin/Auth_adm::login', ['filter' =>
 'no_filter_alu']);
@@ -81,9 +82,6 @@ $routes->get('/admin/jurusan', 'Backend/Admin/Jurusan::', ['filter' => 'filter_a
 $routes->get('/admin/jurusan/tambah', 'Backend/Admin/Jurusan::tambah', ['filter' => 'filter_adm']);
 $routes->post('/admin/jurusan/add', 'Backend/Admin/Jurusan::add', ['filter' => 'filter_adm']);
 $routes->get('/admin/jurusan/ubah/(:num)', 'Backend/Admin/Jurusan::ubah/$1', ['filter' => 'filter_adm']);
-// Menu Alumni
-$routes->get('/admin/alumni', 'Backend/Admin/Alumni::', ['filter' => 'filter_adm']);
-$routes->get('/admin/alumni/delete', 'Backend/Admin/Alumni::delete', ['filter' => 'filter_adm']);
 // Menu Kriteria
 $routes->get('/admin/kriteria', 'Backend/Admin/Kriteria::', ['filter' => 'filter_adm']);
 $routes->get('/admin/kriteria/tambah', 'Backend/Admin/Kriteria::tambah', ['filter' => 'filter_adm']);
@@ -106,15 +104,16 @@ $routes->post('/admin/lowongan/add', 'Backend/Admin/Lowongan::add', ['filter' =>
 $routes->get('/admin/lowongan/delete', 'Backend/Admin/Lowongan::delete', ['filter' => 'filter_adm']);
 // Menu Data Perusahaan
 $routes->get('/admin/perusahaan', 'Backend/Admin/Perusahaan::', ['filter' => 'filter_adm']);
-$routes->get('/admin/perusahaan/ubah/(:num)', 'Backend\Admin\Perusahaan::ubah/$1', ['filter' => 'filter_adm']);
-$routes->post('/admin/perusahaan/update/(:num)', 'Backend\Admin\Perusahaan::update/$1', ['filter' => 'filter_adm']);
 $routes->get('/admin/perusahaan/delete/(:num)', 'Backend\Admin\Perusahaan::delete/$1', ['filter' => 'filter_adm']);
+// Menu Alumni
+$routes->get('/admin/alumni', 'Backend/Admin/Alumni::', ['filter' => 'filter_adm']);
+$routes->get('/admin/alumni/delete/(:num)', 'Backend\Admin\Alumni::delete/$1', ['filter' => 'filter_adm']);
 
 /* */
 /* */
 
 // Perusahaan Auth
-$routes->get('/perusahaan', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
+$routes->get('perusahaan', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
 $routes->get('/perusahaan/login', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
 $routes->get('/perusahaan/register', 'Backend/Perusahaan/Auth_prshn::daftar', ['filter' => 'no_filter_prshn']);
 $routes->get('/perusahaan/cekLogin', 'Backend/Perusahaan/Auth_prshn::login', ['filter' => 'no_filter_prshn']);

@@ -40,7 +40,6 @@
                     <td><?= $hasil['username'] ?></td>
                     <td><img src="/foto/<?= $hasil['foto'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
                     <td>
-                      <a href="/admin/perusahaan/ubah/<?= $hasil['id_perusahaan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
                       <a href="/admin/perusahaan/delete/<?= $hasil['id_perusahaan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>

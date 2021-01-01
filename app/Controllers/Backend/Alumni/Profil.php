@@ -33,8 +33,6 @@ class Profil extends BaseController
     if ($foto->getError() == 4) {
       $data = [
         'id_alumni' => $id_alumni,
-        'nim' => $this->request->getPost('nim'),
-        'password' => $this->request->getPost('password'),
         'nama' => $this->request->getPost('nama'),
       ];
       $this->AlumniModel->update_data($data, $id_alumni);
@@ -52,8 +50,6 @@ class Profil extends BaseController
       // jika valid
       $data = array(
         'id_alumni' => $id_alumni,
-        'nim' => $this->request->getPost('nim'),
-        'password' => $this->request->getPost('password'),
         'nama' => $this->request->getPost('nama'),
         'foto' => $nama_file
       );
