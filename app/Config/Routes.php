@@ -61,9 +61,14 @@ $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', [
 $routes->get('/alumni/detail-perhitungan', 'Backend/Alumni/Perhitungan::', ['filter' => 'filter_alu']);
 // Menu Data Lamaran
 $routes->get('/alumni/lamar', 'Backend/Alumni/Lamar::', ['filter' => 'filter_alu']);
-// Page Tambah Lamaran
+// Page Lamar
 $routes->get('/alumni/lamar/tambah/(:num)/(:num)', 'Backend\Alumni\Lamar::tambah/$1/$2', ['filter' => 'filter_alu']);
 $routes->post('/alumni/lamar/add', 'Backend/Alumni/Lamar::add', ['filter' => 'filter_alu']);
+$routes->get('/alumni/lamar/ubah/(:num)', 'Backend\Alumni\Lamar::ubah/$1', ['filter' => 'filter_alu']);
+$routes->post('/alumni/lamar/update/(:num)', 'Backend\Alumni\Lamar::update/$1', ['filter' => 'filter_alu']);
+$routes->get('/alumni/lamar/delete/(:num)', 'Backend\Alumni\Lamar::delete/$1', ['filter' => 'filter_alu']);
+// Page Data Lamaran
+$routes->get('/alumni/lamar/download/(:any)', 'Backend\Alumni\Lamar::download/$1', ['filter' => 'filter_alu']);
 
 
 /* */

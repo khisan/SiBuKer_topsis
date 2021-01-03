@@ -23,7 +23,7 @@
     <div class="col-lg-8 col-xlg-9 col-md-7">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal form-material" action="/alumni/lamar/add" method="POST" enctype="multipart/form-data">
+          <form class="form-horizontal form-material" action="/alumni/lamar/update/<?= $lamar['id_lamar'] ?>" method="POST" enctype="multipart/form-data">
             <?php
             $errors = session()->getFlashdata('errors');
             if (!empty($errors)) { ?>
@@ -36,9 +36,9 @@
               </div>
             <?php } ?>
             <div class="form-group">
-              <input type="hidden" class="form-control pl-0 form-control-line" name="id_perusahaan" value="<?= $id_perusahaan ?>">
-              <input type="hidden" class="form-control pl-0 form-control-line" name="id_lowongan" value="<?= $id_lowongan ?>">
-              <input type="hidden" class="form-control pl-0 form-control-line" name="id_alumni" value="<?= $id_alumni ?>">
+              <input type="hidden" class="form-control pl-0 form-control-line" name="id_perusahaan" value="<?= $lamar['id_perusahaan'] ?>">
+              <input type="hidden" class="form-control pl-0 form-control-line" name="id_lowongan" value="<?= $lamar['id_lowongan'] ?>">
+              <input type="hidden" class="form-control pl-0 form-control-line" name="id_alumni" value="<?= $lamar['id_alumni'] ?>">
             </div>
             <div class=" form-group">
               <label class="col-md-12 mb-0">Berkas Perlengkapan</label>
@@ -47,9 +47,15 @@
                 <small class="text-muted">*Wajib file .rar dengan diberi nama nim, contoh : 1718006.rar</small>
               </div>
             </div>
+            <div class=" form-group">
+              <label class="col-md-12 mb-0">Berkas Perlengkapan yang Lama</label>
+              <div class="col-md-12">
+                <input type="text" name="berkas" class="form-control pl-0 form-control-line" disabled value="<?= $lamar['berkas'] ?>">
+              </div>
+            </div>
             <div class="form-group">
               <div class="col-sm-12 d-flex">
-                <button class="btn btn-success mx-auto mx-md-0 text-white" style="text-align: center;" type="submit">Lamar</button>
+                <button class="btn btn-success mx-auto mx-md-0 text-white" style="text-align: center;" type="submit">Ubah</button>
               </div>
             </div>
           </form>
