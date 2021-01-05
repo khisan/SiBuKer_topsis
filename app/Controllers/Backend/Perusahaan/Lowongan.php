@@ -108,6 +108,7 @@ class Lowongan extends BaseController
   {
     // mengambil file gambar dari form input
     $gambar = $this->request->getFile('gambar');
+    // dd($gambar->getRealPath());
 
     // edit tanpa gambar
     if ($gambar->getError() == 4) {

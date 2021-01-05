@@ -44,7 +44,7 @@
                     <td><?= $no++ ?></td>
                     <td><?= $hasil['nama_lowongan'] ?></td>
                     <td><?= $hasil['nama'] ?></td>
-                    <td><a href="/alumni/lamar/download/<?= $hasil['berkas'] ?>"><?= $hasil['berkas'] ?></a></td>
+                    <td><a href="/perusahaan/pelamar/download/<?= $hasil['berkas'] ?>"><?= $hasil['berkas'] ?></a></td>
                     <td>
                       <?php if ($hasil['status'] == 0) { ?>
                         <span class="label label-warning">Belum</span>

@@ -102,11 +102,7 @@ class Pelamar extends BaseController
   public function download($nama_berkas)
   {
     $berkas = $nama_berkas;
-    // $file_berkas = file_get_contents('lamaran' . $berkas);
-    $this->response->download('/perusahaan/' . 'perusahaan.png', null);
-    // $file = '/lamaran';
-    // echo set_realpath($file);
-    return redirect()->to('/alumni/lamar');
+    return $this->response->download('lamaran/' . $berkas, null);
   }
 
   public function setuju($id_lamar)

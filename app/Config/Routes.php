@@ -140,6 +140,7 @@ $routes->get('/perusahaan/pelamar/catatan/(:num)/(:num)/(:num)', 'Backend\Perusa
 $routes->post('/perusahaan/pelamar/catatan/update/(:num)', 'Backend\Perusahaan\Pelamar::update/$1', ['filter' => 'filter_prshn']);
 $routes->post('/perusahaan/pelamar/setuju/(:num)', 'Backend\Perusahaan\Pelamar::setuju/$1', ['filter' => 'filter_prshn']);
 $routes->post('/perusahaan/pelamar/tolak/(:num)', 'Backend\Perusahaan\Pelamar::tolak/$1', ['filter' => 'filter_prshn']);
+$routes->get('/perusahaan/pelamar/download/(:any)', 'Backend\Perusahaan\Pelamar::download/$1', ['filter' => 'filter_alu']);
 
 /**
  * --------------------------------------------------------------------
