@@ -12,7 +12,7 @@
           <h3 class="product-title"><?= $lowongan['nama_lowongan'] ?></h3>
           <h4 class="price"><?= $lowongan['nama_perusahaan'] ?></h4>
           <p class="product-description"><?= $lowongan['deskripsi_lowongan'] ?></p>
-          <a href="" class="btn btn-primary">Lamar</a>
+          <a href="/alumni/lamar/tambah/<?= $lowongan['id_perusahaan'] ?>/<?= $lowongan['id_lowongan'] ?>" class="btn btn-primary">Lamar</a>
         </div>
       </div>
     </div>

@@ -27,6 +27,7 @@
               <div class="card-body">
                 <h5 class="card-title"><?= $hasil['nama_perusahaan'] ?></h5>
                 <p class="card-text"><?= $hasil['nama_lowongan'] ?></p>
+                <a href="/lowker/detail/<?= $hasil['id_lowongan'] ?>" class="btn btn-primary">Detail</a>
               </div>
             </div>
           </div>

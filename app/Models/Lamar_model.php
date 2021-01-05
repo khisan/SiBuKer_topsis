@@ -19,6 +19,18 @@ class Lamar_model extends Model
     return $alumni;
   }
 
+  function get_lamaran_by_id_perusahaan($id_perusahaan)
+  {
+    $builder = $this->db->table('tb_lamar');
+    $builder->select('id_lamar,tb_lamar.id_alumni,tb_lamar.id_perusahaan,tb_lamar.id_lowongan,status,catatan,berkas,tb_perusahaan.nama_perusahaan,tb_lowongan.nama_lowongan, tb_alumni.nama');
+    $builder->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lamar.id_perusahaan');
+    $builder->join('tb_lowongan', 'tb_lowongan.id_lowongan = tb_lamar.id_lowongan');
+    $builder->join('tb_alumni', 'tb_alumni.id_alumni = tb_lamar.id_alumni');
+    $builder->where('tb_lamar.id_perusahaan', $id_perusahaan);
+    $perusahaan = $builder->get()->getResultArray();
+    return $perusahaan;
+  }
+
   public function add($data)
   {
     $this->db->table('tb_lamar')->insert($data);

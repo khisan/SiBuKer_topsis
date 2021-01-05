@@ -50,7 +50,7 @@
             <div class=" form-group">
               <label class="col-md-12 mb-0">Berkas Perlengkapan yang Lama</label>
               <div class="col-md-12">
-                <input type="text" name="berkas" class="form-control pl-0 form-control-line" disabled value="<?= $lamar['berkas'] ?>">
+                <a href="/alumni/lamar/download/<?= $lamar['berkas'] ?>"><?= $lamar['berkas'] ?></a>
               </div>
             </div>
             <div class="form-group">

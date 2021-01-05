@@ -21,7 +21,7 @@ class Lowongan_model extends Model
   public function detailLowongan($id_lowongan)
   {
     $builder = $this->db->table('tb_lowongan');
-    $builder->select('id_lowongan,nama_lowongan,deskripsi_lowongan,gambar,tb_perusahaan.nama_perusahaan');
+    $builder->select('tb_lowongan.id_lowongan,tb_lowongan.id_perusahaan,nama_lowongan,deskripsi_lowongan,gambar,tb_perusahaan.nama_perusahaan');
     $builder->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lowongan.id_perusahaan');
     $builder->where('id_lowongan', $id_lowongan);
     $query = $builder->get()->getRowArray();
@@ -32,6 +32,8 @@ class Lowongan_model extends Model
   public function cari($keyword)
   {
     $builder = $this->db->table('tb_lowongan');
+    $builder->select('tb_lowongan.id_lowongan,tb_lowongan.id_perusahaan,nama_lowongan,deskripsi_lowongan,gambar,tb_perusahaan.nama_perusahaan');
+    $builder->join('tb_perusahaan', 'tb_perusahaan.id_perusahaan = tb_lowongan.id_perusahaan');
     $builder->like('nama_perusahaan', $keyword);
     $builder->orlike('nama_lowongan', $keyword);
     $builder->orlike('deskripsi_lowongan', $keyword);
@@ -57,6 +59,14 @@ class Lowongan_model extends Model
     $builder = $this->db->table('tb_lowongan');
     $builder->where('id_perusahaan', $id_perusahaan);
     $lowongan = $builder->get()->getResultArray();
+    return $lowongan;
+  }
+
+  public function getLowonganById($id_lowongan)
+  {
+    $builder = $this->db->table('tb_lowongan');
+    $builder->where('id_lowongan', $id_lowongan);
+    $lowongan = $builder->get()->getRowArray();
     return $lowongan;
   }
 

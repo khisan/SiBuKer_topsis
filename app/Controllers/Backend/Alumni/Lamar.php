@@ -94,10 +94,11 @@ class Lamar extends BaseController
         ]
       ],
       'berkas' => [
-        'rules' => 'is_unique[tb_lamar.berkas]|mime_in[berkas,application/x-rar-compressed]',
+        'rules' => 'is_unique[tb_lamar.berkas]|trim',
+        'mime_in[berkas,application/x-rar-compressed]',
         'errors' => [
-          'mime_in' => 'Berkas Wajib Berekstensi .rar',
-          'is_unique' => 'Nama file tidak boleh sama!'
+          'is_unique' => 'Nama file tidak boleh sama!',
+          'mime_in' => 'Berkas Wajib Berekstensi .rar'
         ]
       ]
     ])) {

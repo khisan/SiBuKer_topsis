@@ -150,6 +150,8 @@ class Lowongan extends BaseController
 
   public function delete($id_lowongan)
   {
+    $lowongan = $this->Lowongan_model->detail_data($id_lowongan);
+    unlink('lowongan/' . $lowongan['gambar']);
     $this->Lowongan_model->delete_data($id_lowongan);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/perusahaan/lowongan');
