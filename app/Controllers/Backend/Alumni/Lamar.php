@@ -5,6 +5,8 @@ namespace App\Controllers\Backend\Alumni;
 use App\Controllers\BaseController;
 use App\Models\Lamar_model;
 use App\Models\Alumni_model;
+use App\Models\Perusahaan_model;
+use App\Models\Lowongan_model;
 
 class Lamar extends BaseController
 {
@@ -12,6 +14,8 @@ class Lamar extends BaseController
   {
     $this->LamarModel = new Lamar_model();
     $this->AlumniModel = new Alumni_model();
+    $this->PerusahaanModel = new Perusahaan_model();
+    $this->LowonganModel = new Lowongan_model();
   }
 
   public function index()
@@ -113,8 +117,11 @@ class Lamar extends BaseController
         'berkas' => $nama_file,
         'status' => 0,
       ];
+      $id_perusahaan = $this->request->getPost('id_perusahaan');
+      $id_lowongan = $this->request->getPost('id_lowongan');
       // memindahkan file gambar dari form input ke folder lamaran di directory
       $berkas->move('lamaran', $nama_file);
+      $this->sendEmail($id_perusahaan, $id_lowongan);
       $this->LamarModel->add($data);
       session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
       return redirect()->to('/alumni/lamar');
@@ -125,6 +132,40 @@ class Lamar extends BaseController
       return redirect()->to('/alumni/lamar/tambah/' . $id_perusahaan . '/' . $id_lowongan);
     }
   }
+
+  private function sendEmail($id_perusahaan, $id_lowongan)
+  {
+    $email = \Config\Services::email();
+    $config = [
+      'protocol'      => 'smtp',
+      'SMTPHost'     => 'smtp.googlemail.com',
+      'SMTPUser'     => 'khisan8@gmail.com',
+      'SMTPPass'     => 'ynjekksvndpzlcuh',
+      'SMTPPort'     => 587,
+      'mailType'  => 'html',
+      'charset'   => 'utf-8',
+      'newline'   => "\r\n"
+    ];
+
+    $tbl = 'tb_perusahaan';
+    $perusahaan = $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $tbl);
+
+    $lowongan = $this->LowonganModel->getLowonganById($id_lowongan);
+
+    $email->initialize($config);
+    $email->setFrom('khisan8@gmail.com', 'Pusat Karir ITN Malang');
+    $email->setTo($perusahaan['email']);
+
+    $email->setSubject('Lamaran Masuk');
+    $email->setMessage('Ada lamaran masuk dari alumni tujuan lowongan ' . $lowongan['nama_lowongan']  . ' untuk info lebih lanjut : <a href="' . base_url() . '/perusahaan/pelamar">Klik disini</a>');
+    if ($email->send()) {
+      return true;
+    } else {
+      echo $email->printDebugger();
+      die;
+    }
+  }
+
   public function delete($id_lamar)
   {
     $this->LamarModel->delete_data($id_lamar);
