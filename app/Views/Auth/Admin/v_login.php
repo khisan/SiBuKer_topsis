@@ -16,6 +16,8 @@
     font-size: 14px;
   }
 </style>
+<!-- Favicons -->
+<link href="/foto/itn.png" rel="icon">
 <link rel="stylesheet" href="/template/sweetalert/sweetalert2.min.css">
 <link rel="stylesheet" type="text/css" href="/template/auth/css/main.css">
 <div class="login-page">

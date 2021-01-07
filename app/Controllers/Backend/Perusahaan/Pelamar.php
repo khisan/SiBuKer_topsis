@@ -50,7 +50,7 @@ class Pelamar extends BaseController
   }
 
 
-  public function update($id_lamar)
+  public function update($id_lamar, $id_alumni)
   {
     $data = array(
       'catatan' => $this->request->getPost('catatan'),

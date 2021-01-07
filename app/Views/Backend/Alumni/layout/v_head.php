@@ -11,8 +11,8 @@
   <meta name="robots" content="noindex,nofollow">
   <title>SiBuKeR ITN</title>
   <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
-  <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/templates/assets/images/favicon.png">
+  <!-- Favicons -->
+  <link href="/foto/itn.png" rel="icon">
   <!-- chartist CSS -->
   <link href="/template/backend/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
   <link href="/template/backend/assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
