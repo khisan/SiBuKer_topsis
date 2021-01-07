@@ -12,6 +12,19 @@ class Alumni_model extends Model
       ->get()->getResultArray();
   }
 
+  public function semuaEmail()
+  {
+    $builder = $this->db->table('tb_alumni');
+    $builder->select('email');
+    $query = $builder->get()->getResultArray();
+    return $query;
+  }
+
+  public function countAlumni()
+  {
+    $builder = $this->db->table('tb_alumni');
+    return $builder->countAll();
+  }
 
   public function allData()
   {

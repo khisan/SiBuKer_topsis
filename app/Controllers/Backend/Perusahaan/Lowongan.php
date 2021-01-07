@@ -4,6 +4,7 @@ namespace App\Controllers\Backend\Perusahaan;
 
 use App\Controllers\BaseController;
 use App\Models\Perusahaan_model;
+use App\Models\Alumni_model;
 use App\Models\Lowongan_model;
 use App\Models\Sub_Kriteria_Lowongan_model;
 
@@ -12,6 +13,7 @@ class Lowongan extends BaseController
   public function __construct()
   {
     $this->PerusahaanModel = new Perusahaan_model();
+    $this->AlumniModel = new Alumni_model();
     $this->Lowongan_model = new Lowongan_model();
     $this->Sub_Kriteria_Lowongan_model = new Sub_Kriteria_Lowongan_model();
   }
@@ -82,8 +84,44 @@ class Lowongan extends BaseController
       $gambar->move('lowongan', $nama_file);
     }
     $this->Lowongan_model->add($data);
+    $this->sendEmail();
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
     return redirect()->to('/perusahaan/lowongan');
+  }
+
+  private function sendEmail()
+  {
+    $email = \Config\Services::email();
+    $config = [
+      'protocol'      => 'smtp',
+      'SMTPHost'     => 'smtp.googlemail.com',
+      'SMTPUser'     => 'khisan8@gmail.com',
+      'SMTPPass'     => 'ynjekksvndpzlcuh',
+      'SMTPPort'     => 587,
+      'mailType'  => 'html',
+      'charset'   => 'utf-8',
+      'newline'   => "\r\n"
+    ];
+
+    $listEmail = $this->AlumniModel->allData();
+
+    // $mail_count = $this->AlumniModel->countAlumni();
+    foreach ($listEmail as $key => $hasil) :
+      // dd($hasil['email']);
+      dd($hasil['email']);
+      $email->initialize($config);
+      $email->setFrom('khisan8@gmail.com', 'Pusat Karir ITN Malang');
+      $email->setTo($listEmail);
+
+      $email->setSubject('Lowongan Baru');
+      $email->setMessage('Klik link berikut untuk lihat lowongan yang terbaru : <a href="' . base_url() . '/alumni/lowongan">Lihat Lowongan</a>');
+    endforeach;
+    // if ($email->send()) {
+    //   return true;
+    // } else {
+    //   echo $email->printDebugger();
+    //   die;
+    // }
   }
 
   public function ubah($id_lowongan)
@@ -125,7 +163,7 @@ class Lowongan extends BaseController
       return redirect()->to('/perusahaan/lowongan');
     } else {
       // menghapus gambar lama
-      $lowongan = $this->Lowongan_model->detail_data($id_lowongan);
+      $lowongan = $this->Lowongan_model->edit($id_lowongan);
       if ($lowongan['gambar'] !== "" && $lowongan['gambar'] !== "default.png") {
         unlink('lowongan/' . $lowongan['gambar']);
       }
@@ -151,8 +189,10 @@ class Lowongan extends BaseController
 
   public function delete($id_lowongan)
   {
-    $lowongan = $this->Lowongan_model->detail_data($id_lowongan);
-    unlink('lowongan/' . $lowongan['gambar']);
+    $lowongan = $this->Lowongan_model->edit($id_lowongan);
+    if ($lowongan['gambar'] !== "" && $lowongan['gambar'] !== "default.png") {
+      unlink('lowongan/' . $lowongan['gambar']);
+    }
     $this->Lowongan_model->delete_data($id_lowongan);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/perusahaan/lowongan');

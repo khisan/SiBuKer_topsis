@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Lamar_model;
 use App\Models\Perusahaan_model;
 use App\Models\Lowongan_model;
+use App\Models\Alumni_model;
 
 class Pelamar extends BaseController
 {
@@ -14,6 +15,7 @@ class Pelamar extends BaseController
     $this->LamarModel = new Lamar_model();
     $this->PerusahaanModel = new Perusahaan_model();
     $this->LowonganModel = new Lowongan_model();
+    $this->AlumniModel = new Alumni_model();
   }
 
   public function index()
@@ -53,6 +55,7 @@ class Pelamar extends BaseController
     $data = array(
       'catatan' => $this->request->getPost('catatan'),
     );
+    $this->sendEmail($id_alumni);
     $this->LamarModel->update_data($data, $id_lamar);
     session()->setFlashdata('pesan', 'success');
     return redirect()->to('/perusahaan/pelamar');
@@ -105,23 +108,62 @@ class Pelamar extends BaseController
     return $this->response->download('lamaran/' . $berkas, null);
   }
 
-  public function setuju($id_lamar)
+  public function setuju($id_lamar, $id_alumni)
   {
     $data = array(
       'status' => 1,
     );
+    $this->sendEmail($id_alumni);
     $this->LamarModel->update_data($data, $id_lamar);
     session()->setFlashdata('pesan', 'success');
     return redirect()->to('/perusahaan/pelamar');
   }
 
-  public function tolak($id_lamar)
+  public function tolak($id_lamar, $id_alumni)
   {
     $data = array(
       'status' => 2,
     );
+    $this->sendEmail($id_alumni);
     $this->LamarModel->update_data($data, $id_lamar);
     session()->setFlashdata('pesan', 'success');
     return redirect()->to('/perusahaan/pelamar');
+  }
+
+  private function sendEmail($id_alumni)
+  {
+    $email = \Config\Services::email();
+    $config = [
+      'protocol'      => 'smtp',
+      'SMTPHost'     => 'smtp.googlemail.com',
+      'SMTPUser'     => 'khisan8@gmail.com',
+      'SMTPPass'     => 'ynjekksvndpzlcuh',
+      'SMTPPort'     => 587,
+      'mailType'  => 'html',
+      'charset'   => 'utf-8',
+      'newline'   => "\r\n"
+    ];
+
+    $tbl = 'tb_alumni';
+    $alumni = $this->AlumniModel->get_alumni_by_id($id_alumni, $tbl);
+
+    $table = 'tb_perusahaan';
+    $sesiPerusahaan = session()->get();
+    $id_perusahaan = $sesiPerusahaan['id_perusahaan'];
+
+    $Perusahaan = $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $table);
+
+    $email->initialize($config);
+    $email->setFrom('khisan8@gmail.com', 'Pusat Karir ITN Malang');
+    $email->setTo($alumni['email']);
+
+    $email->setSubject('Review Lamaran');
+    $email->setMessage('Ada review dari pihak perusahaan ' . $Perusahaan['nama_perusahaan']  . 'nih dari lamaran yang telah anda kirim : <a href="' . base_url() . '/alumni/lamar">Lihat Review</a>');
+    if ($email->send()) {
+      return true;
+    } else {
+      echo $email->printDebugger();
+      die;
+    }
   }
 }

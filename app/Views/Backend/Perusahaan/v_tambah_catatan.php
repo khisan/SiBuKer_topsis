@@ -23,7 +23,7 @@
     <div class="col-lg-8 col-xlg-9 col-md-7">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal form-material" action="/perusahaan/pelamar/catatan/update/<?= $lamar['id_lamar'] ?>" method="POST" enctype="multipart/form-data">
+          <form class="form-horizontal form-material" action="/perusahaan/pelamar/catatan/update/<?= $lamar['id_lamar'] ?>/<?= $lamar['id_alumni'] ?>" method="POST" enctype="multipart/form-data">
             <input type="hidden" class="form-control pl-0 form-control-line" name="id_perusahaan" value="<?= $lamar['id_perusahaan'] ?>">
             <input type="hidden" class="form-control pl-0 form-control-line" name="id_lowongan" value="<?= $lamar['id_lowongan'] ?>">
             <div class="form-group">
