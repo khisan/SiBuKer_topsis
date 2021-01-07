@@ -18,7 +18,6 @@ class Auth_adm extends BaseController
     $username = $this->request->getPost('username');
     $password = $this->request->getPost('password');
     $row = $model->get_data_login_adm($username, $table);
-    // dd($row->password);
     if ($row == NULL) {
       session()->setFlashdata('pesan', 'errorU');
       return redirect()->to('/admin');

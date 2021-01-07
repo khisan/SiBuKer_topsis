@@ -96,9 +96,6 @@ class Auth_alu extends BaseController
     if ($type == 'verify') {
       $email->setSubject('Verifikasi Akun');
       $email->setMessage('Klik link berikut untuk aktivasi akun : <a href="' . base_url() . '/Backend/Alumni/auth_alu/verify?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Activate</a>');
-    } else if ($type == 'forgot') {
-      $email->setSubject('Reset Password');
-      $email->setMessage('Click this link to reset your password : <a href="' . base_url() . '/Backend/Alumni/auth_alu/resetpassword?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Reset Password</a>');
     }
 
     if ($email->send()) {

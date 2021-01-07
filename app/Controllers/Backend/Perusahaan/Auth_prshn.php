@@ -6,7 +6,6 @@ use App\Controllers\BaseController;
 use App\Models\Auth_model;
 use App\Models\Perusahaan_Token_model;
 use App\Models\Perusahaan_model;
-use App\Models\Lowongan_model;
 
 class Auth_prshn extends BaseController
 {
