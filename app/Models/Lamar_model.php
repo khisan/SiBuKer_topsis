@@ -31,6 +31,14 @@ class Lamar_model extends Model
     return $perusahaan;
   }
 
+  public function getLamaranById($id_lamar)
+  {
+    $builder = $this->db->table('tb_lamar');
+    $builder->where('id_lamar', $id_lamar);
+    $lamar = $builder->get()->getRowArray();
+    return $lamar;
+  }
+
   public function add($data)
   {
     $this->db->table('tb_lamar')->insert($data);

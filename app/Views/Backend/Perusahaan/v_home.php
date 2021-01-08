@@ -20,6 +20,9 @@
             </div>
           </div>
         </div>
+        <?php foreach ($listEmail as $hasil) {
+          echo $hasil['email'];
+        } ?>
       </div>
     </div>
   </div>

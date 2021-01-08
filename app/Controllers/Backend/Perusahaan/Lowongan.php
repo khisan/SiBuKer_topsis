@@ -103,25 +103,24 @@ class Lowongan extends BaseController
       'newline'   => "\r\n"
     ];
 
-    $listEmail = $this->AlumniModel->allData();
+    $listEmail = $this->AlumniModel->semuaData();
 
-    // $mail_count = $this->AlumniModel->countAlumni();
-    foreach ($listEmail as $key => $hasil) :
-      // dd($hasil['email']);
-      dd($hasil['email']);
-      $email->initialize($config);
-      $email->setFrom('khisan8@gmail.com', 'Pusat Karir ITN Malang');
-      $email->setTo($listEmail);
-
-      $email->setSubject('Lowongan Baru');
-      $email->setMessage('Klik link berikut untuk lihat lowongan yang terbaru : <a href="' . base_url() . '/alumni/lowongan">Lihat Lowongan</a>');
+    $data = array();
+    foreach ($listEmail as $hasil) :
+      $data[] = $hasil['email'];
     endforeach;
-    // if ($email->send()) {
-    //   return true;
-    // } else {
-    //   echo $email->printDebugger();
-    //   die;
-    // }
+    $email->initialize($config);
+    $email->setFrom('khisan8@gmail.com', 'Pusat Karir ITN Malang');
+    $email->setTo($data);
+
+    $email->setSubject('Lowongan Pekerjaan Baru');
+    $email->setMessage('Ada kabar lowongan pekerjaan yang baru nih klik link berikut untuk melihat : <a href="' . base_url() . '/alumni/lowongan">Lihat Lowongan</a>');
+    if ($email->send()) {
+      return true;
+    } else {
+      echo $email->printDebugger();
+      die;
+    }
   }
 
   public function ubah($id_lowongan)

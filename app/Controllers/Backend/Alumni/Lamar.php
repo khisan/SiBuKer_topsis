@@ -98,8 +98,7 @@ class Lamar extends BaseController
         ]
       ],
       'berkas' => [
-        'rules' => 'is_unique[tb_lamar.berkas]|trim',
-        'mime_in[berkas,application/x-rar-compressed]',
+        'rules' => 'is_unique[tb_lamar.berkas]|trim|mime_in[berkas,application/x-rar,application/rar,application/x-rar-compressed]',
         'errors' => [
           'is_unique' => 'Nama file tidak boleh sama!',
           'mime_in' => 'Berkas Wajib Berekstensi .rar'
@@ -109,7 +108,7 @@ class Lamar extends BaseController
       // mengambil file berkas dari form input
       $berkas = $this->request->getFile('berkas');
       // merename nama file berkas
-      $nama_file = $berkas->getName();
+      $nama_file = $berkas->getFilename();
       $data = [
         'id_perusahaan' => $this->request->getPost('id_perusahaan'),
         'id_lowongan' => $this->request->getPost('id_lowongan'),
@@ -168,6 +167,8 @@ class Lamar extends BaseController
 
   public function delete($id_lamar)
   {
+    $lamar = $this->LamarModel->getLamaranById($id_lamar);
+    unlink('lamaran/' . $lamar['berkas']);
     $this->LamarModel->delete_data($id_lamar);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/alumni/lamar');
