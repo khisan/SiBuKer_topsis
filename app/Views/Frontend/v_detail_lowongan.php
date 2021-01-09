@@ -248,6 +248,7 @@
                 <h3 class="product-title"><?= $detail_lowongan['nama_lowongan'] ?></h3>
                 <h4 class="price"><?= $detail_lowongan['nama_perusahaan'] ?></h4>
                 <p class="product-description"><?= $detail_lowongan['deskripsi_lowongan'] ?></p>
+                <a href="/alumni/login" class="btn btn-success">Lamar</a>
               </div>
             </div>
           </div>
