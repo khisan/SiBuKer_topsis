@@ -52,6 +52,7 @@ class Profil extends BaseController
       $data = array(
         'id_perusahaan' => $id_perusahaan,
         'nama_perusahaan' => $this->request->getPost('nama_perusahaan'),
+        'username' => $this->request->getPost('username'),
         'foto' => $nama_file
       );
       // memindahkan file foto dari form input ke folder foto di directory

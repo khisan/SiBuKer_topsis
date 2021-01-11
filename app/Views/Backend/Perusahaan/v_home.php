@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-body bg-info">
           <h4 class="text-white card-title">Selamat Datang Admin <?= session()->get('nama_perusahaan'); ?></h4>
-          <h6 class="card-subtitle text-white m-b-0 op-5">Sistem Informasi Bursa Kerja Khusus ITN Malang dengan Rekomendasi Menggunakan TOPSIS</h6>
+          <h6 class="card-subtitle text-white m-b-0 op-5">Sistem Informasi Bursa Kerja Khusus ITN Malang dengan Sistem Pendukung Keputusan Menggunakan TOPSIS</h6>
         </div>
         <div class="row">
           <div class="col-12">
@@ -20,9 +20,6 @@
             </div>
           </div>
         </div>
-        <?php foreach ($listEmail as $hasil) {
-          echo $hasil['email'];
-        } ?>
       </div>
     </div>
   </div>
