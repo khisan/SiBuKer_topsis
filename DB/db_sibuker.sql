@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2021 at 02:04 AM
+-- Generation Time: Jan 11, 2021 at 04:04 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -69,8 +69,7 @@ CREATE TABLE `tb_alumni` (
 --
 
 INSERT INTO `tb_alumni` (`id_alumni`, `nim`, `email`, `password`, `nama`, `umur`, `foto`, `kualifikasi_pendidikan`, `ipk`, `pengalaman_kerja`, `jurusan`, `is_active`, `created_at`, `updated_at`) VALUES
-(41, '1718006', 'pemulungon@gmail.com', '$2y$10$hRRu6h7PTgc4y8ujRIDtK.wRqfHazWyBerS9Ymmjwdwtk/P571nfa', 'Khisan Ihza Wahyu Rifaldi', 4, 'user_default.png', 5, 3, 3, 'informatika', 1, '2020-12-28 18:28:10', '2020-12-28 18:28:10'),
-(44, '1018034', 'saifulloh@gmail.com', '$2y$10$hRRu6h7PTgc4y8ujRIDtK.wRqfHazWyBerS9Ymmjwdwtk/P571nfa', 'MOHAMAD SOFIYULLOH', 2, 'user_default.png', 5, 4, 1, 'informatika', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(47, '1718006', 'pemulungon@gmail.com', '$2y$10$lg72awPSMchW2dvhx8DDMOPfYMDd1ftmQ4o9CkpCS6spim6Ew0/Aa', 'Khisan Ihza Wahyu Rifaldi', 3, '1610331984_28c17aade1a2c1fc043c.png', 5, 4, 1, 'informatika', 1, '2021-01-10 20:20:21', '2021-01-10 20:20:21');
 
 -- --------------------------------------------------------
 
@@ -129,11 +128,7 @@ CREATE TABLE `tb_lamar` (
 --
 
 INSERT INTO `tb_lamar` (`id_lamar`, `id_alumni`, `id_perusahaan`, `id_lowongan`, `status`, `catatan`, `berkas`) VALUES
-(10, 41, 10, 19, 0, '', '1718006.rar'),
-(11, 41, 13, 22, 2, '', '1718006.rar'),
-(12, 41, 40, 51, 1, '', '1718006.rar'),
-(13, 44, 1, 3, 1, '', '1018034.rar'),
-(14, 41, 1, 4, 1, '<p>Harap mendatangi ke perusahaan untuk interview</p>', '1718006.rar');
+(21, 47, 1, 3, 2, '<p>woi</p>', '1718006.rar');
 
 -- --------------------------------------------------------
 
@@ -216,11 +211,13 @@ INSERT INTO `tb_lowongan` (`id_lowongan`, `id_perusahaan`, `nama_lowongan`, `umu
 (58, 47, 'Chief Surveyor Toll Road Tanjung Pura', 1, 2, 1, 4, '<p class=\"MsoNormal\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"line-height: 107%;\">Pendidikan STM/ D3/ S1 Teknik Sipil\r\natau Geodesi<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"line-height: 107%;\">Memiliki pengalaman minimal 6 tahun\r\nsebagai surveyor di proyek Jalan&nbsp;<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"line-height: 107%;\">Menguasai dan mampu menggunakan\r\ntheodolith, autolevel/waterpass, dan total station<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"line-height: 107%;\">Bersedia ditempatkan di&nbsp;\r\nTanjung Pura</span></p><p class=\"MsoNormal\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"text-align: left;\">-&nbsp; Jujur, bertanggung jawab, proaktif, berinisiatif\r\ndan bisa bekerja sama dalam tim</span></p>', '1607763547_a6ec1980b254c61e9aac.jpg'),
 (59, 48, 'Surveyor', 4, 3, 1, 3, '<p class=\"MsoListParagraphCxSpFirst\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;\r\n</span></span><!--[endif]--><span style=\"line-height: 107%;\">Usia\r\nmaksimal 35 tahun<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpMiddle\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;\r\n</span></span><!--[endif]--><span style=\"line-height: 107%;\">Pendidikan\r\nD3/D4/S1 Teknik Sipil atau Geodesi<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpMiddle\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;\r\n</span></span><!--[endif]--><span style=\"line-height: 107%;\">Memiliki\r\npengalaman minimal 2 tahun sebagai surveyor di proyek gedung/jalan/property<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpMiddle\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;\r\n</span></span><!--[endif]--><span style=\"line-height: 107%;\">Menguasai\r\ndan mampu menggunakan Theodolith, Autolevel/Waterpass, dan Total Station<o:p></o:p></span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"line-height: 107%;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal;\">&nbsp;&nbsp;&nbsp;&nbsp;\r\n</span></span><!--[endif]--><span style=\"line-height: 107%;\">Bersedia\r\nditempatkan di Kutai Timur</span></p><p class=\"MsoListParagraphCxSpLast\" style=\"margin-left: 12.7pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"text-align: left;\">-&nbsp; Jujur, bertanggung jawab, proaktif, berinisiatif\r\ndan bisa bekerja sama dalam tim</span></p>', '1607763617_825f6b27a960d01c9316.jpg'),
 (60, 49, 'GIS SENIOR PROGRAMER', 1, 5, 1, 3, '<p class=\"MsoNormal\" style=\"margin-left: 12.7pt; text-align: justify; text-indent: -10.9pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"font-size:10.0pt;\r\nmso-bidi-font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">Kandidat harus memiliki setidaknya\r\nGelar Sarjana di Teknik (Komputer/Telekomunikasi), Ilmu Komputer/Teknologi\r\nInformasi, Geografi atau Teknik Geodesi.lingku</span></p><p class=\"MsoNormal\" style=\"margin-left: 12.7pt; text-align: justify; text-indent: -10.9pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 12pt; text-align: left;\">-&nbsp; &nbsp; &nbsp; &nbsp; Memiliki 3&nbsp;tahun pengalaman kerja dalam\r\nmembuat aplikasi GIS, memiliki&nbsp;</span><span style=\"text-indent: -10.9pt; font-size: 10pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, serif;\">-</span><span style=\"text-indent: -10.9pt; font-size: 12pt; line-height: 107%; font-family: &quot;Times New Roman&quot;, serif;\">pengalaman bekerja di Perkebunan\r\nadalah nilai tambah.</span></p>\r\n\r\n<p class=\"MsoNormal\" style=\"margin-left: 12.7pt; text-align: justify; text-indent: -10.9pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"font-size:10.0pt;\r\nmso-bidi-font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">Menguasai&nbsp; WEB GIS dan ArcGIS\r\nserver<o:p></o:p></span></p>\r\n\r\n<p class=\"MsoNormal\" style=\"margin-left: 12.7pt; text-align: justify; text-indent: -10.9pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"font-size:10.0pt;\r\nmso-bidi-font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">Menyukai kerja team dan dapat\r\nbekerja secara mandiri<o:p></o:p></span></p>\r\n\r\n<p class=\"MsoNormal\" style=\"margin-left: 12.7pt; text-align: justify; text-indent: -10.9pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><!--[if !supportLists]--><span style=\"font-size:10.0pt;\r\nmso-bidi-font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">-<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]--><span style=\"font-size:12.0pt;line-height:107%;font-family:&quot;Times New Roman&quot;,serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;\">Memiliki komitmen jangka panjang</span></p><p class=\"MsoNormal\" style=\"margin-left: 12.7pt; text-align: justify; text-indent: -10.9pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 12pt; text-align: left;\">-&nbsp; &nbsp;Memiliki kemampuan analitical dan penyelesaian\r\nmasalah.</span></p>', '1607763712_92bc8c272e856c31176c.jpg'),
-(311, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
-(312, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
-(313, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
-(314, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
-(315, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png');
+(331, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
+(332, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
+(333, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
+(334, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
+(335, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
+(336, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png'),
+(337, 1, 'coba', 0, 0, 0, 0, '<p><br></p>', 'default.png');
 
 -- --------------------------------------------------------
 
@@ -465,55 +462,55 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_alumni`
 --
 ALTER TABLE `tb_alumni`
-  MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tb_alumni_token`
 --
 ALTER TABLE `tb_alumni_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tb_kriteria`
 --
 ALTER TABLE `tb_kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_lamar`
 --
 ALTER TABLE `tb_lamar`
-  MODIFY `id_lamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_lamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tb_lowongan`
 --
 ALTER TABLE `tb_lowongan`
-  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
 
 --
 -- AUTO_INCREMENT for table `tb_perusahaan`
 --
 ALTER TABLE `tb_perusahaan`
-  MODIFY `id_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `tb_perusahaan_token`
 --
 ALTER TABLE `tb_perusahaan_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tb_sub_kriteria_alumni`
 --
 ALTER TABLE `tb_sub_kriteria_alumni`
-  MODIFY `id_sub_kriteria_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_sub_kriteria_alumni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tb_sub_kriteria_lowongan`
 --
 ALTER TABLE `tb_sub_kriteria_lowongan`
-  MODIFY `id_sub_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_sub_kriteria_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
