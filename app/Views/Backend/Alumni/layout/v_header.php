@@ -49,7 +49,8 @@
             <li class="nav-item search-box">
               <a class="nav-link text-muted" href="javascript:void(0)"></a>
               <form class="app-search" style="display: none;">
-                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+              </form>
             </li>
           </ul>
 
@@ -62,7 +63,7 @@
             <!-- ============================================================== -->
             <li class="nav-item dropdown">
 
-              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/foto/<?= $alumni['foto'] ?>" alt="user" class="profile-pic m-r-10" width="30" height="30"><?= $alumni['nama'] ?></a>
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/alumni/<?= $alumni['foto'] ?>" alt="user" class="profile-pic m-r-10" width="30" height="30"><?= $alumni['nama'] ?></a>
 
             </li>
           </ul>

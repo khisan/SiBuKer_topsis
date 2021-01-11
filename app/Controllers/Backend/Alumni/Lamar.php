@@ -108,7 +108,7 @@ class Lamar extends BaseController
       // mengambil file berkas dari form input
       $berkas = $this->request->getFile('berkas');
       // merename nama file berkas
-      $nama_file = $berkas->getFilename();
+      $nama_file = $berkas->getName();
       $data = [
         'id_perusahaan' => $this->request->getPost('id_perusahaan'),
         'id_lowongan' => $this->request->getPost('id_lowongan'),
