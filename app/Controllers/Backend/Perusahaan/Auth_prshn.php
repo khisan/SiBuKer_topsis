@@ -76,7 +76,7 @@ class Auth_prshn extends BaseController
       $Perusahaanmodel = new Perusahaan_model();
       $Perusahaanmodel->add($data);
       $Tokenmodel->add($token);
-      $this->sendEmail($buat_token, 'verify');
+      $this->sendEmail($buat_token);
       session()->setFlashdata('pesan', 'success');
       return redirect()->to('/perusahaan/register');
     } else {
@@ -139,18 +139,17 @@ class Auth_prshn extends BaseController
     return redirect()->to('/perusahaan/login');
   }
 
-  private function sendEmail($buat_token, $type)
+  private function sendEmail($buat_token)
   {
     $email = \Config\Services::email();
     $config = [
-      'protocol'  => 'smtp',
-      'SMTPHost'  => 'smtp.mailtrap.io',
-      'SMTPUser'  => '578f8babe1d93b',
-      'SMTPPass'  => 'dd6049cc527214',
-      'SMTPPort'  => 2525,
+      'protocol'      => 'smtp',
+      'SMTPHost'     => 'smtp.googlemail.com',
+      'SMTPUser'     => 'khisan8@gmail.com',
+      'SMTPPass'     => 'ynjekksvndpzlcuh',
+      'SMTPPort'     => 587,
       'mailType'  => 'html',
       'charset'   => 'utf-8',
-      'crlf'      => "\r\n",
       'newline'   => "\r\n"
     ];
 
@@ -159,13 +158,8 @@ class Auth_prshn extends BaseController
     $email->setFrom('578f8babe1d93b', 'Pusat Karir ITN Malang');
     $email->setTo($this->request->getPost('email'));
 
-    if ($type == 'verify') {
-      $email->setSubject('Verifikasi Akun');
-      $email->setMessage('Klik link berikut untuk aktivasi akun : <a href="' . base_url() . '/Backend/perusahaan/auth_prshn/verify?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Activate</a>');
-    } else if ($type == 'forgot') {
-      $email->setSubject('Reset Password');
-      $email->setMessage('Click this link to reset your password : <a href="' . base_url() . '/Backend/perusahaan/auth_prshn/resetpassword?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Reset Password</a>');
-    }
+    $email->setSubject('Verifikasi Akun');
+    $email->setMessage('Klik link berikut untuk aktivasi akun : <a href="' . base_url() . '/Backend/perusahaan/auth_prshn/verify?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Activate</a>');
 
     if ($email->send()) {
       return true;

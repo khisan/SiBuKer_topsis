@@ -127,7 +127,7 @@ h6 {
   background-blend-mode: luminosity, multiply;
   transition: all 1.5s;
   backdrop-filter: filter(5px);
-  padding-top: 200px;
+  padding-top: 100px;
   text-align: center;
   background-attachment: relative;
   background-position: center center;

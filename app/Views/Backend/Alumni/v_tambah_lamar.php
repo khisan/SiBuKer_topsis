@@ -5,7 +5,7 @@
     <div class="col-lg-4 col-xlg-3 col-md-5">
       <div class="card">
         <div class="card-body profile-card">
-          <center> <img src="/foto/<?= $alumni['foto'] ?>" class="rounded-circle" width="200" height="200" />
+          <center> <img src="/alumni/<?= $alumni['foto'] ?>" class="rounded-circle" width="200" height="200" />
             <h4 class="card-title m-t-10"> <?= $alumni['nama'] ?> </h4>
             <div class="row text-center justify-content-center">
               <div class="col-8">

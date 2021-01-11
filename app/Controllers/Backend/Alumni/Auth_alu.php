@@ -65,7 +65,7 @@ class Auth_alu extends BaseController
       $Authmodel = new Auth_model();
       $Authmodel->insert($data);
       $Tokenmodel->add($token);
-      $this->sendEmail($buat_token, 'verify');
+      $this->sendEmail($buat_token);
       session()->setFlashdata('pesan', 'success');
       return redirect()->to('/alumni/register');
     } else {
@@ -74,7 +74,7 @@ class Auth_alu extends BaseController
     }
   }
 
-  private function sendEmail($buat_token, $type)
+  private function sendEmail($buat_token)
   {
     $email = \Config\Services::email();
     $config = [
@@ -93,10 +93,8 @@ class Auth_alu extends BaseController
     $email->setFrom('khisan8@gmail.com', 'Pusat Karir ITN Malang');
     $email->setTo($this->request->getPost('email'));
 
-    if ($type == 'verify') {
-      $email->setSubject('Verifikasi Akun');
-      $email->setMessage('Klik link berikut untuk aktivasi akun : <a href="' . base_url() . '/Backend/Alumni/auth_alu/verify?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Activate</a>');
-    }
+    $email->setSubject('Verifikasi Akun');
+    $email->setMessage('Klik link berikut untuk aktivasi akun : <a href="' . base_url() . '/Backend/Alumni/auth_alu/verify?email=' . $this->request->getPost('email') . '&token=' . urlencode($buat_token) . '">Activate</a>');
 
     if ($email->send()) {
       return true;

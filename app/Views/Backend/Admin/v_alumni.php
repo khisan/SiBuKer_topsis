@@ -40,7 +40,7 @@
                     <td><?= $hasil['nim'] ?></td>
                     <td><?= $hasil['nama'] ?></td>
                     <td><?= $hasil['email'] ?></td>
-                    <td><img src="/foto/<?= $hasil['foto'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
+                    <td><img src="/alumni/<?= $hasil['foto'] ?>" class="rounded mx-auto d-block" width="200" height="200" /></td>
                     <td>
                       <a href="/admin/alumni/delete/<?= $hasil['id_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
