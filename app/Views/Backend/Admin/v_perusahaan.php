@@ -62,7 +62,7 @@
 
     Swal.fire({
       title: 'Apakah Anda Yakin?',
-      text: "Data Kriteria akan Dihapus!",
+      text: "Data Perusahaan akan Dihapus!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
