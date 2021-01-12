@@ -5,14 +5,14 @@ namespace App\Controllers\Backend\Alumni;
 use App\Controllers\BaseController;
 use App\Models\Alumni_model;
 use App\Models\Lowongan_model;
-use App\Models\Sub_Kriteria_Lowongan_model;
+use App\Models\Sub_Kriteria_Lowongan_Model;
 use App\Models\Kriteria_Model;
 
 class Perhitungan extends BaseController
 {
   public function __construct()
   {
-    $this->Sub_Kriteria_Lowongan_model = new Sub_Kriteria_Lowongan_model();
+    $this->Sub_Kriteria_Lowongan_Model = new Sub_Kriteria_Lowongan_Model();
     $this->Alumni_Model = new Alumni_model();
     $this->Lowongan_model = new Lowongan_model();
     $this->Kriteria_Model = new Kriteria_Model();
@@ -184,7 +184,7 @@ class Perhitungan extends BaseController
     while ($lowongan->getUnbufferedRow()) {
       array_push(
         $nilaiV,
-        $dMin[$no - 1] / ($dMin[$no - 1] + $dPlus[$no - 1]),
+        $dMin[$no - 1] / ($dMin[$no - 1] + $dPlus[$no - 1])
       );
       $no++;
     }

@@ -4,7 +4,7 @@
     <div class="col-lg-8 mx-auto">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal form-material" action="/backend/alumni/rekomendasi/hitung/<?= $alumni['id_alumni'] ?>" method="POST" enctype="multipart/form-data">
+          <form class="form-horizontal form-material" action="/alumni/rekomendasi/hitung/<?= $alumni['id_alumni'] ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label class="col-md-12 mb-0">NIM</label>
               <div class="col-md-12">

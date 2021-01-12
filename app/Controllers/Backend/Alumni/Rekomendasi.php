@@ -5,7 +5,7 @@ namespace App\Controllers\Backend\Alumni;
 use App\Controllers\BaseController;
 use App\Models\Alumni_model;
 use App\Models\Lowongan_model;
-use App\Models\Sub_Kriteria_Alumni_model;
+use App\Models\Sub_Kriteria_Alumni_Model;
 
 class Rekomendasi extends BaseController
 {
@@ -13,7 +13,7 @@ class Rekomendasi extends BaseController
   {
     $this->Alumni_Model = new Alumni_model();
     $this->Lowongan_Model = new Lowongan_model();
-    $this->Sub_Kriteria_Alumni_model = new Sub_Kriteria_Alumni_model();
+    $this->Sub_Kriteria_Alumni_Model = new Sub_Kriteria_Alumni_Model();
   }
   public function index()
   {
@@ -23,10 +23,10 @@ class Rekomendasi extends BaseController
     $data = [
       'title'   => 'Rekomendasi Lowongan',
       'alumni'  => $this->Alumni_Model->get_alumni_by_id($id_alumni, $table),
-      'umur'  => $this->Sub_Kriteria_Alumni_model->getUmur(),
-      'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Alumni_model->getKualifikasiPendidikan(),
-      'ipk'  => $this->Sub_Kriteria_Alumni_model->getIpk(),
-      'pengalaman_kerja'  => $this->Sub_Kriteria_Alumni_model->getPengalamanKerja(),
+      'umur'  => $this->Sub_Kriteria_Alumni_Model->getUmur(),
+      'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Alumni_Model->getKualifikasiPendidikan(),
+      'ipk'  => $this->Sub_Kriteria_Alumni_Model->getIpk(),
+      'pengalaman_kerja'  => $this->Sub_Kriteria_Alumni_Model->getPengalamanKerja(),
       'jurusan'  => $this->Alumni_Model->getJurusan($id_alumni, $table),
       'isi'     => 'Backend/Alumni/v_rekomendasi_lowongan'
     ];

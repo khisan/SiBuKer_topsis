@@ -11,7 +11,7 @@ class Sub_Kriteria_Lowongan_model extends Model
     $builder = $this->db->table('tb_sub_kriteria_lowongan');
     $builder->select('id_sub_kriteria_lowongan,kriteria,sub_kriteria,bobot,tb_kriteria.cost_benefit');
     $builder->join('tb_kriteria', 'tb_kriteria.kode = tb_sub_kriteria_lowongan.kode and tb_kriteria.cost_benefit = tb_sub_kriteria_lowongan.cost_benefit');
-    $builder->orderBy('tb_sub_kriteria_lowongan.kode',);
+    $builder->orderBy('tb_sub_kriteria_lowongan.kode');
     $builder->orderBy('tb_sub_kriteria_lowongan.bobot', 'DESC');
     $query = $builder->get()->getResultArray();
     return $query;

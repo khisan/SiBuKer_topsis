@@ -43,18 +43,21 @@ $routes->get('/lowker/detail/(:num)', 'ListLowongan::detail/$1');
 $routes->get('/alumni', 'Auth_front::login::', ['filter' => 'no_filter_adm']);
 $routes->get('/alumni/login', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/register', 'Auth_front::register', ['filter' => 'no_filter_alu']);
-$routes->get('/alumni/cekLogin', '/Backend/alumni/auth_alu::login', ['filter' => 'no_filter_alu']);
+$routes->post('/alumni/cekLogin', 'Backend\Alumni\Auth_alu::login', ['filter' => 'no_filter_alu']);
 
 // Alumni Backend
 $routes->get('/alumni/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
+$routes->get('/alumni/logout', 'Backend/Alumni/Auth_alu::logout', ['filter' => 'filter_alu']);
 // Menu Profil
 $routes->get('/alumni/profil', 'Backend/Alumni/Profil::', ['filter' => 'filter_alu']);
+$routes->post('/alumni/profil/update/(:num)', 'Backend\Alumni\Profil::update/$1', ['filter' => 'filter_alu']);
 // Menu Data Lowongan
 $routes->get('/alumni/lowongan', 'Backend/Alumni/Lowongan::', ['filter' => 'filter_alu']);
 // Page Detail Lowongan
 $routes->get('/alumni/lowongan/detail/(:num)', 'Backend\Alumni\Lowongan::detail/$1', ['filter' => 'filter_alu']);
 // Menu Rekomendasi Lowongan
 $routes->get('/alumni/rekomendasi', 'Backend/Alumni/Rekomendasi::', ['filter' => 'filter_alu']);
+$routes->post('/alumni/rekomendasi/hitung/(:num)', 'Backend\Alumni\Rekomendasi::hitung/$1', ['filter' => 'filter_alu']);
 // Page Hasil Rekomendasi
 $routes->get('/alumni/hasil-rekomendasi', 'Backend/Alumni/HasilRekomendasi::', ['filter' => 'filter_alu']);
 // Page Detail Perhitungan

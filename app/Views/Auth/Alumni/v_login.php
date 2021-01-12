@@ -21,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="/template/auth/css/main.css">
 <div class="login-page">
   <div class="form">
-    <form class="login-form" action="/backend/alumni/auth_alu/login" method="post">
+    <form class="login-form" action="/alumni/cekLogin" method="post">
       <h3 class="title">Page Login Alumni</h3>
       <!-- <div class="swal" data-swal="<?= session()->get('berhasil') ?>"></div> -->
       <input type="number" placeholder="NIM" name="nim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="7" />

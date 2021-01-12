@@ -5,7 +5,7 @@ namespace App\Controllers\Backend\Alumni;
 use App\Controllers\BaseController;
 use App\Models\Alumni_model;
 use App\Models\Lowongan_model;
-use App\Models\Sub_Kriteria_Lowongan_model;
+use App\Models\Sub_Kriteria_Lowongan_Model;
 
 class Lowongan extends BaseController
 {
@@ -13,7 +13,7 @@ class Lowongan extends BaseController
   {
     $this->AlumniModel = new Alumni_model();
     $this->Lowongan_model = new Lowongan_model();
-    $this->Sub_Kriteria_Lowongan_model = new Sub_Kriteria_Lowongan_model();
+    $this->Sub_Kriteria_Lowongan_Model = new Sub_Kriteria_Lowongan_model();
   }
 
   public function index()
