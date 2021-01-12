@@ -3,21 +3,21 @@
 namespace App\Controllers\Backend\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\Sub_Kriteria_Alumni_model;
-use App\Models\Kriteria_model;
+use App\Models\Sub_Kriteria_Alumni_Model;
+use App\Models\Kriteria_Model;
 
 class SubKriteriaAlumni extends BaseController
 {
   public function __construct()
   {
-    $this->Sub_Kriteria_Alumni_model = new Sub_Kriteria_Alumni_model();
-    $this->Kriteria_model = new Kriteria_model();
+    $this->Sub_Kriteria_Alumni_Model = new Sub_Kriteria_Alumni_Model();
+    $this->Kriteria_Model = new Kriteria_Model();
   }
 
   public function get_subkategori()
   {
     $kode = $this->request->getPost('kode');
-    $data = $this->Kriteria_model->get_kriteria_by_kriteria($kode);
+    $data = $this->Kriteria_Model->get_kriteria_by_kriteria($kode);
     echo json_encode($data);
   }
 
@@ -25,7 +25,7 @@ class SubKriteriaAlumni extends BaseController
   {
     $data = [
       'title'   => 'Sub Kriteria Alumni',
-      'sub_kriteria_alumni'  => $this->Sub_Kriteria_Alumni_model->allData(),
+      'sub_kriteria_alumni'  => $this->Sub_Kriteria_Alumni_Model->allData(),
       'isi'     => 'Backend/Admin/v_sub_kriteria_alumni'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -35,7 +35,7 @@ class SubKriteriaAlumni extends BaseController
   {
     $data = [
       'title'   => 'Tambah Sub Kriteria Alumni',
-      'kriteria'  => $this->Kriteria_model->allData(),
+      'kriteria'  => $this->Kriteria_Model->allData(),
       'isi'     => 'Backend/Admin/v_tambah_sub_kriteria_alumni'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -48,7 +48,7 @@ class SubKriteriaAlumni extends BaseController
       'sub_kriteria' => $this->request->getPost('sub_kriteria'),
       'bobot' => $this->request->getPost('bobot'),
     ];
-    $this->Sub_Kriteria_Alumni_model->add($data);
+    $this->Sub_Kriteria_Alumni_Model->add($data);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
     return redirect()->to('/admin/sub-kriteria-alumni');
   }
@@ -57,8 +57,8 @@ class SubKriteriaAlumni extends BaseController
   {
     $data = [
       'title' => 'Edit Sub Kriteria Alumni',
-      'kriteria'  => $this->Kriteria_model->allData(),
-      'sub_kriteria_alumni' => $this->Sub_Kriteria_Alumni_model->edit($id_sub_kriteria_alumni),
+      'kriteria'  => $this->Kriteria_Model->allData(),
+      'sub_kriteria_alumni' => $this->Sub_Kriteria_Alumni_Model->edit($id_sub_kriteria_alumni),
       'isi'   => 'Backend/Admin/v_edit_sub_kriteria_alumni'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -72,14 +72,14 @@ class SubKriteriaAlumni extends BaseController
       'bobot' => $this->request->getPost('bobot'),
       'sub_kriteria' => $this->request->getPost('sub_kriteria'),
     ];
-    $this->Sub_Kriteria_Alumni_model->update_data($data, $id_sub_kriteria_alumni);
+    $this->Sub_Kriteria_Alumni_Model->update_data($data, $id_sub_kriteria_alumni);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/sub-kriteria-alumni');
   }
 
   public function delete($id_sub_kriteria_alumni)
   {
-    $this->Sub_Kriteria_Alumni_model->delete_data($id_sub_kriteria_alumni);
+    $this->Sub_Kriteria_Alumni_Model->delete_data($id_sub_kriteria_alumni);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/sub-kriteria-alumni');
   }

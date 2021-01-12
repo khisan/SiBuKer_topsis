@@ -45,8 +45,8 @@
                     <td><?= $hasil['bobot'] ?></td>
                     <td><?= $hasil['cost_benefit'] ?></td>
                     <td>
-                      <a href="/backend/admin/subkriterialowongan/ubah/<?= $hasil['id_sub_kriteria_lowongan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <a href="/backend/admin/subkriterialowongan/delete/<?= $hasil['id_sub_kriteria_lowongan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
+                      <a href="/admin/sub-kriteria-lowongan/ubah/<?= $hasil['id_sub_kriteria_lowongan'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                      <a href="/admin/sub-kriteria-lowongan/delete/<?= $hasil['id_sub_kriteria_lowongan'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>
                 <?php } ?>

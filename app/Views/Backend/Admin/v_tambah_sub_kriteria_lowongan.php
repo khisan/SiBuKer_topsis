@@ -64,7 +64,7 @@
     $('#kriteria').change(function() {
       var kode = $(this).val();
       $.ajax({
-        url: "/backend/admin/subkriterialowongan/get_subkategori",
+        url: "/Backend/Admin/SubKriteriaLowongan/get_subkategori",
         method: "POST",
         data: {
           kode: kode

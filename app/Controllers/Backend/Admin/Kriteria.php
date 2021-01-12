@@ -3,20 +3,20 @@
 namespace App\Controllers\Backend\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\Kriteria_model;
+use App\Models\Kriteria_Model;
 
 class Kriteria extends BaseController
 {
   public function __construct()
   {
-    $this->Kriteria_model = new Kriteria_model();
+    $this->Kriteria_Model = new Kriteria_Model();
   }
 
   public function index()
   {
     $data = [
       'title'   => 'Kriteria',
-      'kriteria'  => $this->Kriteria_model->allData(),
+      'kriteria'  => $this->Kriteria_Model->allData(),
       'isi'     => 'Backend/Admin/v_kriteria'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -38,7 +38,7 @@ class Kriteria extends BaseController
       'kriteria' => $this->request->getPost('kriteria'),
       'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
-    $this->Kriteria_model->add($data);
+    $this->Kriteria_Model->add($data);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
     return redirect()->to('/admin/kriteria');
   }
@@ -47,7 +47,7 @@ class Kriteria extends BaseController
   {
     $data = [
       'title' => 'Edit Kriteria',
-      'kriteria' => $this->Kriteria_model->edit($id_kriteria),
+      'kriteria' => $this->Kriteria_Model->edit($id_kriteria),
       'isi'   => 'Backend/Admin/v_edit_kriteria'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -61,14 +61,14 @@ class Kriteria extends BaseController
       'kriteria' => $this->request->getPost('kriteria'),
       'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
-    $this->Kriteria_model->update_data($data, $id_kriteria);
+    $this->Kriteria_Model->update_data($data, $id_kriteria);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/kriteria');
   }
 
   public function delete($id_kriteria)
   {
-    $this->Kriteria_model->delete_data($id_kriteria);
+    $this->Kriteria_Model->delete_data($id_kriteria);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/kriteria');
   }

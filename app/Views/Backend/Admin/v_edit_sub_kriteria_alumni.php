@@ -8,7 +8,7 @@
           <div>
             <h3 class="card-title">Form Edit Sub Kriteria Alumni</h3>
           </div>
-          <form class="form-horizontal form-material" action="/backend/admin/subkriteriaalumni/update/<?= $sub_kriteria_alumni['id_sub_kriteria_alumni'] ?>" method="POST">
+          <form class="form-horizontal form-material" action="/admin/sub-kriteria-alumni/update/<?= $sub_kriteria_alumni['id_sub_kriteria_alumni'] ?>" method="POST">
             <div class="form-group">
               <label class="col-md-12 mb-0">Kriteria</label>
               <div class="col-md-12">

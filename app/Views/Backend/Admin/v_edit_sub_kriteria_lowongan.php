@@ -8,7 +8,7 @@
           <div>
             <h3 class="card-title">Form Edit Sub Kriteria Lowongan</h3>
           </div>
-          <form class="form-horizontal form-material" action="/backend/admin/subkriterialowongan/update/<?= $sub_kriteria_lowongan['id_sub_kriteria_lowongan'] ?>" method="POST">
+          <form class="form-horizontal form-material" action="/admin/sub-kriteria-lowongan/update/<?= $sub_kriteria_lowongan['id_sub_kriteria_lowongan'] ?>" method="POST">
             <div class="form-group">
               <label class="col-md-12 mb-0">Kriteria</label>
               <div class="col-md-12">
@@ -67,7 +67,7 @@
     $('#kriteria').change(function() {
       var kode = $(this).val();
       $.ajax({
-        url: "/backend/admin/subkriterialowongan/get_subkategori",
+        url: "/Backend/Admin/SubkKiteriaLowongan/get_subkategori",
         method: "POST",
         data: {
           kode: kode

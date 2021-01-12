@@ -3,21 +3,21 @@
 namespace App\Controllers\Backend\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\Sub_Kriteria_Lowongan_model;
-use App\Models\Kriteria_model;
+use App\Models\Sub_Kriteria_Lowongan_Model;
+use App\Models\Kriteria_Model;
 
 class SubKriteriaLowongan extends BaseController
 {
   public function __construct()
   {
-    $this->Sub_Kriteria_Lowongan_model = new Sub_Kriteria_Lowongan_model();
-    $this->Kriteria_model = new Kriteria_model();
+    $this->Sub_Kriteria_Lowongan_Model = new Sub_Kriteria_Lowongan_Model();
+    $this->Kriteria_Model = new Kriteria_Model();
   }
 
   public function get_subkategori()
   {
     $kode = $this->request->getPost('kode');
-    $data = $this->Kriteria_model->get_kriteria_by_kriteria($kode);
+    $data = $this->Kriteria_Model->get_kriteria_by_kriteria($kode);
     echo json_encode($data);
   }
 
@@ -25,7 +25,7 @@ class SubKriteriaLowongan extends BaseController
   {
     $data = [
       'title'   => 'Sub Kriteria Lowongan',
-      'sub_kriteria_lowongan'  => $this->Sub_Kriteria_Lowongan_model->allData(),
+      'sub_kriteria_lowongan'  => $this->Sub_Kriteria_Lowongan_Model->allData(),
       'isi'     => 'Backend/Admin/v_sub_kriteria_lowongan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -35,7 +35,7 @@ class SubKriteriaLowongan extends BaseController
   {
     $data = [
       'title'   => 'Tambah Sub Kriteria Lowongan',
-      'kriteria'  => $this->Kriteria_model->allData(),
+      'kriteria'  => $this->Kriteria_Model->allData(),
       'isi'     => 'Backend/Admin/v_tambah_sub_kriteria_lowongan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -49,7 +49,7 @@ class SubKriteriaLowongan extends BaseController
       'bobot' => $this->request->getPost('bobot'),
       'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
-    $this->Sub_Kriteria_Lowongan_model->add($data);
+    $this->Sub_Kriteria_Lowongan_Model->add($data);
     session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !');
     return redirect()->to('/admin/sub-kriteria-lowongan');
   }
@@ -58,8 +58,8 @@ class SubKriteriaLowongan extends BaseController
   {
     $data = [
       'title' => 'Edit Sub Kriteria Lowongan',
-      'kriteria'  => $this->Kriteria_model->allData(),
-      'sub_kriteria_lowongan' => $this->Sub_Kriteria_Lowongan_model->edit($id_sub_kriteria_lowongan),
+      'kriteria'  => $this->Kriteria_Model->allData(),
+      'sub_kriteria_lowongan' => $this->Sub_Kriteria_Lowongan_Model->edit($id_sub_kriteria_lowongan),
       'isi'   => 'Backend/Admin/v_edit_sub_kriteria_lowongan'
     ];
     return view('Backend/Admin/layout/v_wrapper', $data);
@@ -74,14 +74,14 @@ class SubKriteriaLowongan extends BaseController
       'sub_kriteria' => $this->request->getPost('sub_kriteria'),
       'cost_benefit' => $this->request->getPost('cost_benefit'),
     ];
-    $this->Sub_Kriteria_Lowongan_model->update_data($data, $id_sub_kriteria_lowongan);
+    $this->Sub_Kriteria_Lowongan_Model->update_data($data, $id_sub_kriteria_lowongan);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/sub-kriteria-lowongan');
   }
 
   public function delete($id_sub_kriteria_lowongan)
   {
-    $this->Sub_Kriteria_Lowongan_model->delete_data($id_sub_kriteria_lowongan);
+    $this->Sub_Kriteria_Lowongan_Model->delete_data($id_sub_kriteria_lowongan);
     session()->setFlashdata('success', 'Data Berhasil Diubah');
     return redirect()->to('/admin/sub-kriteria-lowongan');
   }

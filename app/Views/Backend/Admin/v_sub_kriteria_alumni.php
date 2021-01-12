@@ -43,8 +43,8 @@
                     <td><?= $hasil['sub_kriteria'] ?></td>
                     <td><?= $hasil['bobot'] ?></td>
                     <td>
-                      <a href="/backend/admin/subkriteriaalumni/ubah/<?= $hasil['id_sub_kriteria_alumni'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <a href="/backend/admin/subkriteriaalumni/delete/<?= $hasil['id_sub_kriteria_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
+                      <a href="/admin/sub-kriteria-alumni/ubah/<?= $hasil['id_sub_kriteria_alumni'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                      <a href="/admin/sub-kriteria-alumni/delete/<?= $hasil['id_sub_kriteria_alumni'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>
                 <?php } ?>

@@ -43,8 +43,8 @@
                     <td><?= $hasil['kriteria'] ?></td>
                     <td><?= $hasil['cost_benefit'] ?></td>
                     <td>
-                      <a href="/backend/admin/kriteria/ubah/<?= $hasil['id_kriteria'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
-                      <a href="/backend/admin/kriteria/delete/<?= $hasil['id_kriteria'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
+                      <a href="/admin/kriteria/ubah/<?= $hasil['id_kriteria'] ?>" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                      <a href="/admin/kriteria/delete/<?= $hasil['id_kriteria'] ?>" class="btn btn-danger tombol-hapus"><i class="mdi mdi-delete"></i></a>
                     </td>
                   </tr>
                 <?php } ?>

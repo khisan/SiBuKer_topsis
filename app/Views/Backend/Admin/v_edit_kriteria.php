@@ -8,7 +8,7 @@
           <div>
             <h3 class="card-title">Form Edit Kriteria</h3>
           </div>
-          <form class="form-horizontal form-material" action="/backend/admin/kriteria/update/<?= $kriteria['id_kriteria'] ?>" method="POST">
+          <form class="form-horizontal form-material" action="/admin/kriteria/update/<?= $kriteria['id_kriteria'] ?>" method="POST">
             <div class="form-group">
               <label class="col-md-12 mb-0">Kode</label>
               <div class="col-md-12">
