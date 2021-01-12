@@ -20,7 +20,7 @@
      <div class="row">
        <div class="col-12 link-wrap">
          <!-- item-->
-         <a href="/Backend/perusahaan/auth_prshn/logout" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="mdi mdi-power"></i></a>
+         <a href="/perusahaan/logout" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="mdi mdi-power"></i></a>
        </div>
      </div>
    </div>

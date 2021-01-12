@@ -62,8 +62,8 @@
                       <?php } ?>
                     </td>
                     <td>
-                      <a href="/Backend\Perusahaan\Pelamar\setuju/<?= $hasil['id_lamar'] ?>/<?= $hasil['id_alumni'] ?>" class="btn btn-success"><i class="mdi mdi-check"></i></a>
-                      <a href="/Backend\Perusahaan\Pelamar\tolak/<?= $hasil['id_lamar'] ?>/<?= $hasil['id_alumni'] ?>" class="btn btn-danger"><i class="mdi mdi-close"></i></a>
+                      <a href="/perusahaan/pelamar/setuju/<?= $hasil['id_lamar'] ?>/<?= $hasil['id_alumni'] ?>" class="btn btn-success"><i class="mdi mdi-check"></i></a>
+                      <a href="/perusahaan/pelamar/tolak/<?= $hasil['id_lamar'] ?>/<?= $hasil['id_alumni'] ?>" class="btn btn-danger"><i class="mdi mdi-close"></i></a>
                       <a href="/perusahaan/pelamar/catatan/<?= $hasil['id_lamar'] ?>/<?= $hasil['id_perusahaan'] ?>/<?= $hasil['id_lowongan'] ?>" class="btn btn-primary"><i class="mdi mdi-plus"></i></a>
                     </td>
                   </tr>

@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Perusahaan_model;
 use App\Models\Alumni_model;
 use App\Models\Lowongan_model;
-use App\Models\Sub_Kriteria_Lowongan_model;
+use App\Models\Sub_Kriteria_Lowongan_Model;
 
 class Lowongan extends BaseController
 {
@@ -15,7 +15,7 @@ class Lowongan extends BaseController
     $this->PerusahaanModel = new Perusahaan_model();
     $this->AlumniModel = new Alumni_model();
     $this->Lowongan_model = new Lowongan_model();
-    $this->Sub_Kriteria_Lowongan_model = new Sub_Kriteria_Lowongan_model();
+    $this->Sub_Kriteria_Lowongan_Model = new Sub_Kriteria_Lowongan_Model();
   }
 
   public function index()
@@ -42,10 +42,10 @@ class Lowongan extends BaseController
       'title'   => 'Tambah Data Lowongan',
       'perusahaan'  => $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $table),
       'id_perusahaan' => $id_perusahaan,
-      'umur'  => $this->Sub_Kriteria_Lowongan_model->getUmur(),
-      'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_model->getKualifikasiPendidikan(),
-      'ipk'  => $this->Sub_Kriteria_Lowongan_model->getIpk(),
-      'pengalaman_kerja'  => $this->Sub_Kriteria_Lowongan_model->getPengalamanKerja(),
+      'umur'  => $this->Sub_Kriteria_Lowongan_Model->getUmur(),
+      'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_Model->getKualifikasiPendidikan(),
+      'ipk'  => $this->Sub_Kriteria_Lowongan_Model->getIpk(),
+      'pengalaman_kerja'  => $this->Sub_Kriteria_Lowongan_Model->getPengalamanKerja(),
       'isi'     => 'Backend/Perusahaan/v_tambah_lowongan'
     ];
     return view('Backend/Perusahaan/layout/v_wrapper', $data);
@@ -131,10 +131,10 @@ class Lowongan extends BaseController
     $data = [
       'title' => 'Edit Data Lowongan',
       'perusahaan'  => $this->PerusahaanModel->get_perusahaan_by_id($id_perusahaan, $table),
-      'umur'  => $this->Sub_Kriteria_Lowongan_model->getUmur(),
-      'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_model->getKualifikasiPendidikan(),
-      'ipk'  => $this->Sub_Kriteria_Lowongan_model->getIpk(),
-      'pengalaman_kerja'  => $this->Sub_Kriteria_Lowongan_model->getPengalamanKerja(),
+      'umur'  => $this->Sub_Kriteria_Lowongan_Model->getUmur(),
+      'kualifikasi_pendidikan'  => $this->Sub_Kriteria_Lowongan_Model->getKualifikasiPendidikan(),
+      'ipk'  => $this->Sub_Kriteria_Lowongan_Model->getIpk(),
+      'pengalaman_kerja'  => $this->Sub_Kriteria_Lowongan_Model->getPengalamanKerja(),
       'lowongan' => $this->Lowongan_model->edit($id_lowongan),
       'isi'   => 'Backend/Perusahaan/v_edit_lowongan'
     ];

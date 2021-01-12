@@ -44,10 +44,10 @@ $routes->get('/alumni', 'Auth_front::login::', ['filter' => 'no_filter_adm']);
 $routes->get('/alumni/login', 'Auth_front::login', ['filter' => 'no_filter_alu']);
 $routes->get('/alumni/register', 'Auth_front::register', ['filter' => 'no_filter_alu']);
 $routes->post('/alumni/cekLogin', 'Backend\Alumni\Auth_alu::login', ['filter' => 'no_filter_alu']);
+$routes->get('/alumni/logout', 'Backend/Alumni/Auth_alu::logout', ['filter' => 'filter_alu']);
 
 // Alumni Backend
 $routes->get('/alumni/home', 'Backend/Alumni/Home::', ['filter' => 'filter_alu']);
-$routes->get('/alumni/logout', 'Backend/Alumni/Auth_alu::logout', ['filter' => 'filter_alu']);
 // Menu Profil
 $routes->get('/alumni/profil', 'Backend/Alumni/Profil::', ['filter' => 'filter_alu']);
 $routes->post('/alumni/profil/update/(:num)', 'Backend\Alumni\Profil::update/$1', ['filter' => 'filter_alu']);
@@ -119,12 +119,14 @@ $routes->get('/admin/alumni/delete/(:num)', 'Backend\Admin\Alumni::delete/$1', [
 $routes->get('/perusahaan', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
 $routes->get('/perusahaan/login', 'Backend/Perusahaan/Auth_prshn::', ['filter' => 'no_filter_prshn']);
 $routes->get('/perusahaan/register', 'Backend/Perusahaan/Auth_prshn::daftar', ['filter' => 'no_filter_prshn']);
-$routes->get('/perusahaan/cekLogin', 'Backend/Perusahaan/Auth_prshn::login', ['filter' => 'no_filter_prshn']);
+$routes->post('/perusahaan/cekLogin', 'Backend\Perusahaan\Auth_prshn::login', ['filter' => 'no_filter_prshn']);
+$routes->get('/perusahaan/logout', 'Backend/Perusahaan/Auth_prshn::logout', ['filter' => 'filter_alu']);
 
 // Perusahaan Backend
 $routes->get('/perusahaan/home', 'Backend/Perusahaan/Home::', ['filter' => 'filter_prshn']);
 // Menu Profil
 $routes->get('/perusahaan/profil', 'Backend/Perusahaan/Profil::', ['filter' => 'filter_prshn']);
+$routes->post('/perusahaan/profil/update/(:num)', 'Backend\Perusahaan\Profil::update/$1', ['filter' => 'filter_alu']);
 // Menu Lowongan
 $routes->get('/perusahaan/lowongan', 'Backend/Perusahaan/Lowongan::', ['filter' => 'filter_prshn']);
 $routes->get('/perusahaan/lowongan/tambah', 'Backend/Perusahaan/Lowongan::tambah', ['filter' => 'filter_prshn']);
@@ -136,8 +138,8 @@ $routes->get('/perusahaan/lowongan/delete/(:num)', 'Backend\Perusahaan\Lowongan:
 $routes->get('/perusahaan/pelamar', 'Backend/Perusahaan/Pelamar::', ['filter' => 'filter_prshn']);
 $routes->get('/perusahaan/pelamar/catatan/(:num)/(:num)/(:num)', 'Backend\Perusahaan\Pelamar::catatan/$1/$2/$3', ['filter' => 'filter_prshn']);
 $routes->post('/perusahaan/pelamar/catatan/update/(:num)/(:num)', 'Backend\Perusahaan\Pelamar::update/$1/$2', ['filter' => 'filter_prshn']);
-$routes->post('/perusahaan/pelamar/setuju/(:num)/(:num)', 'Backend\Perusahaan\Pelamar::setuju/$1/$2', ['filter' => 'filter_prshn']);
-$routes->post('/perusahaan/pelamar/tolak/(:num)/(:num)', 'Backend\Perusahaan\Pelamar::tolak/$1/$2', ['filter' => 'filter_prshn']);
+$routes->get('/perusahaan/pelamar/setuju/(:num)/(:num)', 'Backend\Perusahaan\Pelamar::setuju/$1/$2', ['filter' => 'filter_prshn']);
+$routes->get('/perusahaan/pelamar/tolak/(:num)/(:num)', 'Backend\Perusahaan\Pelamar::tolak/$1/$2', ['filter' => 'filter_prshn']);
 $routes->get('/perusahaan/pelamar/download/(:any)', 'Backend\Perusahaan\Pelamar::download/$1', ['filter' => 'filter_alu']);
 
 /**

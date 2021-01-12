@@ -52,7 +52,7 @@
                   <option disabled="">Pilih IPK</option>
                   <?php foreach ($ipk as $key => $value) : ?>
                     <?php if ($lowongan['ipk'] == $value['bobot']) : ?>
-                      <option value="<?php echo $value['sub_kriteria']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
+                      <option value="<?php echo $value['bobot']; ?>" selected><?php echo $value['sub_kriteria']; ?></option>
                     <?php else : ?>
                       <option value="<?php echo $value['bobot']; ?>"><?php echo $value['sub_kriteria']; ?></option>
                     <?php endif; ?>

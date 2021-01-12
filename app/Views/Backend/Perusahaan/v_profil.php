@@ -15,7 +15,7 @@
     <div class="col-lg-8 col-xlg-9 col-md-7">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal form-material" action="/backend/perusahaan/profil/update/<?= $perusahaan['id_perusahaan'] ?>" method="POST" enctype="multipart/form-data">
+          <form class="form-horizontal form-material" action="/perusahaan/profil/update/<?= $perusahaan['id_perusahaan'] ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label class="col-md-12 mb-0">Nama Perusahaan</label>
               <div class="col-md-12">

@@ -5,7 +5,7 @@
     <div class="col-lg-4 col-xlg-3 col-md-5">
       <div class="card">
         <div class="card-body profile-card">
-          <center> <img src="/foto/<?= $perusahaan['foto'] ?>" class="rounded-circle" width="200" height="200" />
+          <center> <img src="/perusahaan/<?= $perusahaan['foto'] ?>" class="rounded-circle" width="200" height="200" />
             <h4 class="card-title m-t-10"> <?= $perusahaan['nama_perusahaan'] ?> </h4>
             <div class="row text-center justify-content-center">
               <div class="col-8">
