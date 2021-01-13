@@ -111,14 +111,6 @@
       icon: 'success'
     })
   </script>
-<?php elseif (session()->get('validasi') != TRUE) : ?>
-  <script>
-    Swal.fire({
-      title: 'Ada Kesalahan',
-      text: "<?= $validate->listErrors() ?>",
-      icon: 'error'
-    })
-  </script>
 <?php endif; ?>
 <script>
   window.setTimeout(function() {

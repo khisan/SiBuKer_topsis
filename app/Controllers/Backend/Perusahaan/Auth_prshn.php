@@ -34,7 +34,7 @@ class Auth_prshn extends BaseController
         ]
       ],
       'email' => [
-        'rules' => 'required|is_unique[tb_perusahaan.email]|valid_email|trim',
+        'rules' => 'required|is_unique[tb_perusahaan.email]|valid_email',
         'errors' => [
           'required' => '{field} Tidak Boleh Kosong',
           'is_unique' => '{field} Sudah Ada',

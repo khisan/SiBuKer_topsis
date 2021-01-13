@@ -21,7 +21,7 @@ class Auth_alu extends BaseController
         ]
       ],
       'email' => [
-        'rules' => 'required|is_unique[tb_alumni.email]|valid_email|trim',
+        'rules' => 'required|is_unique[tb_alumni.email]|valid_email',
         'errors' => [
           'required' => '{field} Tidak Boleh Kosong',
           'is_unique' => '{field} Sudah Ada',
@@ -50,7 +50,7 @@ class Auth_alu extends BaseController
         'password'                => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
         'nama'                    => $this->request->getPost('nama'),
         'foto'                    => $namaFoto,
-        'kualifikasi_pendidikan'  => $this->request->getPost('kualifikasi_pendidikan'),
+        'kualifikasi_pendidikan'  => $this->request->getPost($kualifikasi_pendidikan),
         'jurusan'                 => $this->request->getPost('jurusan'),
         'is_active'     => 0,
       );
