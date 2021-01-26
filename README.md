@@ -1,4 +1,4 @@
-## Rekomendasi Lowongan Kerja bagi Alumni ITN Malang
+## Sistem Informasi Bursa Kerja dan SPK TOPSIS Lowongan Pekerjaan
 
 Link demo app : https://1718006.000webhostapp.com/
 
