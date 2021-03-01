@@ -6,7 +6,10 @@ PHP version 7.3 atau direkomendasikan menggunakan yang paling terbaru. Server di
 
 # Instalasi
 Silahkan ikuti langkah-langkah di bawah ini untuk menjalan projek.
-1. Pastikan sudah terinstall composer di laptop/pc yang dipakai. Jika belum bisa ke [sini](https://getcomposer.org/) untuk menginstall composer
+1. Pastikan sudah terinstall composer di device yang dipakai. Jika belum terinstall, bisa ke [sini](https://getcomposer.org/) untuk menginstall composer.
+2. Uncomment # sebelum ```;extension=intl``` menjadi ```extension=intl```.
+3. masuk ke directory project, kemudian buka terminal/cmd ketik ```composer update```.
+4. Terakhir ketik ```php spark serve``` untuk menjalankan programnya.
 
 # Demo
 Link demo app : https://1718006.000webhostapp.com/
