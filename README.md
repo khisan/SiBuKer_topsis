@@ -9,10 +9,10 @@ Silahkan ikuti langkah-langkah di bawah ini untuk menjalan projek.
 1. Pastikan sudah terinstall composer di device yang dipakai. Jika belum terinstall, bisa ke [sini](https://getcomposer.org/) untuk menginstall composer.
 2. Uncomment # sebelum ```;extension=intl``` menjadi ```extension=intl```.
 3. masuk ke directory project, kemudian buka terminal/cmd ketik ```composer update```.
-4. Terakhir ketik ```php spark serve``` untuk menjalankan programnya.
+4. Terakhir ketik ```php spark serve``` untuk menjalankan programnya dan program siap digunakan.
 
 # Demo
 Link demo app : https://1718006.000webhostapp.com/
-Video about the app : https://www.youtube.com/watch?v=O3QvmxBDD9E&t=16s
+<br>Video about the app : https://www.youtube.com/watch?v=O3QvmxBDD9E&t=16s
 
 
